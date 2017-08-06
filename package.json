@@ -1,0 +1,22 @@
+{
+  "name": "otp-data-entry",
+  "version": "1.0.0",
+  "description": "Application to allow users to enter data into the Nazareth Open Tourism Platform database",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/start.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/foundersandcoders/OTP-Data-Entry.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/foundersandcoders/OTP-Data-Entry/issues"
+  },
+  "homepage": "https://github.com/foundersandcoders/OTP-Data-Entry#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
