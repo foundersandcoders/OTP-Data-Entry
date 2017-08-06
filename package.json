@@ -4,7 +4,8 @@
   "description": "Application to allow users to enter data into the Nazareth Open Tourism Platform database",
   "main": "index.js",
   "scripts": {
-    "start": "node src/start.js"
+    "start": "node src/start.js",
+    "dev": "nodemon src/start.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/foundersandcoders/OTP-Data-Entry#readme",
   "dependencies": {
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0"
   }
 }
