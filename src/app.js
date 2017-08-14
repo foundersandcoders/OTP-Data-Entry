@@ -1,5 +1,5 @@
 const express = require('express');
-const router = require('./routes/router.js');
+const router = require('./controllers/router.js');
 const hbs = require('express-handlebars');
 
 const app = express();
