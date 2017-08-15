@@ -7,7 +7,7 @@ tape('GET /', (t) => {
     .get('/')
     .expect(200)
     .end((err, res) => {
-      t.error(err);
+      t.error(err, 'Error test');
       t.end();
     });
 });
