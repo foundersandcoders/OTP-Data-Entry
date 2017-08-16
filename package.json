@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/start.js",
     "dev": "nodemon src/start.js",
-    "test": "node tests/test.js | tap-spec"
+    "test": "node tests/test.js | tap-spec",
+    "lint": "semistandard --verbose | snazzy"
   },
   "repository": {
     "type": "git",
@@ -23,8 +24,15 @@
     "express-handlebars": "^3.0.0"
   },
   "devDependencies": {
+    "pre-commit": "^1.2.2",
+    "semistandard": "^11.0.0",
+    "snazzy": "^7.0.0",
     "supertest": "^3.0.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.8.0"
-  }
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ]
 }
