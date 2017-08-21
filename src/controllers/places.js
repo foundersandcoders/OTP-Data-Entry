@@ -7,7 +7,10 @@ placeController.getAll = (req, res) => {
   Request(placesURL, (error, response, body) => {
     if (error) return res.status(404).send(error);
     const data = JSON.parse(body);
-    res.render('places', {output: data});
+    res.render('places', {
+      output: data,
+      localLang: req.app.locals.text
+    });
   });
 };
 

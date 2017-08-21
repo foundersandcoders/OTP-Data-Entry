@@ -1,17 +1,17 @@
-<h1 class="page-title">Places</h1>
+<h1 class="page-title">{{localLang.placesTitle}}</h1>
 
 <ul>
   {{#each output}}
     <li class="place-wrap">
       <img class="place-wrap__image" src="{{this.imageUrl}}" alt="Place Image">
       <div class="place-wrap__info">
-        <span class="place-wrap__span">{{this.en.name}}</span>
-        <span class="place-wrap__span">{{this.en.description}}</span>
-        <span class="place-wrap__span">{{this.en.address}}</span>
+        <span class="place-wrap__span">{{en.name}}</span>
+        <span class="place-wrap__span">{{en.description}}</span>
+        <span class="place-wrap__span">{{en.address}}</span>
       </div>
       <div class="place-wrap__links">
-        <a href="/place/{{this._id}}">View</a>
-        <a href="#">Edit</a>
+        <a href="/place/{{this._id}}">{{../localLang.placesView}}</a>
+        <a href="#">{{../localLang.placesEdit}}</a>
       </div>
     </li>
   {{/each}}
