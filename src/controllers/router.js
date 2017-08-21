@@ -1,6 +1,8 @@
 const router = require('express').Router();
 
+const placeController = require('./places.js');
+
 router.get('/', require('./home.js'));
-router.get('/en/places', require('./places.js').getAll);
+router.get('/en/places', placeController.getAll);
 
 module.exports = router;
