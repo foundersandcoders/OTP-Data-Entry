@@ -1,0 +1,18 @@
+<h1 class="page-title">Places</h1>
+
+<ul>
+  {{#each output}}
+    <li class="place-wrap">
+      <img class="place-wrap__image" src="{{this.imageUrl}}" alt="Place Image">
+      <div class="place-wrap__info">
+        <span class="place-wrap__span">{{this.en.name}}</span>
+        <span class="place-wrap__span">{{this.en.description}}</span>
+        <span class="place-wrap__span">{{this.en.address}}</span>
+      </div>
+      <div class="place-wrap__links">
+        <a href="/place/{{this._id}}">View</a>
+        <a href="#">Edit</a>
+      </div>
+    </li>
+  {{/each}}
+</ul>
