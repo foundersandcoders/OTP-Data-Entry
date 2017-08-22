@@ -1,11 +1,12 @@
 const express = require('express');
 const router = require('./controllers/router.js');
 const hbs = require('express-handlebars');
-const languages = require('./lang.js');
+const languages = require('./text.js');
 
 const app = express();
 
-app.locals.text = languages['english'];
+app.locals.text = languages.english;
+app.locals.lang = 'en';
 
 app.engine('hbs', hbs({
   defaultLayout: 'main',

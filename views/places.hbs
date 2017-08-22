@@ -6,8 +6,12 @@
       <img class="place-wrap__image" src="{{this.imageUrl}}" alt="Place Image">
       <div class="place-wrap__info">
         <span class="place-wrap__span">{{en.name}}</span>
-        <span class="place-wrap__span">{{en.description}}</span>
-        <span class="place-wrap__span">{{en.address}}</span>
+        {{#if en.description}}
+          <span class="place-wrap__span">{{en.description}}</span>
+        {{/if}}
+        {{#if en.address}}
+          <span class="place-wrap__span">{{en.address}}</span>
+        {{/if}}
       </div>
       <div class="place-wrap__links">
         <a href="/place/{{this._id}}">{{../localLang.placesView}}</a>
