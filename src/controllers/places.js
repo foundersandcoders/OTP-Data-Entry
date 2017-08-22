@@ -9,12 +9,12 @@ placeController.getAll = (req, res) => {
     if (error) return res.status(404).send(error);
 
     const data = JSON.parse(body).filter((place) => {
-      return place.hasOwnProperty(req.app.locals.lang);
+      return place.hasOwnProperty(req.params.lang);
     });
 
     res.render('places', {
       output: data,
-      localLang: req.app.locals.text
+      localLang: req.app.locals[req.params.lang]
     });
   });
 };
