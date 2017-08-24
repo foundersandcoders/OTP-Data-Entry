@@ -1,10 +1,10 @@
 module.exports = {
-  english: {
+  en: {
     placesTitle: 'Places',
     placesView: 'View',
     placesEdit: 'Edit'
   },
-  arabic: {
+  ar: {
     placesTitle: 'أماكن',
     placesView: 'إعرض',
     placesEdit: 'حرر'
