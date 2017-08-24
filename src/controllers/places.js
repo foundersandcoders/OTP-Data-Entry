@@ -1,6 +1,6 @@
 const Request = require('request');
 
-const { placesURL } = require('../constants/urls.json')
+const { placesURL } = require('../constants/urls.json');
 
 const placeController = {};
 
