@@ -2,11 +2,13 @@ module.exports = {
   en: {
     placesTitle: 'Places',
     placesView: 'View',
-    placesEdit: 'Edit'
+    placesEdit: 'Edit',
+    placesImage: 'Place Image'
   },
   ar: {
     placesTitle: 'أماكن',
     placesView: 'إعرض',
-    placesEdit: 'حرر'
+    placesEdit: 'حرر',
+    placesImage: 'صورة المكان'
   }
 };

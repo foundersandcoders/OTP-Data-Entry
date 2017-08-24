@@ -3,7 +3,7 @@
 <ul>
   {{#each output}}
     <li class="place-wrap">
-      <img class="place-wrap__image" src="{{this.imageUrl}}" alt="Place Image">
+      <img class="place-wrap__image" src="{{this.imageUrl}}" alt="{{../ localLang.placesImage}}">
       <div class="place-wrap__info">
         <span class="place-wrap__span">{{en.name}}</span>
         {{#if en.description}}
