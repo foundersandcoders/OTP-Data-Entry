@@ -5,7 +5,7 @@ const { placesURL } = require('../constants/urls.json');
 const placeController = {};
 
 placeController.getAll = (req, res) => {
-  if (req.params.lang !== 'en' || req.params.lang !== 'ar') {
+  if (req.params.lang !== 'en' && req.params.lang !== 'ar') {
     return res.status(404).send('Page does not exist');
   }
 
