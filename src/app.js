@@ -5,8 +5,8 @@ const languages = require('./text.js');
 
 const app = express();
 
-app.locals.en = languages.english;
-app.locals.ar = languages.arabic;
+app.locals.en = languages.en;
+app.locals.ar = languages.ar;
 
 app.engine('hbs', hbs({
   defaultLayout: 'main',
