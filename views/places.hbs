@@ -3,18 +3,18 @@
 <ul>
   {{#each output}}
     <li class="place-wrap">
-      <img class="place-wrap__image" src="{{this.imageUrl}}" alt="{{../ localLang.placesImage}}">
+      <img class="place-wrap__image" src="{{imageUrl}}" alt="{{../localLang.placesImage}}">
       <div class="place-wrap__info">
-        <span class="place-wrap__span">{{en.name}}</span>
-        {{#if en.description}}
-          <span class="place-wrap__span">{{en.description}}</span>
+        <span class="place-wrap__span">{{local.name}}</span>
+        {{#if local.description}}
+          <span class="place-wrap__span">{{local.description}}</span>
         {{/if}}
-        {{#if en.address}}
-          <span class="place-wrap__span">{{en.address}}</span>
+        {{#if local.address}}
+          <span class="place-wrap__span">{{local.address}}</span>
         {{/if}}
       </div>
       <div class="place-wrap__links">
-        <a href="/place/{{this._id}}">{{../localLang.placesView}}</a>
+        <a href="/place/{{_id}}">{{../localLang.placesView}}</a>
         <a href="#">{{../localLang.placesEdit}}</a>
       </div>
     </li>
