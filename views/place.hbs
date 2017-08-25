@@ -1,0 +1,47 @@
+<ul class="specific-place">
+  <li>Name:
+    {{place.local.name}}
+  </li>
+
+  <li>Description:
+    {{place.local.description}}
+  </li>
+
+  <li>Address:
+    {{place.local.address}}
+  </li>
+
+  <li>Opening Hours:
+    {{place.local.openingHours}}
+  </li>
+
+  <li>Location:
+    {{place.location}}
+  </li>
+
+  <li>Image:
+    <a href="{{place.imageUrl}}">View</a>
+  </li>
+
+  <li>Website:
+    <a href="{{place.website}}">View</a>
+  </li>
+
+  <li>Phone:
+    {{place.phone}}
+  </li>
+
+  <li>Email:
+    {{place.email}}
+  </li>
+
+  <li>Accessibility Options:
+    {{place.accessibilityOptions}}
+  </li>
+
+  <li>Categories:
+    {{place.categories}}
+  </li>
+</ul>
+
+<a href="/{{lang}}/edit/{{place._id}}">{{localLang.placesEdit}}</a>

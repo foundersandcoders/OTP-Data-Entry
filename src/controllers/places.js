@@ -37,7 +37,11 @@ placeController.getSpecific = (req, res) => {
     const place = JSON.parse(body);
     place.local = place[req.params.lang];
 
-    res.send(place);
+    res.render('place', {
+      place,
+      localLang: req.app.locals[req.params.lang],
+      lang: req.params.lang
+    });
   });
 };
 
