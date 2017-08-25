@@ -20,7 +20,8 @@ placeController.getAll = (req, res) => {
     });
     res.render('places', {
       output: data,
-      localLang: req.app.locals[req.params.lang]
+      localLang: req.app.locals[req.params.lang],
+      lang: req.params.lang
     });
   });
 };
