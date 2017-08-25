@@ -27,7 +27,18 @@ placeController.getAll = (req, res) => {
 };
 
 placeController.getSpecific = (req, res) => {
-  res.send(req.params.id);
+  if (req.params.lang !== 'en' && req.params.lang !== 'ar') {
+    return res.status(404).send('Page does not exist');
+  }
+
+  Request(`${placesURL}/${req.params.id}`, (error, response, body) => {
+    if (error) return res.status(404).send(error);
+
+    const place = JSON.parse(body);
+    place.local = place[req.params.lang];
+
+    res.send(place);
+  });
 };
 
 module.exports = placeController;
