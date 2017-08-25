@@ -25,4 +25,8 @@ placeController.getAll = (req, res) => {
   });
 };
 
+placeController.getSpecific = (req, res) => {
+  res.send(req.params.id);
+};
+
 module.exports = placeController;
