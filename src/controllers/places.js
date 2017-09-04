@@ -15,12 +15,26 @@ placeController.getAll = (req, res) => {
     const data = JSON.parse(body).filter((place) => {
       return place.hasOwnProperty(req.params.lang);
     });
+
     data.forEach((place) => {
       place.local = place[req.params.lang];
     });
+
+    switch (req.params.lang) {
+      case 'en':
+        dir = 'ltr';
+        break;
+      case 'ar':
+        dir = 'rtl';
+        break;
+      default: 'rtl';
+    }
+    
     res.render('places', {
       output: data,
-      localLang: req.app.locals[req.params.lang]
+      localLang: req.app.locals[req.params.lang],
+      lang: req.params.lang,
+      dir
     });
   });
 };
