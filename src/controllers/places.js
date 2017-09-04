@@ -20,6 +20,7 @@ placeController.getAll = (req, res) => {
       place.local = place[req.params.lang];
     });
 
+    let dir = '';
     switch (req.params.lang) {
       case 'en':
         dir = 'ltr';
@@ -27,9 +28,9 @@ placeController.getAll = (req, res) => {
       case 'ar':
         dir = 'rtl';
         break;
-      default: 'rtl';
+      default: dir = 'rtl';
     }
-    
+
     res.render('places', {
       output: data,
       localLang: req.app.locals[req.params.lang],
