@@ -19,11 +19,23 @@ placeController.getAll = (req, res) => {
     data.forEach((place) => {
       place.local = place[req.params.lang];
     });
+    
+    let dir = '';
+    switch (req.params.lang) {
+      case 'en':
+        dir = 'ltr';
+        break;
+      case 'ar':
+        dir = 'rtl';
+        break;
+      default: dir = 'rtl';
+    }
 
     res.render('places', {
       output: data,
       localLang: req.app.locals[req.params.lang],
-      lang: req.params.lang
+      lang: req.params.lang,
+      dir
     });
   });
 };
