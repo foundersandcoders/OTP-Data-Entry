@@ -1,3 +1,53 @@
-<form class="/{{lang}}/add-place" method="post">
-  <input type="submit" value="Submit">
+<form class="add-form" action="/{{lang}}/add-place" method="post">
+  <label>{{localLang.formName}}
+    <input type="text" name="name" required>
+  </label>
+
+  <label>{{localLang.formDescription}}
+    <input type="text" name="description">
+  </label>
+
+  <label>{{localLang.formAddress}}
+    <input type="text" name="address">
+  </label>
+
+  <label>{{localLang.formOpeningHours}}
+    <input type="text" name="openingHours">
+  </label>
+
+  <label>{{localLang.formOwnerId}}
+    <input type="text" name="ownerId">
+  </label>
+
+  <label>{{localLang.formImageUrl}}
+    <input type="text" name="imageUrl">
+  </label>
+
+  <label>{{localLang.formWebsite}}
+    <input type="text" name="website">
+  </label>
+
+  <label>{{localLang.formPhone}}
+    <input type="number" name="phone">
+  </label>
+
+  <label>{{localLang.formEmail}}
+    <input type="email" name="email">
+  </label>
+
+  <label>{{localLang.formAccessibility}}
+    <select name="accessibility" multiple>
+      <option value="braille-menu">Braille Menu</option>
+      <option value="wheelchair-friendly">Wheelchair Friendly</option>
+    </select>
+  </label>
+
+  <label>{{localLang.formCategories}}
+    <select name="categories" multiple>
+      <option value="cafe">Café</option>
+      <option value="restaurant">Restaurant</option>
+    </select>
+  </label>
+
+  <input type="submit" value="{{localLang.formSubmit}}">
 </form>

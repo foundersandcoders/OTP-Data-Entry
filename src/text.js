@@ -15,7 +15,19 @@ module.exports = {
     placePhone: 'Phone',
     placeEmail: 'Email',
     placeAccessibility: 'Accessibility Options',
-    placeCategories: 'Categories'
+    placeCategories: 'Categories',
+    formName: 'Name',
+    formDescription: 'Description',
+    formAddress: 'Address',
+    formOpeningHours: 'Opening Hours',
+    formOwnerId: 'Owner ID',
+    formImageUrl: 'Image URL',
+    formWebsite: 'Website',
+    formPhone: 'Phone Number',
+    formEmail: 'Email Address',
+    formAccessibility: 'Accessibility Options',
+    formCategories: 'Categories',
+    formSubmit: 'Submit'
   },
   ar: {
     pageTitle: 'إدخال البيانات',
@@ -32,7 +44,19 @@ module.exports = {
     placeWebsite: 'الموقع',
     placePhone: 'الهاتف',
     placeEmail: 'البريد الإلكترونيّ',
-    placeAccessibility: 'إمكانية الوصول',
-    placeCategories: 'فئات'
+    placeAccessibility: 'إمكانيات سهولة الوصول',
+    placeCategories: 'فئات',
+    formName: 'الإسم',
+    formDescription: 'وصف',
+    formAddress: 'العنوان',
+    formOpeningHours: 'ساعات العمل',
+    formOwnerId: 'هوية صاحب المكان',
+    formImageUrl: 'صورة',
+    formWebsite: 'الموقع',
+    formPhone: 'الهاتف',
+    formEmail: 'البريد الإلكترونيّ',
+    formAccessibility: 'إمكانيات سهولة الوصول',
+    formCategories: 'فئات',
+    formSubmit: 'إعرض'
   }
 };

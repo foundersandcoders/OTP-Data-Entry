@@ -76,6 +76,7 @@ placeController.renderForm = (req, res) => {
   }
 
   res.render('place-form', {
+    localLang: req.app.locals[req.params.lang],
     lang: req.params.lang
   });
 };
