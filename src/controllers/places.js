@@ -67,6 +67,7 @@ placeController.getSpecific = (req, res) => {
       localLang: req.app.locals[req.params.lang],
       lang: req.params.lang,
       dir
+
     });
   });
 };
