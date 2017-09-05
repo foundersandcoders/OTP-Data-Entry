@@ -1,3 +1,57 @@
 body {
-  background-color: teal; 
+  background-color: #DDD;
+}
+
+.page-title {
+  font-family: monospace;
+  font-size: 5rem;
+  margin: 2rem 0;
+}
+
+ul {
+  flex-direction: column;
+}
+
+.place-wrap {
+  background-color: #CCC;
+  width: 60rem;
+  justify-content: space-between;
+  padding: .5rem;
+}
+
+.place-wrap:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.place-wrap__image {
+  width: 20rem;
+  height: 15rem;
+}
+
+.place-wrap__info {
+  flex-direction: column;
+  flex: 1;
+  align-items: flex-start;
+  padding: 2rem;
+}
+
+.place-wrap__links {
+  flex-direction: column;
+}
+
+.place-wrap__span {
+  font-size: 2rem;
+  font-family: helvetica;
+}
+
+.place-wrap__links a {
+  font-size: 2rem;
+  font-family: helvetica;
+  background-color: teal;
+  width: 10rem;
+  text-decoration: none;
+  color: white;
+  padding: 1rem;
+  margin: .5rem;
+  border-radius: 1rem;
 }

@@ -21,7 +21,8 @@
   "homepage": "https://github.com/foundersandcoders/OTP-Data-Entry#readme",
   "dependencies": {
     "express": "^4.15.3",
-    "express-handlebars": "^3.0.0"
+    "express-handlebars": "^3.0.0",
+    "request": "^2.81.0"
   },
   "devDependencies": {
     "pre-commit": "^1.2.2",
