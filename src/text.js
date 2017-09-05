@@ -16,7 +16,7 @@ module.exports = {
     placeEmail: 'Email',
     placeAccessibility: 'Accessibility Options',
     placeCategories: 'Categories'
-    },
+  },
   ar: {
     pageTitle: 'إدخال البيانات',
     placesTitle: 'أماكن',
