@@ -70,14 +70,27 @@ placeController.getSpecific = (req, res) => {
     });
   });
 };
+
 placeController.renderForm = (req, res) => {
   if (req.params.lang !== 'en' && req.params.lang !== 'ar') {
     return res.status(404).send('Page does not exist');
   }
 
+  let dir = '';
+  switch (req.params.lang) {
+    case 'en':
+      dir = 'ltr';
+      break;
+    case 'ar':
+      dir = 'rtl';
+      break;
+    default: dir = 'rtl';
+  }
+
   res.render('place-form', {
     localLang: req.app.locals[req.params.lang],
-    lang: req.params.lang
+    lang: req.params.lang,
+    dir
   });
 };
 
