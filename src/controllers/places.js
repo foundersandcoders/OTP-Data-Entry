@@ -70,5 +70,15 @@ placeController.getSpecific = (req, res) => {
     });
   });
 };
+placeController.renderForm = (req, res) => {
+  if (req.params.lang !== 'en' && req.params.lang !== 'ar') {
+    return res.status(404).send('Page does not exist');
+  }
+
+  res.render('place-form', {
+    lang: req.params.lang
+  });
+};
+
 
 module.exports = placeController;
