@@ -1,17 +1,17 @@
 <form class="add-form" action="/{{lang}}/add-place" method="post">
-  <label>{{localLang.formName}}
+  <label>{{localLang.placeName}}
     <input type="text" name="name" required>
   </label>
 
-  <label>{{localLang.formDescription}}
+  <label>{{localLang.placeDescription}}
     <input type="text" name="description">
   </label>
 
-  <label>{{localLang.formAddress}}
+  <label>{{localLang.placeAddress}}
     <input type="text" name="address">
   </label>
 
-  <label>{{localLang.formOpeningHours}}
+  <label>{{localLang.placeOpeningHours}}
     <input type="text" name="openingHours">
   </label>
 
@@ -23,29 +23,29 @@
     <input type="text" name="imageUrl">
   </label>
 
-  <label>{{localLang.formWebsite}}
+  <label>{{localLang.placeWebsite}}
     <input type="text" name="website">
   </label>
 
-  <label>{{localLang.formPhone}}
+  <label>{{localLang.placePhone}}
     <input type="number" name="phone">
   </label>
 
-  <label>{{localLang.formEmail}}
+  <label>{{localLang.placeEmail}}
     <input type="email" name="email">
   </label>
 
-  <label>{{localLang.formAccessibility}}
+  <label>{{localLang.placeAccessibility}}
     <select name="accessibility" multiple>
-      <option value="braille-menu">Braille Menu</option>
-      <option value="wheelchair-friendly">Wheelchair Friendly</option>
+      <option value="{{localLang.brailleMenu}}">{{localLang.brailleMenu}}</option>
+      <option value="{{localLang.wheelchairFriendly}}">{{localLang.wheelchairFriendly}}</option>
     </select>
   </label>
 
-  <label>{{localLang.formCategories}}
+  <label>{{localLang.placeCategories}}
     <select name="categories" multiple>
-      <option value="cafe">Café</option>
-      <option value="restaurant">Restaurant</option>
+      <option value="{{localLang.cafe}}">{{localLang.cafe}}</option>
+      <option value="{{localLang.restaurant}}">{{localLang.restaurant}}</option>
     </select>
   </label>
 

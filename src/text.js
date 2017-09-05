@@ -16,18 +16,13 @@ module.exports = {
     placeEmail: 'Email',
     placeAccessibility: 'Accessibility Options',
     placeCategories: 'Categories',
-    formName: 'Name',
-    formDescription: 'Description',
-    formAddress: 'Address',
-    formOpeningHours: 'Opening Hours',
     formOwnerId: 'Owner ID',
     formImageUrl: 'Image URL',
-    formWebsite: 'Website',
-    formPhone: 'Phone Number',
-    formEmail: 'Email Address',
-    formAccessibility: 'Accessibility Options',
-    formCategories: 'Categories',
-    formSubmit: 'Submit'
+    formSubmit: 'Submit',
+    brailleMenu: 'Braille Menu',
+    wheelchairFriendly: 'Wheelchair Friendly',
+    restaurant: 'Restaurant',
+    cafe: 'Café'
   },
   ar: {
     pageTitle: 'إدخال البيانات',
@@ -46,17 +41,12 @@ module.exports = {
     placeEmail: 'البريد الإلكترونيّ',
     placeAccessibility: 'إمكانيات سهولة الوصول',
     placeCategories: 'فئات',
-    formName: 'الإسم',
-    formDescription: 'وصف',
-    formAddress: 'العنوان',
-    formOpeningHours: 'ساعات العمل',
     formOwnerId: 'هوية صاحب المكان',
     formImageUrl: 'صورة',
-    formWebsite: 'الموقع',
-    formPhone: 'الهاتف',
-    formEmail: 'البريد الإلكترونيّ',
-    formAccessibility: 'إمكانيات سهولة الوصول',
-    formCategories: 'فئات',
-    formSubmit: 'إعرض'
+    formSubmit: 'إعرض',
+    brailleMenu: 'قائمة بلغة بريل',
+    wheelchairFriendly: 'كرسي نقّال',
+    restaurant: 'مطعم',
+    cafe: 'مقهى'
   }
 };
