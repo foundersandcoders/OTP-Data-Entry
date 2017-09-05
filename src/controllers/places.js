@@ -80,5 +80,4 @@ placeController.renderForm = (req, res) => {
   });
 };
 
-
 module.exports = placeController;
