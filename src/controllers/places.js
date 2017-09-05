@@ -23,11 +23,11 @@ placeController.getAll = (req, res) => {
     let dir = '';
     switch (req.params.lang) {
       case 'en':
-      dir = 'ltr';
-      break;
+        dir = 'ltr';
+        break;
       case 'ar':
-      dir = 'rtl';
-      break;
+        dir = 'rtl';
+        break;
       default: dir = 'rtl';
     }
 
