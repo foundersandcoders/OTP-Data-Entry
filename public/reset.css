@@ -1,4 +1,4 @@
-body, ul, li, img, h1, span, a, div {
+body, ul, li, img, h1, span, a, div, form, label, input, select, option {
   margin: 0;
   padding: 0;
   border:0;
@@ -13,8 +13,12 @@ body {
   flex-direction: column;
 }
 
-li, ul, body, div, a {
+li, ul, body, div, a, form, label, select {
   justify-content: center;
   align-items: center;
   display: flex;
+}
+
+a:hover, button:hover, input[type=submit]:hover {
+  cursor: pointer;
 }

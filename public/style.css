@@ -55,3 +55,33 @@ ul {
   margin: .5rem;
   border-radius: 1rem;
 }
+
+.add-form {
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.add-form label {
+  flex-direction: column;
+  align-items: flex-start;
+  font: 1.5rem Helvetica;
+  margin-bottom: 1rem;
+}
+
+.add-form input, .add-form select {
+  margin-top: .5rem;
+  font: 1.5rem Helvetica;
+  padding: 0.5rem;
+  width: 30rem;
+}
+
+.add-form select {
+  height: 7rem;
+}
+
+.add-form input[type=submit] {
+  margin: .5rem 0;
+  padding: 1rem;
+  width: 15rem;
+  border-radius: .5rem;
+}
