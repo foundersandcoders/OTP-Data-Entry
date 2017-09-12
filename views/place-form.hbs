@@ -4,15 +4,15 @@
   </label>
 
   <label>{{localLang.placeDescription}}
-    <input type="text" name="description">
+    <input type="text" name="description" required>
   </label>
 
   <label>{{localLang.placeAddress}}
-    <input type="text" name="address">
+    <input type="text" name="address" required>
   </label>
 
   <label>{{localLang.placeHours}}
-    <input type="text" name="openingHours">
+    <input type="text" name="openingHours" required>
   </label>
 
   <label>{{localLang.formOwnerId}}
@@ -20,34 +20,44 @@
   </label>
 
   <label>{{localLang.formImageUrl}}
-    <input type="text" name="imageUrl">
+    <input type="text" name="imageUrl" required>
   </label>
 
   <label>{{localLang.placeWebsite}}
-    <input type="text" name="website">
+    <input type="text" name="website" required>
   </label>
 
   <label>{{localLang.placePhone}}
-    <input type="number" name="phone">
+    <input type="number" name="phone" required="">
   </label>
 
   <label>{{localLang.placeEmail}}
-    <input type="email" name="email">
+    <input type="email" name="email" required="">
   </label>
 
-  <label>{{localLang.placeAccessibility}}
-    <select name="accessibility" multiple>
-      <option value="{{localLang.brailleMenu}}">{{localLang.brailleMenu}}</option>
-      <option value="{{localLang.wheelchairFriendly}}">{{localLang.wheelchairFriendly}}</option>
-    </select>
-  </label>
+  <fieldset>
+    <legend>{{localLang.placeAccessibility}}</legend>
+    <div>
+      <label for="braille">{{localLang.brailleMenu}}</label>
+      <input id="braille" type="checkbox" name="accessibility" value="{{localLang.brailleMenu}}">
+    </div>
+    <div>
+      <label for="wheelchair">{{localLang.wheelchairFriendly}}</label>
+      <input id="wheelchair" type="checkbox" name="accessibility" value="{{localLang.wheelchairFriendly}}">
+    </div>
+  </fieldset>
 
-  <label>{{localLang.placeCategories}}
-    <select name="categories" multiple>
-      <option value="{{localLang.cafe}}">{{localLang.cafe}}</option>
-      <option value="{{localLang.restaurant}}">{{localLang.restaurant}}</option>
-    </select>
-  </label>
+  <fieldset>
+    <legend>{{localLang.placeCategories}}</legend>
+    <div>
+      <label for="cafe">{{localLang.cafe}}</label>
+      <input id="cafe" type="checkbox" name="categories" value="{{localLang.cafe}}">
+    </div>
+    <div>
+      <label for="restaurant">{{localLang.restaurant}}</label>
+      <input id="restaurant" type="checkbox" name="categories" value="{{localLang.restaurant}}">
+    </div>
+  </fieldset>
 
   <input type="submit" value="{{localLang.formSubmit}}">
 </form>
