@@ -1,5 +1,10 @@
+html {
+  height: 100%;
+}
+
 body {
   background-color: #DDD;
+  height: 100%;
 }
 
 .page-title {
@@ -84,4 +89,10 @@ ul {
   padding: 1rem;
   width: 15rem;
   border-radius: .5rem;
+}
+
+#map {
+  width: 50%;
+  height: 25%;
+  border: 2px solid black;
 }
