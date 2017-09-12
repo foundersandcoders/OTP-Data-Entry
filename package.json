@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/foundersandcoders/OTP-Data-Entry#readme",
   "dependencies": {
+    "body-parser": "^1.18.0",
     "env2": "^2.2.0",
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0",
