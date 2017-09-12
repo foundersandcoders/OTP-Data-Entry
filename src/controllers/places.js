@@ -98,8 +98,6 @@ placeController.addPlace = (req, res) => {
     return res.status(404).send('Page does not exist');
   }
 
-  console.log(req.body);
-
   const apiBody = {
     imageUrl: req.body.imageUrl,
     website: req.body.website,
@@ -115,20 +113,33 @@ placeController.addPlace = (req, res) => {
   };
 
   apiBody[req.params.lang] = lang;
-
-  getLatLng(req.body.address, (err, res) => {
-    if (!err) {
-      apiBody.location = [res.lat, res.lng];
-    }
-    Request();
-  });
-
   if (req.body.ownerId) apiBody.owner = req.body.ownerId;
   if (req.body.categories) apiBody.categories = req.body.categories;
   if (req.body.accessibility) apiBody.accessibility = req.body.accessibility;
 
-  console.log(apiBody);
-  res.redirect(`/${req.params.lang}/places`);
+  getLatLng(req.body.address, (err, response) => {
+    if (!err) {
+      apiBody.location = [response.lat, response.lng];
+      console.log(apiBody);
+    }
+
+    const reqOptions = {
+      url: placesURL,
+      method: 'POST',
+      body: apiBody,
+      json: true
+    };
+
+    Request(reqOptions, (error, postRes, postResBody) => {
+      if (error) {
+        console.log(error);
+        res.send('huge failure');
+      } else {
+        console.log(postResBody);
+        res.redirect(`/${req.params.lang}/places`);
+      }
+    });
+  });
 };
 
 module.exports = placeController;
