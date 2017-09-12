@@ -3,6 +3,7 @@ const router = require('./controllers/router.js');
 const hbs = require('express-handlebars');
 const languages = require('./text.js');
 const getMapLink = require('../views/helpers/getMapLink.js');
+const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.set('view engine', 'hbs');
 app.set('port', process.env.PORT || 3000);
 
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(router);
 
 module.exports = app;
