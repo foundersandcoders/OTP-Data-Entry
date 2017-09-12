@@ -1,8 +1,8 @@
-<div>
-  <img src="{{place.imageUrl}}" alt="place image">
-</div>
 
 <ul class="specific-place">
+  <div>
+    <img src="{{place.imageUrl}}" alt="place image">
+  </div>
   <li>{{localLang.placeName}}:
     {{place.local.name}}
   </li>
@@ -38,11 +38,11 @@
   <li>{{localLang.placeCategories}}:
     {{place.categories}}
   </li>
+  <div id="map" data-loc="{{place.location}}"></div>
+
+  <a class="place_edit_link" href="/{{lang}}/edit/{{place._id}}">{{localLang.placesEdit}}</a>
 </ul>
 
-<div id="map" data-loc="{{place.location}}"></div>
-
-<a href="/{{lang}}/edit/{{place._id}}">{{localLang.placesEdit}}</a>
 
 <script type="text/javascript" src="/map.js"></script>
 <script type="text/javascript" src={{{getMapLink}}}></script>

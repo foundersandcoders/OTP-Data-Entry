@@ -1,6 +1,9 @@
-<h1 class="page-title">{{localLang.placesTitle}}</h1>
 
 <ul>
+  <h1 class="page-title">{{localLang.placesTitle}}</h1>
+  <div class="places_links">
+    <a href="/en/add-place">Add Place</a><a href="en/edit-place">Edit Place</a>
+  </a>
   {{#each output}}
     <li class="place-wrap">
       <img class="place-wrap__image" src="{{imageUrl}}" alt="{{../localLang.placesImage}}">
@@ -15,7 +18,7 @@
       </div>
       <div class="place-wrap__links">
         <a href="/{{../lang}}/place/{{_id}}">{{../localLang.placesView}}</a>
-        <a href="#">{{../localLang.placesEdit}}</a>
+        <a href="/en/edit-place">{{../localLang.placesEdit}}</a>
       </div>
     </li>
   {{/each}}
