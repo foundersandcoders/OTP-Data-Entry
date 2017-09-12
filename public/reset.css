@@ -1,24 +1,10 @@
-body, ul, li, img, h1, span, a, div, form, label, input, select, option {
+* {
   margin: 0;
   padding: 0;
-  border:0;
   box-sizing: border-box;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  flex-direction: column;
-}
-
-li, ul, body, div, a, form, label, select {
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-
-a:hover, button:hover, input[type=submit]:hover {
-  cursor: pointer;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  font-family: sans-serif;
+  list-style: none;
 }
