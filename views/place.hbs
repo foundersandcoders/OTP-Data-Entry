@@ -1,0 +1,48 @@
+<div>
+  <img src="{{place.imageUrl}}" alt="place image">
+</div>
+
+<ul class="specific-place">
+  <li>{{localLang.placeName}}:
+    {{place.local.name}}
+  </li>
+
+  <li>{{localLang.placeDescription}}:
+    {{place.local.description}}
+  </li>
+
+  <li>{{localLang.placeAddress}}:
+    {{place.local.address}}
+  </li>
+
+  <li>{{localLang.placeHours}}:
+    {{place.local.openingHours}}
+  </li>
+
+  <li>{{localLang.placeWebsite}}:
+    <a href="{{place.website}}">View</a>
+  </li>
+
+  <li>{{localLang.placePhone}}:
+    {{place.phone}}
+  </li>
+
+  <li>{{localLang.placeEmail}}:
+    {{place.email}}
+  </li>
+
+  <li>{{localLang.placeAccessibility}}:
+    {{place.accessibilityOptions}}
+  </li>
+
+  <li>{{localLang.placeCategories}}:
+    {{place.categories}}
+  </li>
+</ul>
+
+<div id="map" data-loc="{{place.location}}"></div>
+
+<a href="/{{lang}}/edit/{{place._id}}">{{localLang.placesEdit}}</a>
+
+<script type="text/javascript" src="/map.js"></script>
+<script type="text/javascript" src={{{getMapLink}}}></script>

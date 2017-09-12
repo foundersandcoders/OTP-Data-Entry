@@ -9,6 +9,11 @@
     "test": "node tests/test.js | tap-spec",
     "lint": "semistandard --verbose | snazzy"
   },
+  "semistandard": {
+    "ignore": [
+      "public/map.js"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/foundersandcoders/OTP-Data-Entry.git"
@@ -20,6 +25,7 @@
   },
   "homepage": "https://github.com/foundersandcoders/OTP-Data-Entry#readme",
   "dependencies": {
+    "env2": "^2.2.0",
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0",
     "request": "^2.81.0"

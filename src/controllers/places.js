@@ -40,4 +40,36 @@ placeController.getAll = (req, res) => {
   });
 };
 
+placeController.getSpecific = (req, res) => {
+  if (req.params.lang !== 'en' && req.params.lang !== 'ar') {
+    return res.status(404).send('Page does not exist');
+  }
+
+  Request(`${placesURL}/${req.params.id}`, (error, response, body) => {
+    if (error) return res.status(404).send(error);
+
+    const place = JSON.parse(body);
+    place.local = place[req.params.lang];
+
+    let dir = '';
+    switch (req.params.lang) {
+      case 'en':
+        dir = 'ltr';
+        break;
+      case 'ar':
+        dir = 'rtl';
+        break;
+      default: dir = 'rtl';
+    }
+
+    res.render('place', {
+      place,
+      localLang: req.app.locals[req.params.lang],
+      lang: req.params.lang,
+      dir
+
+    });
+  });
+};
+
 module.exports = placeController;
