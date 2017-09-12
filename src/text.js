@@ -19,10 +19,10 @@ module.exports = {
     formOwnerId: 'Owner ID',
     formImageUrl: 'Image URL',
     formSubmit: 'Submit',
-    brailleMenu: 'Braille Menu',
-    wheelchairFriendly: 'Wheelchair Friendly',
-    restaurant: 'Restaurant',
-    cafe: 'Café'
+    brailleMenu: 'Braille',
+    wheelchairFriendly: 'WheelChair access',
+    restaurant: 'food and drink',
+    cafe: 'cafe'
   },
   ar: {
     pageTitle: 'إدخال البيانات',
