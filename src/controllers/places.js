@@ -1,8 +1,7 @@
 const Request = require('request');
-
 const { placesURL } = require('../constants/urls.json');
-
 const placeController = {};
+const getLatLng = require('./getLatLng.js');
 
 placeController.getAll = (req, res) => {
   if (req.params.lang !== 'en' && req.params.lang !== 'ar') {
@@ -92,6 +91,44 @@ placeController.renderForm = (req, res) => {
     lang: req.params.lang,
     dir
   });
+};
+
+placeController.addPlace = (req, res) => {
+  if (req.params.lang !== 'en' && req.params.lang !== 'ar') {
+    return res.status(404).send('Page does not exist');
+  }
+
+  console.log(req.body);
+
+  const apiBody = {
+    imageUrl: req.body.imageUrl,
+    website: req.body.website,
+    phone: req.body.phone,
+    email: req.body.email
+  };
+
+  const lang = {
+    name: req.body.name,
+    description: req.body.description,
+    address: req.body.address,
+    openingHours: req.body.openingHours
+  };
+
+  apiBody[req.params.lang] = lang;
+
+  getLatLng(req.body.address, (err, res) => {
+    if (!err) {
+      apiBody.location = [res.lat, res.lng];
+    }
+    Request();
+  });
+
+  if (req.body.ownerId) apiBody.owner = req.body.ownerId;
+  if (req.body.categories) apiBody.categories = req.body.categories;
+  if (req.body.accessibility) apiBody.accessibility = req.body.accessibility;
+
+  console.log(apiBody);
+  res.redirect(`/${req.params.lang}/places`);
 };
 
 module.exports = placeController;
