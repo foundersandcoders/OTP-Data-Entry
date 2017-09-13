@@ -11,9 +11,9 @@ module.exports = (req, res, next) => {
       break;
     default: dir = 'rtl';
   }
-  req.app.locals.localText = req.app.locals[lang];
-  req.app.locals.lang = lang;
-  req.app.locals.dir = dir;
+  res.locals.localText = req.app.locals[lang];
+  res.locals.lang = lang;
+  res.locals.dir = dir;
 
   next();
 };
