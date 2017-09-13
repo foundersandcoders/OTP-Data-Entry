@@ -19,10 +19,28 @@ module.exports = {
     formOwnerId: 'Owner ID',
     formImageUrl: 'Image URL',
     formSubmit: 'Submit',
+    // Accessibility options
+    audioRecordings: 'Audio recordings',
     brailleMenu: 'Braille',
+    bigFonts: 'Big fonts',
+    carer: 'Carer',
+    guideDog: 'Place for guide dog',
+    smsMessaging: 'SMS messaging',
+    signLang: 'Sign language',
+    goodLighting: 'Good lighting',
     wheelchairFriendly: 'WheelChair access',
+    disabledParking: 'Disabled parking',
+    disabledToilet: 'Disabled toilet',
+    // Place categories
+    cafe: 'cafe',
+    musicVenue: 'music venue',
+    religiousSite: 'religious site',
     restaurant: 'food and drink',
-    cafe: 'cafe'
+    education: 'education',
+    retail: 'retail',
+    sport: 'sport',
+    municipal: 'municipal',
+    healthcare: 'healthcare'
   },
   ar: {
     pageTitle: 'إدخال البيانات',
@@ -44,9 +62,28 @@ module.exports = {
     formOwnerId: 'هوية صاحب المكان',
     formImageUrl: 'صورة',
     formSubmit: 'إعرض',
+    // Accessibility options
+    audioRecordings: 'خدمات صوتية',
     brailleMenu: 'قائمة بلغة بريل',
+    bigFonts: 'خط كبير',
+    carer: 'مقدم رعاية',
+    guideDog: 'مكان لكلب المرافق للمكفوفين',
+    smsMessaging: 'خدمة الرسائل',
+    signLang: 'لغة الاشارات',
+    goodLighting: 'اضاءة مناسبة ',
     wheelchairFriendly: 'كرسي نقّال',
-    restaurant: 'مطعم',
-    cafe: 'مقهى'
+    disabledParking: 'موقف لذوي الاحتياجات الخاصة',
+    disabledToilet: 'حمام ذوي الاحتياجات الخاصة',
+    // Place categories
+    cafe: 'مقهى',
+    musicVenue: 'مكان موسيقي',
+    religiousSite: 'مواقع دينية',
+    restaurant: 'مأكولات ومشروبات',
+    education: 'تربية وتعليم',
+    retail: 'بيع وتجارة',
+    sport: 'ترفيه ورياضة',
+    municipal: 'مكاتب حكومية وبلدية',
+    healthcare: 'صحة'
+
   }
 };
