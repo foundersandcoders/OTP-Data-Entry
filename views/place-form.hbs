@@ -1,5 +1,5 @@
 <form class="add-form" action="/{{lang}}/add-place" method="post">
-  <h1>Add Place</h1>
+  <h1>{{localText.placesAdd}}</h1>
   <label>{{localText.placeName}}
     <input type="text" name="name" required>
   </label>
@@ -21,19 +21,19 @@
   </label>
 
   <label>{{localText.formImageUrl}}
-    <input type="text" name="imageUrl" required>
+    <input type="text" name="imageUrl">
   </label>
 
   <label>{{localText.placeWebsite}}
-    <input type="text" name="website" required>
+    <input type="text" name="website">
   </label>
 
   <label>{{localText.placePhone}}
-    <input type="number" name="phone" required="">
+    <input type="number" name="phone" required>
   </label>
 
   <label>{{localText.placeEmail}}
-    <input type="email" name="email" required="">
+    <input type="email" name="email" required>
   </label>
 
   <fieldset>
