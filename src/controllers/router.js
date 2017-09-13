@@ -1,5 +1,4 @@
 const router = require('express').Router();
-
 const placeController = require('./places.js');
 
 router.get('/', require('./home.js'));
