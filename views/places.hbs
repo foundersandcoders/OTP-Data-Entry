@@ -1,12 +1,12 @@
 
 <ul>
-  <h1 class="page-title">{{localLang.placesTitle}}</h1>
+  <h1 class="page-title">{{localText.placesTitle}}</h1>
   <div class="places_links">
-    <a href="../{{lang}}/add-place">{{localLang.placesAdd}}</a><a href="../{{lang}}/edit-place">{{localLang.placesEdit}}</a>
-  </a>
+    <a href="../{{lang}}/add-place">{{localText.placesAdd}}</a><a href="../{{lang}}/edit-place">{{localText.placesEdit}}</a>
+
   {{#each output}}
     <li class="place-wrap">
-      <img class="place-wrap__image" src="{{imageUrl}}" alt="{{../localLang.placesImage}}">
+      <img class="place-wrap__image" src="{{imageUrl}}" alt="{{../localText.placesImage}}">
       <div class="place-wrap__info">
         <span class="place-wrap__span">{{local.name}}</span>
         {{#if local.description}}
@@ -17,8 +17,8 @@
         {{/if}}
       </div>
       <div class="place-wrap__links">
-        <a href="/{{../lang}}/place/{{_id}}">{{../localLang.placesView}}</a>
-        <a href="/en/edit-place">{{../localLang.placesEdit}}</a>
+        <a href="/{{../lang}}/place/{{_id}}">{{../localText.placesView}}</a>
+        <a href="/en/edit-place">{{../localText.placesEdit}}</a>
       </div>
     </li>
   {{/each}}
