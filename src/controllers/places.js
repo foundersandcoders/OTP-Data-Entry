@@ -1,7 +1,7 @@
 const Request = require('request');
 const { placesURL } = require('../constants/urls.json');
 const placeController = {};
-const getLatLng = require('./getLatLng.js');
+const getLatLng = require('../helpers/getLatLng.js');
 
 placeController.getAll = (req, res) => {
   Request(placesURL, (error, response, body) => {
