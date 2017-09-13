@@ -52,7 +52,7 @@ body {
 .places_links {
   width: 80%;
   height: 10%;
-  margin-left: 10%;
+  margin: auto;
   margin-bottom: 5%;
 }
 
@@ -88,7 +88,8 @@ ul img {
   width: 50%;
   height: 20%;
   justify-content: center;
-  margin: 0 0 2% 25%;
+  margin: auto;
+  margin-bottom: 2%;
 }
 
 .place-wrap__links a {
