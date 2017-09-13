@@ -1,8 +1,8 @@
 
 <ul>
-  <h1 class="page-title">{{localLang.placesTitle}}</h1>
+  <h1 class="page-title">{{localText.placesTitle}}</h1>
   <div class="places_links">
-    <a href="/{{../lang}}/add-place">Add Place</a><a href="{{../lang}}/edit-place">Edit Place</a>
+    <a href="/{{../lang}}/add-place">{{localText.placesAdd}}</a><a href="{{../lang}}/edit-place">{{localText.placesEdit}}</a>
   </a>
   {{#each output}}
     <li class="place-wrap">
@@ -17,8 +17,8 @@
         {{/if}}
       </div>
       <div class="place-wrap__links">
-        <a href="/{{../lang}}/place/{{_id}}">{{../localLang.placesView}}</a>
-        <a href="/en/edit-place">{{../localLang.placesEdit}}</a>
+        <a href="/{{../lang}}/place/{{_id}}">{{../localText.placesView}}</a>
+        <a href="/{{../lang}}/edit">{{../localText.placesEdit}}</a>
       </div>
     </li>
   {{/each}}
