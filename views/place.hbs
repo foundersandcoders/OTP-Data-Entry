@@ -3,44 +3,44 @@
   <div>
     <img src="{{place.imageUrl}}" alt="place image">
   </div>
-  <li>{{localLang.placeName}}:
+  <li>{{localText.placeName}}:
     {{place.local.name}}
   </li>
 
-  <li>{{localLang.placeDescription}}:
+  <li>{{localText.placeDescription}}:
     {{place.local.description}}
   </li>
 
-  <li>{{localLang.placeAddress}}:
+  <li>{{localText.placeAddress}}:
     {{place.local.address}}
   </li>
 
-  <li>{{localLang.placeHours}}:
+  <li>{{localText.placeHours}}:
     {{place.local.openingHours}}
   </li>
 
-  <li>{{localLang.placeWebsite}}:
+  <li>{{localText.placeWebsite}}:
     <a href="{{place.website}}">View</a>
   </li>
 
-  <li>{{localLang.placePhone}}:
+  <li>{{localText.placePhone}}:
     {{place.phone}}
   </li>
 
-  <li>{{localLang.placeEmail}}:
+  <li>{{localText.placeEmail}}:
     {{place.email}}
   </li>
 
-  <li>{{localLang.placeAccessibility}}:
+  <li>{{localText.placeAccessibility}}:
     {{place.accessibilityOptions}}
   </li>
 
-  <li>{{localLang.placeCategories}}:
+  <li>{{localText.placeCategories}}:
     {{place.categories}}
   </li>
   <div id="map" data-loc="{{place.location}}"></div>
 
-  <a class="place_edit_link" href="/{{lang}}/edit/{{place._id}}">{{localLang.placesEdit}}</a>
+  <a class="place_edit_link" href="/{{lang}}/edit/{{place._id}}">{{localText.placesEdit}}</a>
 </ul>
 
 
