@@ -25,8 +25,8 @@ body {
 
 .select__language .english, .select__language .arabic {
   position: relative;
-  top: 40%;
-  transform: translateY(-60%);
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .select__language .english:active, .select__language .arabic:active {

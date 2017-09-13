@@ -15,8 +15,12 @@ placeController.getAll = (req, res) => {
       place.local = place[req.params.lang];
     });
 
+    // USE FOR NOW, LESS UGLY
+    const topPlaces = data.slice(0, 4);
+
     res.render('places', {
-      output: data
+      places: topPlaces
+      // places: data
     });
   });
 };
