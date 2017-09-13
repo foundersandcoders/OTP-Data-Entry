@@ -4,6 +4,8 @@ const hbs = require('express-handlebars');
 const languages = require('./text.js');
 const getMapLink = require('../views/helpers/getMapLink.js');
 const bodyParser = require('body-parser');
+const langError = require('./middleware/langError.js');
+const lang = require('./middleware/setLanguage.js');
 
 const app = express();
 
@@ -23,6 +25,8 @@ app.set('port', process.env.PORT || 4000);
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(langError);
+app.use(lang);
 app.use(router);
 
 module.exports = app;
