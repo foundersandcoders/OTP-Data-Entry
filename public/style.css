@@ -25,13 +25,8 @@ body {
 
 .select__language .english, .select__language .arabic {
   position: relative;
-  background-color: lightblue;
-  color: white;
-  font-size: 2rem;
-  width: 90%;
-  height: 40%;
-  cursor: pointer;
-  box-shadow: 0 0 10px 2px grey;
+  top: 40%;
+  transform: translateY(-60%);
 }
 
 .select__language .english:active, .select__language .arabic:active {
@@ -40,8 +35,13 @@ body {
 
 .select__language a {
   position: relative;
-  top: 40%;
-  transform: translateY(-60%);
+  background-color: lightblue;
+  color: white;
+  font-size: 2rem;
+  width: 90%;
+  height: 40%;
+  cursor: pointer;
+  box-shadow: 0 0 10px 2px grey;
 }
 
 /*PLACES*/
