@@ -4,10 +4,6 @@ const placeController = {};
 const getLatLng = require('./getLatLng.js');
 
 placeController.getAll = (req, res) => {
-  if (req.params.lang !== 'en' && req.params.lang !== 'ar') {
-    return res.status(404).send('Page does not exist');
-  }
-
   Request(placesURL, (error, response, body) => {
     if (error) return res.status(404).send(error);
 
@@ -19,85 +15,30 @@ placeController.getAll = (req, res) => {
       place.local = place[req.params.lang];
     });
 
-    let dir = '';
-    switch (req.params.lang) {
-      case 'en':
-        dir = 'ltr';
-        break;
-      case 'ar':
-        dir = 'rtl';
-        break;
-      default: dir = 'rtl';
-    }
-
     res.render('places', {
-      output: data,
-      localLang: req.app.locals[req.params.lang],
-      lang: req.params.lang,
-      dir
+      output: data
     });
   });
 };
 
 placeController.getSpecific = (req, res) => {
-  if (req.params.lang !== 'en' && req.params.lang !== 'ar') {
-    return res.status(404).send('Page does not exist');
-  }
-
   Request(`${placesURL}/${req.params.id}`, (error, response, body) => {
     if (error) return res.status(404).send(error);
 
     const place = JSON.parse(body);
     place.local = place[req.params.lang];
 
-    let dir = '';
-    switch (req.params.lang) {
-      case 'en':
-        dir = 'ltr';
-        break;
-      case 'ar':
-        dir = 'rtl';
-        break;
-      default: dir = 'rtl';
-    }
-
     res.render('place', {
-      place,
-      localLang: req.app.locals[req.params.lang],
-      lang: req.params.lang,
-      dir
+      place
     });
   });
 };
 
 placeController.renderForm = (req, res) => {
-  if (req.params.lang !== 'en' && req.params.lang !== 'ar') {
-    return res.status(404).send('Page does not exist');
-  }
-
-  let dir = '';
-  switch (req.params.lang) {
-    case 'en':
-      dir = 'ltr';
-      break;
-    case 'ar':
-      dir = 'rtl';
-      break;
-    default: dir = 'rtl';
-  }
-
-  res.render('place-form', {
-    localLang: req.app.locals[req.params.lang],
-    lang: req.params.lang,
-    dir
-  });
+  res.render('place-form');
 };
 
 placeController.addPlace = (req, res) => {
-  if (req.params.lang !== 'en' && req.params.lang !== 'ar') {
-    return res.status(404).send('Page does not exist');
-  }
-
   const apiBody = {
     imageUrl: req.body.imageUrl,
     website: req.body.website,
