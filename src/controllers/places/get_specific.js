@@ -8,8 +8,15 @@ module.exports = (req, res) => {
     const place = JSON.parse(body);
     place.local = place[req.params.lang];
 
-    res.render('place', {
-      place
-    });
+    if (req.url.includes('edit')) {
+      res.render('place-form', {
+        place,
+        edit: true
+      });
+    } else {
+      res.render('place', {
+        place
+      });
+    }
   });
 };
