@@ -1,46 +1,84 @@
 <form class="add-form" action="/{{lang}}/add-place" method="post">
-  <h1>{{localText.placesAdd}}</h1>
+  {{#if edit}}
+    <h1>{{localText.placesEdit}}</h1>
+  {{else}}
+    <h1>{{localText.placesAdd}}</h1>
+  {{/if}}
+
   <label>{{localText.placeName}}
-    <input type="text" name="name" required>
+    {{#if place.local.name}}
+      <input type="text" name="name" required value="{{place.local.name}}">
+    {{else}}
+      <input type="text" name="name" required>
+    {{/if}}
   </label>
 
+
   <label>{{localText.placeDescription}}
-    <input type="text" name="description" required>
+    {{#if place.local.description}}
+      <input type="text" name="description" required value="{{place.local.description}}">
+    {{else}}
+      <input type="text" name="description" required>
+    {{/if}}
   </label>
 
   <label>{{localText.placeAddress}}
-    <input type="text" name="address" required>
+    {{#if place.local.address}}
+      <input type="text" name="address" required value="{{place.local.address}}">
+    {{else}}
+      <input type="text" name="address" required>
+    {{/if}}
   </label>
 
   <label>{{localText.placeHours}}
-    <input type="text" name="openingHours" required>
+    {{#if place.local.openingHours}}
+      <input type="text" name="openingHours" required value="{{place.local.openingHours}}">
+    {{else}}
+      <input type="text" name="openingHours" required>
+    {{/if}}
   </label>
 
   <label>{{localText.formOwnerId}}
-    <input type="text" name="ownerId">
+      <input type="text" name="ownerId">
   </label>
 
   <label>{{localText.formImageUrl}}
-    <input type="text" name="imageUrl">
+    {{#if place.imageUrl}}
+      <input type="text" name="imageUrl" value="{{place.imageUrl}}">
+    {{else}}
+      <input type="text" name="imageUrl">
+    {{/if}}
   </label>
 
   <label>{{localText.placeWebsite}}
-    <input type="text" name="website">
+    {{#if localText.placeWebsite}}
+      <input type="text" name="website" value="{{localText.placeWebsite}}">
+    {{else}}
+      <input type="text" name="website">
+    {{/if}}
   </label>
 
   <label>{{localText.placePhone}}
-    <input type="number" name="phone" required>
+    {{#if place.phone}}
+      <input type="number" name="phone" value="{{place.phone}}">
+    {{else}}
+      <input type="number" name="phone" required>
+    {{/if}}
   </label>
 
   <label>{{localText.placeEmail}}
-    <input type="email" name="email" required>
+    {{#if place.email}}
+      <input type="email" name="email" value="{{place.email}}">
+    {{else}}
+      <input type="email" name="email" required>
+    {{/if}}
   </label>
 
   <fieldset>
     <legend>{{localText.placeAccessibility}}</legend>
     <div>
       <label for="audio-recordings">{{localText.audioRecordings}}</label>
-      <input id="audio-recordings" type="checkbox" name="accessibility" value="Audio recordings">
+      <input id="audio-recordings" type="checkbox" name="accessibility" value="Audio recordings" >
     </div>
     <div>
       <label for="braille">{{localText.brailleMenu}}</label>
