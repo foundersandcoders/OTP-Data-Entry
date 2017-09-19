@@ -25,7 +25,6 @@ module.exports = (req, res) => {
   getLatLng(req.body.address, (err, response) => {
     if (!err) {
       apiBody.location = [response.lat, response.lng];
-      console.log(apiBody);
     }
 
     const reqOptions = {
