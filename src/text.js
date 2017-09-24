@@ -29,7 +29,7 @@ module.exports = {
     smsMessaging: 'SMS messaging',
     signLang: 'Sign language',
     goodLighting: 'Good lighting',
-    wheelchairFriendly: 'WheelChair access',
+    wheelchairFriendly: 'Wheelchair access',
     disabledParking: 'Disabled parking',
     disabledToilet: 'Disabled toilet',
     // Place categories
