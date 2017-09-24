@@ -1,8 +1,11 @@
-<form class="add-form" action="/{{lang}}/add-place" method="post">
   {{#if edit}}
-    <h1>{{localText.placesEdit}}</h1>
+    <form class="add-form" action="/{{lang}}/edit-place/{{place._id}}" method="post">
+      <h1>{{localText.placesEdit}}</h1>
+      <input type="hidden" name="_method" value="put">
   {{else}}
-    <h1>{{localText.placesAdd}}</h1>
+    <form class="add-form" action="/{{lang}}/add-place" method="post">
+      <h1>{{localText.placesAdd}}</h1>
+      <input type="hidden" name="_method" value="post">
   {{/if}}
 
   <label>{{localText.placeName}}
@@ -55,7 +58,7 @@
   </label>
 
   <label>{{localText.placeWebsite}}
-    {{#if localText.placeWebsite}}
+    {{#if place.placeWebsite}}
       <input type="text" name="website" value="{{localText.placeWebsite}}">
     {{else}}
       <input type="text" name="website">
@@ -88,7 +91,7 @@
       <label for="braille">{{localText.brailleMenu}}</label>
       <input id="braille" type="checkbox" name="accessibility" value="Braille" {{checkOptions place.accessibilityOptions "Braille"}}>
     </div>
-    <div>-
+    <div>
       <label for="big-fonts">{{localText.bigFonts}}</label>
       <input id="big-fonts" type="checkbox" name="accessibility" value="Big fonts" {{checkOptions place.accessibilityOptions "Big fonts"}}>
     </div>
@@ -106,7 +109,7 @@
     </div>
     <div>
       <label for="sign-lang">{{localText.signLang}}</label>
-      <input id="sign-lang" type="checkbox" name="accessibility" value="Sign languge" {{{checkOptions place.accessibilityOptions "Sign language"}}}>
+      <input id="sign-lang" type="checkbox" name="accessibility" value="Sign language" {{{checkOptions place.accessibilityOptions "Sign language"}}}>
     </div>
     <div>
       <label for="good-lighting">{{localText.goodLighting}}</label>
@@ -162,7 +165,7 @@
     </div>
     <div>
       <label for="healthcare">{{localText.healthcare}}</label>
-      <input id="healthcare" type="checkbox" name="categories" value="healthcare">
+      <input id="healthcare" type="checkbox" name="categories" value="healthcare" {{checkOptions place.categories "healthcare"}}>
     </div>
   </fieldset>
 
