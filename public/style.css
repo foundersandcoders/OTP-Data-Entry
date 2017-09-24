@@ -85,7 +85,7 @@ ul img {
 }
 
 .place-wrap__links {
-  width: 50%;
+  width: 60%;
   height: 20%;
   justify-content: center;
   margin: auto;
@@ -93,7 +93,7 @@ ul img {
 }
 
 .place-wrap__links a {
-  width: 40%;
+  width: 25%;
   background-color: lightblue;
   box-shadow: 0 0 10px 2px grey;
   padding: 2%;
@@ -113,16 +113,25 @@ ul img {
   max-width: 800px;
 }
 
-.place_edit_link {
-  width: 20%;
+.place_wrap_buttons {
+  width: 80%;
+  height: 20%;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 2%;
+  padding-top: 4%;
+}
+
+.place_wrap_buttons a {
+  width: 50%;
   background-color: lightblue;
   box-shadow: 0 0 10px 2px grey;
   padding: 2%;
   margin: 0 2%;
   font-size: 1.5rem;
   cursor: pointer;
-}
 
+}
 #map {
   width: 80%;
   height: 25%;

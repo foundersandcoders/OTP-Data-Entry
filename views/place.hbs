@@ -39,8 +39,10 @@
     {{place.categories}}
   </li>
   <div id="map" data-loc="{{place.location}}"></div>
-
-  <a class="place_edit_link" href="/{{lang}}/edit-place/{{place._id}}">{{localText.placesEdit}}</a>
+  <div class="place_wrap_buttons">
+    <a href="/{{lang}}/edit-place/{{place._id}}">{{localText.placesEdit}}</a>
+    <a href="/{{../lang}}/delete-place/{{_id}}">{{localText.placesDelete}}</a>
+  </div>
 </ul>
 
 
