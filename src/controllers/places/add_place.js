@@ -27,20 +27,23 @@ module.exports = (req, res) => {
       apiBody.location = [response.lat, response.lng];
     }
 
+    const url = req.body._method === 'put' ? `${placesURL}/${req.params.id}` : placesURL;
+
     const reqOptions = {
-      url: placesURL,
-      method: 'POST',
+      url: url,
+      method: req.body._method,
       body: apiBody,
       json: true
     };
-
-    Request(reqOptions, (error, postRes, postResBody) => {
+    Request(reqOptions, (error, apiResponse, apiResponseBody) => {
       if (error) {
-        console.log(error);
         res.send('huge failure');
+      }
+      if ((reqOptions.method === 'put' && apiResponse.statusCode !== 200) || (reqOptions.method === 'post' && apiResponse.statusCode !== 201)) {
+        res.status(404).send(apiResponseBody);
       } else {
-        console.log(postResBody);
-        res.redirect(`/${req.params.lang}/places`);
+        const urlEnd = req.body._method === 'put' ? `place/${req.params.id}` : 'places';
+        res.redirect(`/${req.params.lang}/${urlEnd}`);
       }
     });
   });
