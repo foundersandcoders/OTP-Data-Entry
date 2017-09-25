@@ -50,7 +50,7 @@ module.exports = {
     placesView: 'إعرض',
     placesEdit: 'حرر',
     placesAdd: 'اضافة مكان',
-    placesDelet: 'ازالة المكان',
+    placesDelete: 'ازالة المكان',
     placesImage: 'صورة المكان',
     placeName: 'الإسم',
     placeDescription: 'الوصف',
