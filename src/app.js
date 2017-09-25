@@ -6,7 +6,7 @@ const getMapLink = require('./helpers/getMapLink.js');
 const bodyParser = require('body-parser');
 const langError = require('./middleware/langError.js');
 const lang = require('./middleware/setLanguage.js');
-const checkOptions = require('./helpers/checkOptions.js');
+const checkOptionsValue = require('./helpers/check_options_value.js');
 
 const app = express();
 
@@ -18,7 +18,7 @@ app.engine('hbs', hbs({
   extname: 'hbs',
   helpers: {
     getMapLink,
-    checkOptions
+    checkOptionsValue
   }
 }));
 

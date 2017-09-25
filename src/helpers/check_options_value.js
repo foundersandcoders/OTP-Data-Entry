@@ -1,4 +1,4 @@
-const checkOptions = (options, value) => {
+const checkOptionsValue = (options, value) => {
   if (!options) {
     return null;
   }
@@ -9,4 +9,4 @@ const checkOptions = (options, value) => {
   }
 };
 
-module.exports = checkOptions;
+module.exports = checkOptionsValue;

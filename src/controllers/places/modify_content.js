@@ -24,27 +24,40 @@ module.exports = (req, res) => {
 
   getLatLng(req.body.address, (err, response) => {
     if (!err) {
-      apiBody.location = [response.lat, response.lng];
+      apiBody.location = [response.lng, response.lat];
     }
+  });
 
-    const url = req.body._method === 'put' ? `${placesURL}/${req.params.id}` : placesURL;
+  let url, urlEndpoint, correctResponseStatusCode;
+  switch (req.body._method) {
+    case 'post':
+      url = placesURL;
+      urlEndpoint = 'places';
+      correctResponseStatusCode = 201;
+      break;
+    case 'put':
+      url = `${placesURL}/${req.params.id}`;
+      urlEndpoint = `place/${req.params.id}`;
+      correctResponseStatusCode = 200;
+      break;
+    default:
+      res.status(500).send('server error');
+  }
 
-    const reqOptions = {
-      url: url,
-      method: req.body._method,
-      body: apiBody,
-      json: true
-    };
-    Request(reqOptions, (error, apiResponse, apiResponseBody) => {
-      if (error) {
-        res.send('huge failure');
-      }
-      if ((reqOptions.method === 'put' && apiResponse.statusCode !== 200) || (reqOptions.method === 'post' && apiResponse.statusCode !== 201)) {
-        res.status(404).send(apiResponseBody);
-      } else {
-        const urlEnd = req.body._method === 'put' ? `place/${req.params.id}` : 'places';
-        res.redirect(`/${req.params.lang}/${urlEnd}`);
-      }
-    });
+  const reqOptions = {
+    url,
+    method: req.body._method,
+    body: apiBody,
+    json: true
+  };
+  Request(reqOptions, (error, apiResponse, apiResponseBody) => {
+    if (error) {
+      res.status(500).send('server error');
+    }
+    if (apiResponse.statusCode !== correctResponseStatusCode) {
+      res.status(404).send(apiResponseBody);
+    } else {
+      res.redirect(`/${req.params.lang}/${urlEndpoint}`);
+    }
   });
 };
