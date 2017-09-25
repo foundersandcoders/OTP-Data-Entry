@@ -7,8 +7,9 @@ module.exports = (req, res) => {
 
     const place = JSON.parse(body);
     place.local = place[req.params.lang];
-    res.render('place', {
-      place
+    res.render('place-form', {
+      place,
+      edit: true
     });
   });
 };

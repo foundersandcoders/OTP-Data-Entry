@@ -13,12 +13,8 @@ module.exports = (req, res) => {
       place.local = place[req.params.lang];
     });
 
-    // USE FOR NOW, LESS UGLY
-    const topPlaces = data.slice(0, 4);
-
     res.render('places', {
-      places: topPlaces
-      // places: data
+      places: data
     });
   });
 };

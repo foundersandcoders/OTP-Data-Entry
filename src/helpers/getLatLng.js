@@ -14,7 +14,7 @@ const getLatLng = (address, cb) => {
     if (location) {
       cb(null, JSON.parse(body).results[0].geometry.location);
     } else {
-      cb(null, { lat: 32.7014255, lng: 35.2967795 });
+      cb(null, { lng: 35.2967795, lat: 32.7014255 });
     }
   });
 };
