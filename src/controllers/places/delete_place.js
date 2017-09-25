@@ -9,10 +9,10 @@ module.exports = (req, res) => {
 
   Request(reqOptions, (error, response) => {
     if (error) {
-      res.send('huge failure');
+      res.status(400).send(error);
     }
     if (response.statusCode !== 204) {
-      return res.status(404).send(error);
+      return res.status(400).send(error);
     } else {
       res.redirect(`/${req.params.lang}/places`);
     }
