@@ -1,5 +1,9 @@
 
 <ul class="specific-place">
+  <div class="place_wrap_buttons">
+    <a href="/">{{localText.homePage}}</a>
+    <a href="/{{lang}}/places">{{localText.backList}}</a>
+  </div>
   <div>
     <img src="{{place.imageUrl}}" alt="place image">
   </div>
@@ -41,7 +45,7 @@
   <div id="map" data-loc="{{place.location}}"></div>
   <div class="place_wrap_buttons">
     <a href="/{{lang}}/edit-place/{{place._id}}">{{localText.placesEdit}}</a>
-    <a href="/{{../lang}}/delete-place/{{_id}}">{{localText.placesDelete}}</a>
+    <a href="/{{lang}}/delete-place/{{place._id}}">{{localText.placesDelete}}</a>
   </div>
 </ul>
 
