@@ -2,18 +2,19 @@ const Request = require('request');
 const { placesURL } = require('../../constants/urls.json');
 
 module.exports = (req, res) => {
-  Request(`${placesURL}/${req.params.id}`, (error, response, body) => {
+  const reqOptions = {
+    url: `${placesURL}/${req.params.id}`,
+    method: 'DELETE'
+  };
+
+  Request(reqOptions, (error, response) => {
     if (error) {
       res.status(400).send(error);
     }
-    if (response.statusCode !== 200) {
+    if (response.statusCode !== 204) {
       return res.status(400).send(error);
+    } else {
+      res.redirect(`/${req.params.lang}/places`);
     }
-
-    const place = JSON.parse(body);
-    place.local = place[req.params.lang];
-    res.render('place', {
-      place
-    });
   });
 };

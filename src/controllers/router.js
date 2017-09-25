@@ -9,5 +9,6 @@ router.get('/:lang/add-place', placeController.renderForm);
 router.post('/:lang/add-place', placeController.addPlace);
 router.get('/:lang/edit-place/:id', placeController.renderEditForm);
 router.post('/:lang/edit-place/:id', placeController.addPlace);
+router.get('/:lang/delete-place/:id', placeController.deletePlace);
 
 module.exports = router;

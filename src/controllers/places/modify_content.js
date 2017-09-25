@@ -52,10 +52,10 @@ module.exports = (req, res) => {
   };
   Request(reqOptions, (error, apiResponse, apiResponseBody) => {
     if (error) {
-      res.status(500).send('server error');
+      res.status(400).send('server error');
     }
     if (apiResponse.statusCode !== correctResponseStatusCode) {
-      res.status(404).send(apiResponseBody);
+      res.status(400).send(apiResponseBody);
     } else {
       res.redirect(`/${req.params.lang}/${urlEndpoint}`);
     }

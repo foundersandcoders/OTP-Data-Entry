@@ -3,7 +3,12 @@ const { placesURL } = require('../../constants/urls.json');
 
 module.exports = (req, res) => {
   Request(placesURL, (error, response, body) => {
-    if (error) return res.status(404).send(error);
+    if (error) {
+      res.status(400).send(error);
+    }
+    if (response.statusCode !== 200) {
+      return res.status(400).send(error);
+    }
 
     const data = JSON.parse(body).filter((place) => {
       return place.hasOwnProperty(req.params.lang);
