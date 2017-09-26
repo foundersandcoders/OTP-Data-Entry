@@ -150,3 +150,8 @@ ul img {
   padding: 2%;
   box-shadow: 0 0 10px 2px grey;
 }
+
+.langFieldset {
+  display: flex;
+  flex-direction: column;
+}
