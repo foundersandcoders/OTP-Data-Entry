@@ -2,7 +2,10 @@ module.exports = {
   en: {
     pageTitle: 'OTP Data Entry',
     homePage: 'Home Page',
+    english: 'English',
+    arabic: 'Arabic',
     backList: 'Back to list',
+    placeFormInfo: 'Details below are required in at least one of Arabic and English.',
     placesTitle: 'Places',
     placesView: 'View',
     placesEdit: 'Edit',
@@ -50,7 +53,10 @@ module.exports = {
   ar: {
     pageTitle: 'إدخال البيانات',
     homePage: 'الصفحة الرئيسية',
+    english: 'الانجليزية',
+    arabic: 'العربية',
     backList: 'عودة الى القائمة',
+    placeFormInfo: 'التفاصيل ادناه مطلوبة على الاقل في واحدة من اللغتين العربية اوالانجليزية',
     placesTitle: 'أماكن',
     placesView: 'إعرض',
     placesEdit: 'حرر',
