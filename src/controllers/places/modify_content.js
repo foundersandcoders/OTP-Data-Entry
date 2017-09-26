@@ -10,14 +10,24 @@ module.exports = (req, res) => {
     email: req.body.email
   };
 
-  const lang = {
-    name: req.body.name,
-    description: req.body.description,
-    address: req.body.address,
-    openingHours: req.body.openingHours
-  };
+  if (req.body.name_en) {
+    apiBody.en = {
+      name: req.body.name_en,
+      description: req.body.description_en,
+      address: req.body.address_en,
+      openingHours: req.body.openingHours_en
+    };
+  }
 
-  apiBody[req.params.lang] = lang;
+  if (req.body.name_ar) {
+    apiBody.ar = {
+      name: req.body.name_ar,
+      description: req.body.description_ar,
+      address: req.body.address_ar,
+      openingHours: req.body.openingHours_ar
+    };
+  }
+
   if (req.body.ownerId) apiBody.owner = req.body.ownerId;
   if (req.body.categories) apiBody.categories = req.body.categories;
   if (req.body.accessibility) apiBody.accessibility = req.body.accessibility;
