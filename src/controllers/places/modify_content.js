@@ -20,7 +20,7 @@ module.exports = (req, res) => {
   apiBody[req.params.lang] = lang;
   if (req.body.ownerId) apiBody.owner = req.body.ownerId;
   if (req.body.categories) apiBody.categories = req.body.categories;
-  if (req.body.accessibility) apiBody.accessibility = req.body.accessibility;
+  if (req.body.accessibility) apiBody.accessibilityOptions = req.body.accessibility;
 
   getLatLng(req.body.address, (err, response) => {
     if (!err) {
