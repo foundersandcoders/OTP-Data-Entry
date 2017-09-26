@@ -7,39 +7,77 @@
       <h1>{{localText.placesAdd}}</h1>
       <input type="hidden" name="_method" value="post">
   {{/if}}
+  <span> Details below are required in at least one of Arabic and English.</span>
 
-  <label>{{localText.placeName}}
-    {{#if place.local.name}}
-      <input type="text" name="name" required value="{{place.local.name}}">
-    {{else}}
-      <input type="text" name="name" required>
-    {{/if}}
-  </label>
+  <fieldset name="en" class="langFieldset">
+    <legend>{{localText.english}}</legend>
+    <label>{{localText.placeName}}
+      {{#if place.local.name}}
+      <input type="text" name="name_en" required value="{{place.local.name}}">
+      {{else}}
+      <input type="text" name="name_en" required>
+      {{/if}}
+    </label>
 
+    <label>{{localText.placeDescription}}
+      {{#if place.local.description}}
+      <input type="text" name="description_en" required value="{{place.local.description}}">
+      {{else}}
+      <input type="text" name="description_en" required>
+      {{/if}}
+    </label>
 
-  <label>{{localText.placeDescription}}
-    {{#if place.local.description}}
-      <input type="text" name="description" required value="{{place.local.description}}">
-    {{else}}
-      <input type="text" name="description" required>
-    {{/if}}
-  </label>
+    <label>{{localText.placeAddress}}
+      {{#if place.local.address}}
+      <input type="text" name="address_en" required value="{{place.local.address}}">
+      {{else}}
+      <input type="text" name="address_en" required>
+      {{/if}}
+    </label>
 
-  <label>{{localText.placeAddress}}
-    {{#if place.local.address}}
-      <input type="text" name="address" required value="{{place.local.address}}">
-    {{else}}
-      <input type="text" name="address" required>
-    {{/if}}
-  </label>
+    <label>{{localText.placeHours}}
+      {{#if place.local.openingHours}}
+      <input type="text" name="openingHours_en" required value="{{place.local.openingHours}}">
+      {{else}}
+      <input type="text" name="openingHours_en" required>
+      {{/if}}
+    </label>
+  </fieldset>
 
-  <label>{{localText.placeHours}}
-    {{#if place.local.openingHours}}
-      <input type="text" name="openingHours" required value="{{place.local.openingHours}}">
-    {{else}}
-      <input type="text" name="openingHours" required>
-    {{/if}}
-  </label>
+  <fieldset name="ar" class="langFieldset">
+    <legend>{{localText.arabic}}</legend>
+    <label>{{localText.placeName}}
+      {{#if place.local.name}}
+      <input type="text" name="name_ar" required value="{{place.local.name}}">
+      {{else}}
+      <input type="text" name="name_ar" required>
+      {{/if}}
+    </label>
+
+    <label>{{localText.placeDescription}}
+      {{#if place.local.description}}
+      <input type="text" name="description_ar" required value="{{place.local.description}}">
+      {{else}}
+      <input type="text" name="description_ar" required>
+      {{/if}}
+    </label>
+
+    <label>{{localText.placeAddress}}
+      {{#if place.local.address}}
+      <input type="text" name="address_ar" required value="{{place.local.address}}">
+      {{else}}
+      <input type="text" name="address_ar" required>
+      {{/if}}
+    </label>
+
+    <label>{{localText.placeHours}}
+      {{#if place.local.openingHours}}
+      <input type="text" name="openingHours_ar" required value="{{place.local.openingHours}}">
+      {{else}}
+      <input type="text" name="openingHours_ar" required>
+      {{/if}}
+    </label>
+  </fieldset>
 
   <label>{{localText.formOwnerId}}
     {{#if place.ownerId}}
