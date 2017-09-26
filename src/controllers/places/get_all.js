@@ -7,7 +7,7 @@ module.exports = (req, res) => {
       res.status(400).send(error);
     }
     if (response.statusCode !== 200) {
-      return res.status(400).send(error);
+      res.render('error');
     }
 
     const data = JSON.parse(body).filter((place) => {

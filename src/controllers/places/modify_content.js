@@ -62,7 +62,7 @@ module.exports = (req, res) => {
   };
   Request(reqOptions, (error, apiResponse, apiResponseBody) => {
     if (error) {
-      res.status(400).send('server error');
+      res.render('error');
     }
     if (apiResponse.statusCode !== correctResponseStatusCode) {
       res.status(400).send(apiResponseBody);

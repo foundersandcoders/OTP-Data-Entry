@@ -9,7 +9,7 @@ module.exports = (req, res) => {
 
   Request(reqOptions, (error, response) => {
     if (error) {
-      res.status(400).send(error);
+      res.render('error');
     }
     if (response.statusCode !== 204) {
       return res.status(400).send(error);
