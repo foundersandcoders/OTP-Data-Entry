@@ -2,6 +2,8 @@ module.exports = {
   en: {
     pageTitle: 'OTP Data Entry',
     homePage: 'Home Page',
+    english: 'English',
+    arabic: 'Arabic',
     backList: 'Back to list',
     placesTitle: 'Places',
     placesView: 'View',
@@ -50,6 +52,8 @@ module.exports = {
   ar: {
     pageTitle: 'إدخال البيانات',
     homePage: 'الصفحة الرئيسية',
+    english: 'الانجليزية',
+    arabic: 'العربية',
     backList: 'عودة الى القائمة',
     placesTitle: 'أماكن',
     placesView: 'إعرض',
