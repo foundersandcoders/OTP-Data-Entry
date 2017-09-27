@@ -1,17 +1,17 @@
   {{#if edit}}
     <form class="add-form" action="/{{lang}}/edit-place/{{place._id}}" method="post">
-      <h1>{{localText.placesEdit}}</h1>
+      <h1>{{localText.edit}}</h1>
       <input type="hidden" name="_method" value="put">
   {{else}}
     <form class="add-form" action="/{{lang}}/add-place" method="post">
-      <h1>{{localText.placesAdd}}</h1>
+      <h1>{{localText.add}}</h1>
       <input type="hidden" name="_method" value="post">
   {{/if}}
   <span>{{localText.placeFormInfo}}</span>
 
   <fieldset name="en" class="langFieldset">
     <legend>{{localText.english}}</legend>
-    <label>{{localText.placeName}}
+    <label>{{localText.name}}
       {{#if place.local.name}}
         <input type="text" name="name_en" required value="{{place.local.name}}">
       {{else}}
@@ -19,7 +19,7 @@
       {{/if}}
     </label>
 
-    <label>{{localText.placeDescription}}
+    <label>{{localText.description}}
       {{#if place.local.description}}
         <input type="text" name="description_en" required value="{{place.local.description}}">
       {{else}}
@@ -46,7 +46,7 @@
 
   <fieldset name="ar" class="langFieldset">
     <legend>{{localText.arabic}}</legend>
-    <label>{{localText.placeName}}
+    <label>{{localText.name}}
       {{#if place.local.name}}
         <input type="text" name="name_ar" required value="{{place.local.name}}">
       {{else}}
@@ -54,7 +54,7 @@
       {{/if}}
     </label>
 
-    <label>{{localText.placeDescription}}
+    <label>{{localText.description}}
       {{#if place.local.description}}
         <input type="text" name="description_ar" required value="{{place.local.description}}">
       {{else}}
@@ -120,7 +120,7 @@
   </label>
 
   <fieldset>
-    <legend>{{localText.placeAccessibility}}</legend>
+    <legend>{{localText.accessibilityOptions}}</legend>
     <div>
       <label for="audio-recordings">{{localText.audioRecordings}}</label>
       <input id="audio-recordings" type="checkbox" name="accessibility" value="Audio recordings" {{checkOptionsValue place.accessibilityOptions "Audio recordings"}}>
