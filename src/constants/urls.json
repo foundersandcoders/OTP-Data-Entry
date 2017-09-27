@@ -1,3 +1,4 @@
 {
-  "placesURL": "https://nazareth-open-tourism-platform.herokuapp.com/places"
+  "placesURL": "https://nazareth-open-tourism-platform.herokuapp.com/places",
+  "eventsURL": "https://nazareth-open-tourism-platform.herokuapp.com/events"
 }
