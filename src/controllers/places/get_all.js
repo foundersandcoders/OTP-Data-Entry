@@ -4,10 +4,16 @@ const { placesURL } = require('../../constants/urls.json');
 module.exports = (req, res) => {
   Request(placesURL, (error, response, body) => {
     if (error) {
-      res.status(400).send(error);
+      return res.render('error', {
+        statusCode: 500,
+        errorMessage: res.locals.localText.serverError
+      });
     }
     if (response.statusCode !== 200) {
-      res.render('error');
+      return res.render('error', {
+        statusCode: 400,
+        errorMessage: res.locals.localText.badRequest
+      });
     }
 
     const data = JSON.parse(body).filter((place) => {

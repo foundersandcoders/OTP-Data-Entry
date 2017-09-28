@@ -51,7 +51,10 @@ module.exports = (req, res) => {
       correctResponseStatusCode = 200;
       break;
     default:
-      res.status(500).send('server error');
+      return res.render('error', {
+        statusCode: 500,
+        errorMessage: res.locals.localText.serverError
+      });
   }
 
   const reqOptions = {
@@ -65,7 +68,10 @@ module.exports = (req, res) => {
       res.render('error');
     }
     if (apiResponse.statusCode !== correctResponseStatusCode) {
-      res.status(400).send(apiResponseBody);
+      return res.render('error', {
+        statusCode: 400,
+        errorMessage: res.locals.localText.badRequest
+      });
     } else {
       res.redirect(`/${req.params.lang}/${urlEndpoint}`);
     }
