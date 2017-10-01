@@ -65,7 +65,10 @@ module.exports = (req, res) => {
   };
   Request(reqOptions, (error, apiResponse, apiResponseBody) => {
     if (error) {
-      res.render('error');
+      res.render('error', {
+        statusCode: 500,
+        errorMessage: res.locals.localText.serverError
+      });
     }
     if (apiResponse.statusCode !== correctResponseStatusCode) {
       return res.render('error', {
