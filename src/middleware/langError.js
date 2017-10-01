@@ -6,7 +6,10 @@ module.exports = (req, res, next) => {
     if (path === '/') {
       return next();
     } else {
-      return res.status(404).send('Page does not exist');
+      return res.render('error', {
+        statusCode: 404,
+        errorMessage: res.local.localText.notFound
+      });
     }
   }
   next();
