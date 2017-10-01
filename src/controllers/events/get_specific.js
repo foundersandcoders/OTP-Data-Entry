@@ -21,7 +21,6 @@ module.exports = (req, res) => {
     const alternativeLang = (defaultLang === 'en') ? 'ar' : 'en';
 
     event.local = event[defaultLang];
-    console.log(event.local);
     if (event.place) {
       if (event.place[defaultLang]) {
         event.place.local = event.place[defaultLang];
