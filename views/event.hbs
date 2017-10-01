@@ -3,21 +3,40 @@
     <a href="/">{{localText.homePage}}</a>
     <a href="/{{lang}}/events">{{localText.backList}}</a>
   </div>
-  <div class="{{event.imageUrl}}" alt="event image">
-  </div>
+  <img src="{{event.imageUrl}}" alt="localText.image">
+</img>
   <li>{{localText.name}}:
     {{event.local.name}}
   </li>
-  <li>{{localText.description}}:
+  {{#if event.local.description}}
+    <li>{{localText.description}}:
     {{event.local.description}}
   </li>
-  <li>{{localText.eventsPlace}}:
-    {{event.place.local.name}}, {{event.place.local.description}}
+  {{/if}}
+    {{#if event.place.local.name}}
+      <li>{{localText.eventsPlace}}:
+      {{event.place.local.name}}
+      </li>
+    {{/if}}
+    {{#if event.startTime}}
+      <li>{{localText.eventStart}}:
+      {{event.startTime}}
+      </li>
+    {{/if}}
+    {{#if event.endTime}}
+      <li>{{localText.eventEnd}}:
+      {{event.endTime}}
+      </li>
+    {{/if}}
+  {{#if event.cost}}
+    <li>{{localText.eventsCost}}:
+    {{event.cost}}
+    </li>
+  {{/if}}
+  {{#if event.accessibilityOptions}}
+    <li>{{localText.accessibilityOptions}}: {{event.accessibilityOptions}}
+    </li>
+  {{/if}}
+  <li>{{localText.categories}}: {{event.categories}}
   </li>
-  <li>{{localText.eventStart}}:
-  {{event.startTime}}
-</li>
-<li>{{localText.eventEnd}}:
-  {{event.endTime}}
-</li>
 </ul>
