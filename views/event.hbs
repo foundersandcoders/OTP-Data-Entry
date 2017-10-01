@@ -1,0 +1,23 @@
+<ul class="specific-place">
+  <div class="place_wrap_buttons">
+    <a href="/">{{localText.homePage}}</a>
+    <a href="/{{lang}}/events">{{localText.backList}}</a>
+  </div>
+  <div class="{{event.imageUrl}}" alt="event image">
+  </div>
+  <li>{{localText.name}}:
+    {{event.local.name}}
+  </li>
+  <li>{{localText.description}}:
+    {{event.local.description}}
+  </li>
+  <li>{{localText.eventsPlace}}:
+    {{this.place}}
+  </li>
+  <li>{{localText.eventStart}}:
+  {{this.startTime}}
+</li>
+<li>{{localText.eventEnd}}:
+  {{this.endTime}}
+</li>
+</ul>

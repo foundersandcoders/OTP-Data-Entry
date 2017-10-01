@@ -1,0 +1,24 @@
+<ul>
+  <h1 class="page-title">{{localText.eventsTitle}}:{{localText.name}}</h1>
+  <div class="view_all_links">
+    <a href="/{{lang}}/add-event">{{localText.add}}</a>
+  {{#each events}}
+    <li class="place-wrap">
+      <img class="place-wrap__image" src="{{this.imageUrl}}" alt="{{localtext.image}}">
+      <div class="place-wrap__info">
+        <span class="place-wrap__span">{{this.local.name}}</span>
+        {{#if this.local.description}}
+          <span class="place-wrap__span">{{this.local.description}}</span>
+        {{/if}}
+        {{#if this.local.place}}
+          <span class="place-wrap__span">{{this.place}}</span>
+        {{/if}}
+      </div>
+      <div class="place-wrap__links">
+        <a href="/{{../lang}}/event/{{_id}}">{{../localText.view}}</a>
+        <a href="/{{../lang}}/edit-event/{{_id}}">{{../localText.edit}}</a>
+        <a href="/{{../lang}}/delete-event/{{_id}}">{{../localText.delete}}</a>
+      </div>
+    </li>
+  {{/each}}
+</ul>

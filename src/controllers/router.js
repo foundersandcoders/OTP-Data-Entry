@@ -15,5 +15,6 @@ router.get('/:lang/delete-place/:id', placeController.deletePlace);
 
 // events
 router.get('/:lang/events', eventsController.getAll);
+router.get('/:lang/event/:id', eventsController.getSpecific);
 
 module.exports = router;

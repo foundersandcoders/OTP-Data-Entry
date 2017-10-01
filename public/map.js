@@ -3,13 +3,13 @@ function placeMap () {
   var lat = coords[0];
   var lng = coords[1];
   var mapOptions = {
-    center: new google.maps.LatLng(lat, lng),
+    center: new google.maps.LatLng(lng, lat),
     zoom: 18,
     disableDefaultUI: true
   };
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
   var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(lat, lng),
+    position: new google.maps.LatLng(lng, lat),
     map: map
   });
 }

@@ -53,7 +53,6 @@ module.exports = (req, res) => {
     default:
       res.status(500).send('server error');
   }
-
   const reqOptions = {
     url,
     method: req.body._method,
