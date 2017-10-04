@@ -65,7 +65,7 @@ module.exports = {
     // Event categories
     competetion: 'competetion',
     conference: 'conference',
-    culturalEvent: 'cultural event',
+    culture: 'culture',
     dining: 'dining',
     educational: 'educational',
     launch: 'launch',
@@ -149,7 +149,7 @@ module.exports = {
     // Event categories
     competetion: 'مسابقة',
     conference: 'مؤتمر',
-    culturalEvent: 'حدث حضاري',
+    culture: 'حضارة',
     dining: 'طعام',
     educational: 'ثقافي',
     launch: 'افتتاح',
