@@ -13,32 +13,17 @@
   <legend>{{localText.english}}</legend>
   <label>{{localText.eventsName}}
     {{#if event.local.name}}
-      <input type="text" name="name_en" required value="{{event.local.name}}">
+      <input type="text" name="name_en" value="{{event.local.name}}">
     {{else}}
-      <input type="text" name="name_en" required>
+      <input type="text" name="name_en">
     {{/if}}
   </label>
 
   <label>{{localText.description}}
     {{#if event.local.description}}
-      <input type="text" name="description_en" required value="{{place.local.description}}">
+      <input type="text" name="description_en" value="{{place.local.description}}">
     {{else}}
-      <input type="text" name="description_en" required>
-    {{/if}}
-  </label>
-
-  <label>{{localText.eventsPlace}}
-    {{#if event.place.local.name}}
-      <input type="text" name="placeName_en" value="{{event.place.local.name}}">
-    {{else}}
-      <input type="text" name="placeName_en" required>
-    {{/if}}
-  </label>
-  <label>{{localText.eventsPlaceDes}}
-    {{#if event.place.local.description}}
-    <input type="text" name="placeDes_en" value="{{event.place.local.description}}">
-    {{else}}
-    <input type="text" name="placeDes_en" required>
+      <input type="text" name="description_en">
     {{/if}}
   </label>
 </fieldset>
@@ -47,32 +32,17 @@
   <legend>{{localText.arabic}}</legend>
   <label>{{localText.eventsName}}
     {{#if event.local.name}}
-      <input type="text" name="name_ar" required value="{{event.local.name}}">
+      <input type="text" name="name_ar" value="{{event.local.name}}">
     {{else}}
-      <input type="text" name="name_ar" required>
+      <input type="text" name="name_ar">
     {{/if}}
   </label>
 
   <label>{{localText.description}}
     {{#if event.local.description}}
-      <input type="text" name="description_ar" required value="{{place.local.description}}">
+      <input type="text" name="description_ar" value="{{place.local.description}}">
     {{else}}
-      <input type="text" name="description_ar" required>
-    {{/if}}
-  </label>
-
-  <label>{{localText.eventsPlace}}
-    {{#if event.place.local.name}}
-      <input type="text" name="placeName_ar" value="{{event.place.local.name}}">
-    {{else}}
-      <input type="text" name="placeName_ar" required>
-    {{/if}}
-  </label>
-  <label>{{localText.eventsPlaceDes}}
-    {{#if event.place.local.description}}
-    <input type="text" name="placeDes_ar" value="{{event.place.local.description}}">
-    {{else}}
-    <input type="text" name="placeDes_ar" required>
+      <input type="text" name="description_ar">
     {{/if}}
   </label>
 </fieldset>

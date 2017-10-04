@@ -5,8 +5,8 @@ module.exports = (req, res) => {
   const apiBody = {
     imageUrl: req.body.imageUrl,
     cost: req.body.cost,
-    startTime: req.body.startTime,
-    endTime: req.body.endTime
+    startTime: req.body.startDate,
+    endTime: req.body.endDate
   };
 
   if (req.body.name_en) {
@@ -14,7 +14,6 @@ module.exports = (req, res) => {
       name: req.body.name_en,
       description: req.body.description_en
     };
-    apiBody.place = req.body.place_en;
   }
 
   if (req.body.name_ar) {
@@ -22,7 +21,6 @@ module.exports = (req, res) => {
       name: req.body.name_ar,
       description: req.body.description_ar
     };
-    apiBody.place = req.body.place_ar;
   }
 
   apiBody.categories = req.body.categories;
@@ -60,8 +58,6 @@ module.exports = (req, res) => {
       });
     }
     if (apiResponse.statusCode !== correctResponseStatusCode) {
-      console.log(apiResponse.statusCode);
-      console.log(apiBody);
       return res.render('error', {
         statusCode: 400,
         errorMessage:
