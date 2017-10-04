@@ -1,5 +1,5 @@
 const Request = require('request');
-const {eventsURL} = require('../../constants/urls.json');
+const { eventsURL } = require('../../constants/urls.json');
 
 module.exports = (req, res) => {
   const reqOptions = {
