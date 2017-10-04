@@ -31,7 +31,9 @@ module.exports = {
     placeEmail: 'Email',
     // events
     eventsTitle: 'Events',
+    eventsName: 'Name',
     eventsPlace: 'Place',
+    eventsPlaceDes: 'Place description',
     eventsCost: 'Cost',
     eventStart: 'Start time',
     eventEnd: 'End time',
@@ -59,7 +61,19 @@ module.exports = {
     retail: 'retail',
     sport: 'sport',
     municipal: 'municipal',
-    healthcare: 'healthcare'
+    healthcare: 'healthcare',
+    // Event categories
+    competetion: 'competetion',
+    conference: 'conference',
+    culturalEvent: 'cultural event',
+    dining: 'dining',
+    educational: 'educational',
+    launch: 'launch',
+    music: 'music',
+    miscellaneous: 'miscellaneous',
+    party: 'party',
+    sportEvent: 'sport',
+    wedding: 'wedding'
   },
   ar: {
     pageTitle: 'إدخال البيانات',
@@ -101,7 +115,9 @@ module.exports = {
     placeAccessibility: 'إمكانيات سهولة الوصول',
     // events
     eventsTitle: 'احداث',
+    eventsName: 'اسم الحدث',
     eventsPlace: 'المكان',
+    eventsPlaceDes: 'عن المكان',
     eventsCost: 'السعر',
     eventStart: 'وقت البدء',
     eventEnd: 'وقت النهاية',
@@ -129,7 +145,19 @@ module.exports = {
     retail: 'بيع وتجارة',
     sport: 'ترفيه ورياضة',
     municipal: 'مكاتب حكومية وبلدية',
-    healthcare: 'صحة'
+    healthcare: 'صحة',
+    // Event categories
+    competetion: 'مسابقة',
+    conference: 'مؤتمر',
+    culturalEvent: 'حدث حضاري',
+    dining: 'طعام',
+    educational: 'ثقافي',
+    launch: 'افتتاح',
+    music: 'موسيقى',
+    miscellaneous: 'متنوع',
+    party: 'حفل',
+    sportEvent: 'رياضة',
+    wedding: 'عرس'
 
   }
 };
