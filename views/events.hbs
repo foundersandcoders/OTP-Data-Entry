@@ -1,8 +1,8 @@
-<ul>
-  <h1 class="page-title">{{localText.placesTitle}}</h1>
+ <ul>
+  <h1 class="page-title">{{localText.eventsTitle}}
   <div class="view_all_links">
-    <a href="/{{lang}}/add-place">{{localText.add}}</a>
-  {{#each places}}
+    <a href="/{{lang}}/add-event">{{localText.add}}</a>
+  {{#each events}}
     <li class="place-wrap">
       <img class="place-wrap__image" src="{{this.imageUrl}}" alt="{{localtext.image}}">
       <div class="place-wrap__info">
@@ -10,14 +10,14 @@
         {{#if this.local.description}}
           <span class="place-wrap__span">{{this.local.description}}</span>
         {{/if}}
-        {{#if this.local.address}}
-          <span class="place-wrap__span">{{this.local.address}}</span>
+        {{#if this.place}}
+          <span class="place-wrap__span">{{this.place.local.name}}</span>
         {{/if}}
       </div>
       <div class="place-wrap__links">
-        <a href="/{{../lang}}/place/{{_id}}">{{../localText.view}}</a>
-        <a href="/{{../lang}}/edit-place/{{_id}}">{{../localText.edit}}</a>
-        <a href="/{{../lang}}/delete-place/{{_id}}">{{../localText.delete}}</a>
+        <a href="/{{../lang}}/event/{{_id}}">{{../localText.view}}</a>
+        <a href="/{{../lang}}/edit-event/{{_id}}">{{../localText.edit}}</a>
+        <a href="/{{../lang}}/delete-event/{{_id}}">{{../localText.delete}}</a>
       </div>
     </li>
   {{/each}}

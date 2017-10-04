@@ -7,11 +7,11 @@
   <div>
     <img src="{{place.imageUrl}}" alt="place image">
   </div>
-  <li>{{localText.placeName}}:
+  <li>{{localText.name}}:
     {{place.local.name}}
   </li>
 
-  <li>{{localText.placeDescription}}:
+  <li>{{localText.description}}:
     {{place.local.description}}
   </li>
 
@@ -35,17 +35,17 @@
     {{place.email}}
   </li>
 
-  <li>{{localText.placeAccessibility}}:
+  <li>{{localText.accessibilityOptions}}:
     {{place.accessibilityOptions}}
   </li>
 
-  <li>{{localText.placeCategories}}:
+  <li>{{localText.categories}}:
     {{place.categories}}
   </li>
   <div id="map" data-loc="{{place.location}}"></div>
   <div class="place_wrap_buttons">
-    <a href="/{{lang}}/edit-place/{{place._id}}">{{localText.placesEdit}}</a>
-    <a href="/{{lang}}/delete-place/{{place._id}}">{{localText.placesDelete}}</a>
+    <a href="/{{lang}}/edit-place/{{place._id}}">{{localText.edit}}</a>
+    <a href="/{{lang}}/delete-place/{{place._id}}">{{localText.delete}}</a>
   </div>
 </ul>
 

@@ -8,7 +8,7 @@ module.exports = (req, res, next) => {
     } else {
       return res.render('error', {
         statusCode: 404,
-        errorMessage: res.local.localText.notFound
+        errorMessage: 'Page not Found'
       });
     }
   }

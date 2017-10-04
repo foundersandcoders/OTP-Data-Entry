@@ -56,7 +56,6 @@ module.exports = (req, res) => {
         errorMessage: res.locals.localText.serverError
       });
   }
-
   const reqOptions = {
     url,
     method: req.body._method,
