@@ -19,13 +19,13 @@ module.exports = (req, res, next) => {
     } else {
       res.locals.places = result.body.map(place => {
         return {
-          name: (place[defaultLang]) ? place[defaultLang].name : place[alternativeLang].name,
+          name: place[defaultLang] ? place[defaultLang].name : place[alternativeLang].name,
           id: place._id
         };
       }).sort((first, second) => {
-        const fisrtPlace = first.name.toUpperCase();
+        const firstPlace = first.name.toUpperCase();
         const secondPlace = second.name.toUpperCase();
-        return (fisrtPlace < secondPlace) ? -1 : (fisrtPlace > secondPlace) ? 1 : 0;
+        return (firstPlace < secondPlace) ? -1 : (firstPlace > secondPlace) ? 1 : 0;
       });
     }
     return next();

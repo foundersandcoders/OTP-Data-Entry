@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const placeController = require('./places/index.js');
 const eventsController = require('./events/index.js');
+const placesList = require('../middleware/getPlaceNameAndId.js');
 
 router.get('/', require('./home.js'));
 
@@ -17,9 +18,9 @@ router.get('/:lang/delete-place/:id', placeController.deletePlace);
 router.get('/:lang/events', eventsController.getAll);
 router.get('/:lang/event/:id', eventsController.getSpecific);
 router.get('/:lang/delete-event/:id', eventsController.deleteEvent);
-router.get('/:lang/add-event', eventsController.placesList, eventsController.renderForm);
+router.get('/:lang/add-event', placesList, eventsController.renderForm);
 router.post('/:lang/add-event', eventsController.addEvent);
-router.get('/:lang/edit-event/:id', eventsController.placesList, eventsController.renderEditForm);
+router.get('/:lang/edit-event/:id', placesList, eventsController.renderEditForm);
 router.post('/:lang/edit-event/:id', eventsController.addEvent);
 
 module.exports = router;
