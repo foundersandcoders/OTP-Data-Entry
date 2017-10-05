@@ -36,7 +36,7 @@ module.exports = (req, res) => {
       break;
     case 'put':
       url = `${eventsURL}/${req.params.id}`;
-      urlEndpoint = `place/${req.params.id}`;
+      urlEndpoint = `event/${req.params.id}`;
       correctResponseStatusCode = 200;
       break;
     default:
@@ -61,8 +61,7 @@ module.exports = (req, res) => {
     if (apiResponse.statusCode !== correctResponseStatusCode) {
       return res.render('error', {
         statusCode: 400,
-        errorMessage:
-      res.locals.localText.badRequest
+        errorMessage: res.locals.localText.badRequest
       });
     } else {
       res.redirect(`/${req.params.lang}/${urlEndpoint}`);
