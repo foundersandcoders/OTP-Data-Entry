@@ -63,7 +63,7 @@ module.exports = {
     municipal: 'municipal',
     healthcare: 'healthcare',
     // Event categories
-    competetion: 'competetion',
+    competition: 'competition',
     conference: 'conference',
     culture: 'culture',
     dining: 'dining',

@@ -56,17 +56,17 @@
 
 <label>{{localText.eventStart}}
   {{#if event.startTime}}
-    <input type="date" name="startDate" required value="{{event.startTime}}">
+    <input type="datetime-local" name="startDate" required value="{{event.startTime}}">
   {{else}}
-    <input type="date" name="startDate" required>
+    <input type="datetime-local" name="startDate" required>
   {{/if}}
 </label>
 
 <label>{{localText.eventEnd}}
   {{#if event.endTime}}
-    <input type="date" name="endtDate" required value="{{event.endTime}}">
+    <input type="datetime-local" name="endtDate" required value="{{event.endTime}}">
   {{else}}
-    <input type="date" name="endDate" required>
+    <input type="datetime-local" name="endDate" required>
   {{/if}}
 </label>
 
@@ -137,8 +137,8 @@
 <fieldset>
   <legend>{{localText.categories}}</legend>
   <div>
-    <label for="competetion">{{localText.competetion}}</label>
-    <input id="competetion" type="checkbox" name="categories" value="competetion" {{checkOptionsValue event.categories "competetion"}}>
+    <label for="competition">{{localText.competition}}</label>
+    <input id="competition" type="checkbox" name="categories" value="competition" {{checkOptionsValue event.categories "competition"}}>
   </div>
   <div>
     <label for="music-venue">{{localText.conference}}</label>
