@@ -47,6 +47,13 @@
   </label>
 </fieldset>
 
+<select name="eventPlace"required>
+  <option value="">Select place</option>
+  {{#each places}}
+  <option value="{{this.id}}">{{this.name}}</option>
+  {{/each}}
+</select>
+
 <label>{{localText.eventStart}}
   {{#if event.startTime}}
     <input type="date" name="startDate" required value="{{event.startTime}}">
