@@ -4,7 +4,8 @@ const eventsController = {
   deleteEvent: require('./delete_event.js'),
   addEvent: require('./modify_content.js'),
   renderForm: require('./render_form.js'),
-  renderEditForm: require('./modify_content.js')
+  renderEditForm: require('./modify_content.js'),
+  placesList: require('../../middleware/getPlaces.js')
 };
 
 module.exports = eventsController;

@@ -17,7 +17,7 @@ router.get('/:lang/delete-place/:id', placeController.deletePlace);
 router.get('/:lang/events', eventsController.getAll);
 router.get('/:lang/event/:id', eventsController.getSpecific);
 router.get('/:lang/delete-event/:id', eventsController.deleteEvent);
-router.get('/:lang/add-event', eventsController.renderForm);
+router.get('/:lang/add-event', eventsController.placesList, eventsController.renderForm);
 router.post('/:lang/add-event', eventsController.addEvent);
 router.get('/:lang/edit-event/:id', eventsController.renderEditForm);
 router.post('/:lang/edit-event/:id', eventsController.addEvent);
