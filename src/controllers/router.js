@@ -19,7 +19,7 @@ router.get('/:lang/event/:id', eventsController.getSpecific);
 router.get('/:lang/delete-event/:id', eventsController.deleteEvent);
 router.get('/:lang/add-event', eventsController.placesList, eventsController.renderForm);
 router.post('/:lang/add-event', eventsController.addEvent);
-router.get('/:lang/edit-event/:id', eventsController.renderEditForm);
+router.get('/:lang/edit-event/:id', eventsController.placesList, eventsController.renderEditForm);
 router.post('/:lang/edit-event/:id', eventsController.addEvent);
 
 module.exports = router;

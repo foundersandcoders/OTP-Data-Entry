@@ -53,7 +53,7 @@ module.exports = (req, res) => {
   };
   Request(reqOptions, (error, apiResponse, apiResponseBody) => {
     if (error) {
-      res.render('error', {
+      return res.render('error', {
         statusCode: 500,
         errorMessage: res.locals.localText.serverError
       });

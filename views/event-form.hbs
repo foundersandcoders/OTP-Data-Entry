@@ -50,7 +50,7 @@
 <select name="eventPlace"required>
   <option value="">Select place</option>
   {{#each places}}
-  <option value="{{this.id}}">{{this.name}}</option>
+    <option value="{{this.id}}" {{checkedDropDown ../event.place._id this.id}} >{{this.name}}</option>
   {{/each}}
 </select>
 
@@ -64,7 +64,7 @@
 
 <label>{{localText.eventEnd}}
   {{#if event.endTime}}
-    <input type="datetime-local" name="endtDate" required value="{{event.endTime}}">
+    <input type="datetime-local" name="endDate" required value="{{event.endTime}}">
   {{else}}
     <input type="datetime-local" name="endDate" required>
   {{/if}}
