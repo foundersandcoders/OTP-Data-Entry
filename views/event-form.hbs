@@ -137,16 +137,16 @@
 <fieldset>
   <legend>{{localText.categories}}</legend>
   <div>
-    <label for="">{{localText.competetion}}</label>
-    <input id="" type="checkbox" name="categories" value="competetion" {{checkOptionsValue event.categories "competetion"}}>
+    <label for="competetion">{{localText.competetion}}</label>
+    <input id="competetion" type="checkbox" name="categories" value="competetion" {{checkOptionsValue event.categories "competetion"}}>
   </div>
   <div>
     <label for="music-venue">{{localText.conference}}</label>
     <input id="conference" type="checkbox" name="categories" value="conference" {{checkOptionsValue event.categories "conference"}}>
   </div>
   <div>
-    <label for="religios-site">{{localText.culturalEvent}}</label>
-    <input id="cultural-event" type="checkbox" name="categories" value="cultural event" {{checkOptionsValue event.categories "cultural event"}}>
+    <label for="culture">{{localText.culture}}</label>
+    <input id="culture" type="checkbox" name="categories" value="culture" {{checkOptionsValue event.categories "culture"}}>
   </div>
   <div>
     <label for="dining">{{localText.dining}}</label>
@@ -169,11 +169,15 @@
     <input id="miscellaneous" type="checkbox" name="categories" value="miscellaneous" {{checkOptionsValue event.categories "miscellaneous"}}>
   </div>
   <div>
-    <label for="sport">{{localText.healthcare}}</label>
+    <label for="party">{{localText.party}}</label>
+    <input id="party" type="checkbox" name="categories" value="party" {{checkOptionsValue event.categories "party"}}>
+  </div>
+  <div>
+    <label for="sport">{{localText.sportEvent}}</label>
     <input id="sport" type="checkbox" name="categories" value="sport" {{checkOptionsValue event.categories "sport"}}>
   </div>
   <div>
-    <label for="wedding">{{localText.healthcare}}</label>
+    <label for="wedding">{{localText.wedding}}</label>
     <input id="wedding" type="checkbox" name="categories" value="wedding" {{checkOptionsValue event.categories "wedding"}}>
   </div>
 </fieldset>
