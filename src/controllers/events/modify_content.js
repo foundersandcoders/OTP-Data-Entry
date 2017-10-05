@@ -6,7 +6,8 @@ module.exports = (req, res) => {
     imageUrl: req.body.imageUrl,
     cost: req.body.cost,
     startTime: req.body.startDate,
-    endTime: req.body.endDate
+    endTime: req.body.endDate,
+    place: req.body.eventPlace
   };
 
   if (req.body.name_en) {

@@ -6,7 +6,7 @@ module.exports = (req, res) => {
     if (error) {
       return res.render('error', {
         statusCode: 500,
-        errorMessage: res.localText.serverError
+        errorMessage: res.locals.localText.serverError
       });
     }
     if (response.statusCode !== 200) {
