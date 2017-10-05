@@ -5,7 +5,7 @@ const eventsController = {
   addEvent: require('./modify_content.js'),
   renderForm: require('./render_form.js'),
   renderEditForm: require('./modify_content.js'),
-  placesList: require('../../middleware/getPlaces.js')
+  placesList: require('../../middleware/getPlaceNameAndId.js')
 };
 
 module.exports = eventsController;

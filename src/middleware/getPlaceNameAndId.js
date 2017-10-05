@@ -7,8 +7,10 @@ module.exports = (req, res, next) => {
     json: true,
     url: placesURL
   };
-
   Request(options, (error, result, body) => {
+    const defaultLang = req.params.lang;
+    const alternativeLang = (defaultLang === 'en') ? 'ar' : 'en';
+
     if (error) {
       return res.render('error', {
         statusCode: 500,
@@ -16,17 +18,10 @@ module.exports = (req, res, next) => {
       });
     } else {
       res.locals.places = result.body.map(place => {
-        if (place.en) {
-          return {
-            name: place.en.name,
-            id: place._id
-          };
-        } else {
-          return {
-            name: place.ar.name,
-            id: place._id
-          };
-        }
+        return {
+          name: (place[defaultLang]) ? place[defaultLang].name : place[alternativeLang].name,
+          id: place._id
+        };
       }).sort((first, second) => {
         const fisrtPlace = first.name.toUpperCase();
         const secondPlace = second.name.toUpperCase();
