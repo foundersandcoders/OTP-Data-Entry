@@ -44,6 +44,41 @@ body {
   box-shadow: 0 0 10px 2px grey;
 }
 
+/*CONTENT*/
+.content__list {
+  position: absolute;
+  width: 60%;
+  height: 20%;
+  top: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 800px;
+}
+
+.content__list .english, .content__list .arabic {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.content__list .english:active, .content__list .arabic:active {
+  box-shadow: none;
+}
+
+.content__list a {
+  position: relative;
+  background-color: lightblue;
+  color: white;
+  font-size: 2rem;
+  width: 90%;
+  height: 40%;
+  cursor: pointer;
+  box-shadow: 0 0 10px 2px grey;
+}
+
+
 /*PLACES*/
 .page-title {
   text-align: center;
