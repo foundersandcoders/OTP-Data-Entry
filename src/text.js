@@ -18,8 +18,8 @@ module.exports = {
     description: 'Description',
     accessibilityOptions: 'Accessibility Options',
     categories: 'Categories',
+    formInfo: 'Details below are required in at least one of Arabic and English.',
     // places
-    placeFormInfo: 'Details below are required in at least one of Arabic and English.',
     placesTitle: 'Places',
     placeAddress: 'Address',
     placeHours: 'Opening Hours',
@@ -94,8 +94,8 @@ module.exports = {
     description: 'الوصف',
     accessibilityOptions: 'امكانيات سهولة الوصول',
     categories: 'فئات',
+    formInfo: 'التفاصيل ادناه مطلوبة على الاقل في واحدة من اللغتين العربية اوالانجليزية',
     // places
-    placeFormInfo: 'التفاصيل ادناه مطلوبة على الاقل في واحدة من اللغتين العربية اوالانجليزية',
     placesTitle: 'أماكن',
     placesView: 'إعرض',
     placesEdit: 'حرر',
