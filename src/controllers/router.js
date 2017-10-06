@@ -3,6 +3,7 @@ const placeController = require('./places/index.js');
 const eventsController = require('./events/index.js');
 
 router.get('/', require('./home.js'));
+router.get('/:lang/content', require('../content.js'));
 
 // places
 router.get('/:lang/places', placeController.getAll);
