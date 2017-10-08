@@ -1,12 +1,7 @@
 const checkedDropDown = (id, idCheck) => {
-  if (!id) {
-    return null;
-  }
-  if (id === idCheck) {
-    return 'selected';
-  } else {
-    return null;
-  }
+  const value = (id !== idCheck) ? null : 'selected';
+  console.log(value);
+  return value;
 };
 
 module.exports = checkedDropDown;
