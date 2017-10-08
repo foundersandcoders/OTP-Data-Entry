@@ -12,35 +12,35 @@
 <fieldset name="en" class="langFieldset">
   <legend>{{localText.english}}</legend>
   <label>{{localText.eventsName}}
-    {{#if event.local.name}}
-      <input type="text" name="name_en" value="{{event.local.name}}">
+    {{#if event.en.name}}
+      <input type="text" name="name_en" value="{{event.en.name}}">
     {{else}}
       <input type="text" name="name_en">
     {{/if}}
   </label>
 
   <label>{{localText.description}}
-    {{#if event.local.description}}
-      <input type="text" name="description_en" value="{{place.local.description}}">
+    {{#if event.en.description}}
+      <input type="text" name="description_en" value="{{event.en.description}}">
     {{else}}
       <input type="text" name="description_en">
     {{/if}}
   </label>
 </fieldset>
 
-<fieldset name="en" class="langFieldset">
+<fieldset name="ar" class="langFieldset">
   <legend>{{localText.arabic}}</legend>
   <label>{{localText.eventsName}}
-    {{#if event.local.name}}
-      <input type="text" name="name_ar" value="{{event.local.name}}">
+    {{#if event.ar.name}}
+      <input type="text" name="name_ar" value="{{event.ar.name}}">
     {{else}}
       <input type="text" name="name_ar">
     {{/if}}
   </label>
 
   <label>{{localText.description}}
-    {{#if event.local.description}}
-      <input type="text" name="description_ar" value="{{place.local.description}}">
+    {{#if event.ar.description}}
+      <input type="text" name="description_ar" value="{{event.ar.description}}">
     {{else}}
       <input type="text" name="description_ar">
     {{/if}}
@@ -87,50 +87,50 @@
 </label>
 
 <fieldset>
-  <legend>{{localText.placeAccessibility}}</legend>
+  <legend>{{localText.accessibilityOptions}}</legend>
   <div>
     <label for="audio-recordings">{{localText.audioRecordings}}</label>
-    <input id="audio-recordings" type="checkbox" name="accessibility" value="Audio recordings" {{checkOptionsValue place.accessibilityOptions "Audio recordings"}}>
+    <input id="audio-recordings" type="checkbox" name="accessibility" value="Audio recordings" {{checkOptionsValue event.accessibilityOptions "Audio recordings"}}>
   </div>
   <div>
     <label for="braille">{{localText.brailleMenu}}</label>
-    <input id="braille" type="checkbox" name="accessibility" value="Braille" {{checkOptionsValue place.accessibilityOptions "Braille"}}>
+    <input id="braille" type="checkbox" name="accessibility" value="Braille" {{checkOptionsValue event.accessibilityOptions "Braille"}}>
   </div>
   <div>
     <label for="big-fonts">{{localText.bigFonts}}</label>
-    <input id="big-fonts" type="checkbox" name="accessibility" value="Big fonts" {{checkOptionsValue place.accessibilityOptions "Big fonts"}}>
+    <input id="big-fonts" type="checkbox" name="accessibility" value="Big fonts" {{checkOptionsValue event.accessibilityOptions "Big fonts"}}>
   </div>
   <div>
     <label for="carer">{{localText.carer}}</label>
-    <input id="carer" type="checkbox" name="accessibility" value="carer" {{checkOptionsValue place.accessibilityOptions "Carer"}}>
+    <input id="carer" type="checkbox" name="accessibility" value="Carer" {{checkOptionsValue event.accessibilityOptions "Carer"}}>
   </div>
   <div>
     <label for="guide-dog">{{localText.guideDog}}</label>
-    <input id="guide-dog" type="checkbox" name="accessibility" value="Place for guide dog" {{checkOptionsValue place.accessibilityOptions "Place for guide dog"}}>
+    <input id="guide-dog" type="checkbox" name="accessibility" value="Place for guide dog" {{checkOptionsValue event.accessibilityOptions "Place for guide dog"}}>
   </div>
   <div>
     <label for="sms-message">{{localText.smsMessaging}}</label>
-    <input id="sms-message" type="checkbox" name="accessibility" value="SMS messaging" {{checkOptionsValue place.accessibilityOptions "SMS messaging"}}>
+    <input id="sms-message" type="checkbox" name="accessibility" value="SMS messaging" {{checkOptionsValue event.accessibilityOptions "SMS messaging"}}>
   </div>
   <div>
     <label for="sign-lang">{{localText.signLang}}</label>
-    <input id="sign-lang" type="checkbox" name="accessibility" value="Sign language" {{{checkOptionsValue place.accessibilityOptions "Sign language"}}}>
+    <input id="sign-lang" type="checkbox" name="accessibility" value="Sign language" {{{checkOptionsValue event.accessibilityOptions "Sign language"}}}>
   </div>
   <div>
     <label for="good-lighting">{{localText.goodLighting}}</label>
-    <input id="good-lighting" type="checkbox" name="accessibility" value="Good lighting" {{checkOptionsValue place.accessibilityOptions "Good lighting"}}>
+    <input id="good-lighting" type="checkbox" name="accessibility" value="Good lighting" {{checkOptionsValue event.accessibilityOptions "Good lighting"}}>
   </div>
   <div>
     <label for="wheelchair">{{localText.wheelchairFriendly}}</label>
-    <input id="wheelchair" type="checkbox" name="accessibility" value="Wheelchair access" {{checkOptionsValue place.accessibilityOptions "Wheelchair access"}}>
+    <input id="wheelchair" type="checkbox" name="accessibility" value="Wheelchair access" {{checkOptionsValue event.accessibilityOptions "Wheelchair access"}}>
   </div>
   <div>
     <label for="disabled-parking">{{localText.disabledParking}}</label>
-    <input id="disabled-parking" type="checkbox" name="accessibility" value="Disabled parking" {{checkOptionsValue place.accessibilityOptions "Disabled parking"}}>
+    <input id="disabled-parking" type="checkbox" name="accessibility" value="Disabled parking" {{checkOptionsValue event.accessibilityOptions "Disabled parking"}}>
   </div>
   <div>
     <label for="disabled-toilets">{{localText.disabledToilet}}</label>
-    <input id="disabled-toilets" type="checkbox" name="accessibility" value="Disabled toilets" {{checkOptionsValue place.accessibilityOptions "Disabled parking"}}>
+    <input id="disabled-toilets" type="checkbox" name="accessibility" value="Disabled toilets" {{checkOptionsValue event.accessibilityOptions "Disabled parking"}}>
   </div>
 </fieldset>
 
@@ -162,7 +162,7 @@
   </div>
   <div>
     <label for="music">{{localText.music}}</label>
-    <input id="music" type="checkbox" name="categories" value="music" {{checkOptionsValue place.categories "music"}}>
+    <input id="music" type="checkbox" name="categories" value="music" {{checkOptionsValue event.categories "music"}}>
   </div>
   <div>
     <label for="miscellaneous">{{localText.miscellaneous}}</label>
