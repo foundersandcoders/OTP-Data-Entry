@@ -8,7 +8,7 @@
     <input type="hidden" name="_method" value="post">
 {{/if}}
 
-<span><span style="color:red;">*</span><em>{{localText.formInfo}}</em></span>
+<span>{{localText.formInfo}}</span>
 <fieldset name="en" class="langFieldset">
   <legend>{{localText.english}}</legend>
   <label>{{localText.eventsName}}
@@ -47,34 +47,37 @@
   </label>
 </fieldset>
 
-<select name="eventPlace">
-  <option value="">Select place</option>
-  {{#each places}}
+
+<label><span style="color:red;">*</span>
+  <select name="eventPlace"required>
+    <option value="">Select place</option>
+    {{#each placesNamesAndIds}}
     <option value="{{this.id}}" {{checkedDropDown ../event.place._id this.id}} >{{this.name}}</option>
-  {{/each}}
-</select>
+    {{/each}}
+  </select>
+</label>
 
-<label>{{localText.eventStart}}
+<label><span style="color:red;">*</span>{{localText.eventStart}}
   {{#if event.startTime}}
-    <input type="datetime-local" name="startTime" value="{{event.startTime}}">
+    <input type="datetime-local" name="startDate" required value="{{event.startTime}}">
   {{else}}
-    <input type="datetime-local" name="startTime">
+    <input type="datetime-local" name="startDate" required>
   {{/if}}
 </label>
 
-<label>{{localText.eventEnd}}
+<label><span style="color:red;">*</span>{{localText.eventEnd}}
   {{#if event.endTime}}
-    <input type="datetime-local" name="endTime" value="{{event.endTime}}">
+    <input type="datetime-local" name="endDate" required value="{{event.endTime}}">
   {{else}}
-    <input type="datetime-local" name="endTime">
+    <input type="datetime-local" name="endDate" required>
   {{/if}}
 </label>
 
-<label>{{localText.eventsCost}}
+<label><span style="color:red;">*</span>{{localText.eventsCost}}
   {{#if event.cost}}
-    <input type="text" name="cost" value="{{event.cost}}">
+    <input type="text" name="cost" required value="{{event.cost}}">
   {{else}}
-    <input type="text" name="cost">
+    <input type="text" name="cost" required>
   {{/if}}
 </label>
 
@@ -130,13 +133,12 @@
   </div>
   <div>
     <label for="disabled-toilets">{{localText.disabledToilet}}</label>
-    <input id="disabled-toilets" type="checkbox" name="accessibility" value="Disabled toilets" {{checkOptionsValue event.accessibilityOptions "Disabled toilets"}}>
+    <input id="disabled-toilets" type="checkbox" name="accessibility" value="Disabled toilets" {{checkOptionsValue event.accessibilityOptions "Disabled parking"}}>
   </div>
 </fieldset>
 
-<span class="text-muted"><em><span style="color:red;">*</span>At least one category is required</em></span>
 <fieldset>
-  <legend>{{localText.categories}}</legend>
+  <legend><span style="color:red;">*</span>{{localText.categories}}</legend>
   <div>
     <label for="competition">{{localText.competition}}</label>
     <input id="competition" type="checkbox" name="categories" value="competition" {{checkOptionsValue event.categories "competition"}}>
@@ -183,5 +185,6 @@
   </div>
 </fieldset>
 
+<span class="text-muted"><em><span style="color:red;">*</span>Required field</em></span>
 <input type="submit" value="{{localText.formSubmit}}">
 </form>
