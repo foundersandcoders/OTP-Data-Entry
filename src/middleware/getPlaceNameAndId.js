@@ -17,7 +17,7 @@ module.exports = (req, res, next) => {
         errorMessage: res.locals.localText.serverError
       });
     } else {
-      res.locals.places = result.body.map(place => {
+      res.locals.placesNamesAndIds = result.body.map(place => {
         return {
           name: place[defaultLang] ? place[defaultLang].name : place[alternativeLang].name,
           id: place._id
