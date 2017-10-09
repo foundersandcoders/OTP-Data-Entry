@@ -4,6 +4,7 @@ const eventsController = require('./events/index.js');
 const placesList = require('../middleware/getPlaceNameAndId.js');
 
 router.get('/', require('./home.js'));
+router.get('/:lang/content', require('../content.js'));
 
 // places
 router.get('/:lang/places', placeController.getAll);
