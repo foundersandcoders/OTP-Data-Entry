@@ -29,5 +29,3 @@ module.exports = (req, res) => {
     });
   });
 };
-
-// req.local.error = request(error)

@@ -18,8 +18,9 @@ module.exports = {
     description: 'Description',
     accessibilityOptions: 'Accessibility Options',
     categories: 'Categories',
+    formInfo: 'Details below are required in at least one of Arabic and English.',
+    required: 'Required field',
     // places
-    placeFormInfo: 'Details below are required in at least one of Arabic and English.',
     placesTitle: 'Places',
     placeAddress: 'Address',
     placeHours: 'Opening Hours',
@@ -31,7 +32,9 @@ module.exports = {
     placeEmail: 'Email',
     // events
     eventsTitle: 'Events',
+    eventsName: 'Name',
     eventsPlace: 'Place',
+    eventsPlaceDes: 'Place description',
     eventsCost: 'Cost',
     eventStart: 'Start time',
     eventEnd: 'End time',
@@ -59,7 +62,19 @@ module.exports = {
     retail: 'retail',
     sport: 'sport',
     municipal: 'municipal',
-    healthcare: 'healthcare'
+    healthcare: 'healthcare',
+    // Event categories
+    competition: 'competition',
+    conference: 'conference',
+    culture: 'culture',
+    dining: 'dining',
+    educational: 'educational',
+    launch: 'launch',
+    music: 'music',
+    miscellaneous: 'miscellaneous',
+    party: 'party',
+    sportEvent: 'sport',
+    wedding: 'wedding'
   },
   ar: {
     pageTitle: 'إدخال البيانات',
@@ -80,8 +95,9 @@ module.exports = {
     description: 'الوصف',
     accessibilityOptions: 'امكانيات سهولة الوصول',
     categories: 'فئات',
+    formInfo: 'التفاصيل ادناه مطلوبة على الاقل في واحدة من اللغتين العربية اوالانجليزية',
+    required: ' مطلوب التعبئة',
     // places
-    placeFormInfo: 'التفاصيل ادناه مطلوبة على الاقل في واحدة من اللغتين العربية اوالانجليزية',
     placesTitle: 'أماكن',
     placesView: 'إعرض',
     placesEdit: 'حرر',
@@ -101,7 +117,9 @@ module.exports = {
     placeAccessibility: 'إمكانيات سهولة الوصول',
     // events
     eventsTitle: 'احداث',
+    eventsName: 'اسم الحدث',
     eventsPlace: 'المكان',
+    eventsPlaceDes: 'عن المكان',
     eventsCost: 'السعر',
     eventStart: 'وقت البدء',
     eventEnd: 'وقت النهاية',
@@ -129,7 +147,19 @@ module.exports = {
     retail: 'بيع وتجارة',
     sport: 'ترفيه ورياضة',
     municipal: 'مكاتب حكومية وبلدية',
-    healthcare: 'صحة'
+    healthcare: 'صحة',
+    // Event categories
+    competetion: 'مسابقة',
+    conference: 'مؤتمر',
+    culture: 'حضارة',
+    dining: 'طعام',
+    educational: 'ثقافي',
+    launch: 'افتتاح',
+    music: 'موسيقى',
+    miscellaneous: 'متنوع',
+    party: 'حفل',
+    sportEvent: 'رياضة',
+    wedding: 'عرس'
 
   }
 };
