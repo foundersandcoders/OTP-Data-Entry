@@ -19,6 +19,7 @@ module.exports = {
     accessibilityOptions: 'Accessibility Options',
     categories: 'Categories',
     formInfo: 'Details below are required in at least one of Arabic and English.',
+    required: 'Required field',
     // places
     placesTitle: 'Places',
     placeAddress: 'Address',
@@ -95,6 +96,7 @@ module.exports = {
     accessibilityOptions: 'امكانيات سهولة الوصول',
     categories: 'فئات',
     formInfo: 'التفاصيل ادناه مطلوبة على الاقل في واحدة من اللغتين العربية اوالانجليزية',
+    required: ' مطلوب التعبئة',
     // places
     placesTitle: 'أماكن',
     placesView: 'إعرض',

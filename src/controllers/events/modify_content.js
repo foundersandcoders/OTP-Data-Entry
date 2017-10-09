@@ -5,8 +5,8 @@ module.exports = (req, res) => {
   const apiBody = {
     imageUrl: req.body.imageUrl,
     cost: req.body.cost,
-    startTime: req.body.startDate,
-    endTime: req.body.endDate,
+    startTime: req.body.startTime,
+    endTime: req.body.endTime,
     place: req.body.eventPlace,
     accessibilityOptions: req.body.accessibility || null
   };
