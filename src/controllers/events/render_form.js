@@ -1,5 +1,3 @@
 module.exports = (req, res) => {
-  res.render('event-form', {
-    places: res.locals.places
-  });
+  res.render('event-form');
 };

@@ -19,8 +19,8 @@ module.exports = (req, res) => {
     const defaultLang = req.params.lang;
     const alternativeLang = (defaultLang === 'en') ? 'ar' : 'en';
 
-    event.startTime = event.startTime.slice(0, -8);
-    event.endTime = event.endTime.slice(0, -8);
+    if (event.startTime) event.startTime = event.startTime.slice(0, -8);
+    if (event.endTime) event.endTime = event.endTime.slice(0, -8);
 
     event.local = event[defaultLang];
     if (event.place) {
@@ -32,7 +32,6 @@ module.exports = (req, res) => {
     }
     res.render('event-form', {
       event,
-      places: res.locals.places,
       edit: true
     });
   });
