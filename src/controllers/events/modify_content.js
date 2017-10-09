@@ -7,7 +7,8 @@ module.exports = (req, res) => {
     cost: req.body.cost,
     startTime: req.body.startDate,
     endTime: req.body.endDate,
-    place: req.body.eventPlace
+    place: req.body.eventPlace,
+    accessibilityOptions: req.body.accessibility || null
   };
 
   if (req.body.name_en) {
@@ -25,7 +26,6 @@ module.exports = (req, res) => {
   }
 
   apiBody.categories = req.body.categories;
-  if (req.body.accessibility) apiBody.accessibilityOptions = req.body.accessibility;
 
   let url, urlEndpoint, correctResponseStatusCode;
   switch (req.body._method) {

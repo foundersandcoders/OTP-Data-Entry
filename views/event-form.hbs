@@ -8,7 +8,7 @@
     <input type="hidden" name="_method" value="post">
 {{/if}}
 
-<span>{{localText.formInfo}}</span>
+<span><span style="color:red;">*</span><em>{{localText.formInfo}}</em></span>
 <fieldset name="en" class="langFieldset">
   <legend>{{localText.english}}</legend>
   <label>{{localText.eventsName}}
@@ -47,7 +47,7 @@
   </label>
 </fieldset>
 
-<select name="eventPlace"required>
+<select name="eventPlace">
   <option value="">Select place</option>
   {{#each places}}
     <option value="{{this.id}}" {{checkedDropDown ../event.place._id this.id}} >{{this.name}}</option>
@@ -56,25 +56,25 @@
 
 <label>{{localText.eventStart}}
   {{#if event.startTime}}
-    <input type="datetime-local" name="startDate" required value="{{event.startTime}}">
+    <input type="datetime-local" name="startTime" value="{{event.startTime}}">
   {{else}}
-    <input type="datetime-local" name="startDate" required>
+    <input type="datetime-local" name="startTime">
   {{/if}}
 </label>
 
 <label>{{localText.eventEnd}}
   {{#if event.endTime}}
-    <input type="datetime-local" name="endDate" required value="{{event.endTime}}">
+    <input type="datetime-local" name="endTime" value="{{event.endTime}}">
   {{else}}
-    <input type="datetime-local" name="endDate" required>
+    <input type="datetime-local" name="endTime">
   {{/if}}
 </label>
 
 <label>{{localText.eventsCost}}
   {{#if event.cost}}
-    <input type="text" name="cost" required value="{{event.cost}}">
+    <input type="text" name="cost" value="{{event.cost}}">
   {{else}}
-    <input type="text" name="cost" required>
+    <input type="text" name="cost">
   {{/if}}
 </label>
 
@@ -130,10 +130,11 @@
   </div>
   <div>
     <label for="disabled-toilets">{{localText.disabledToilet}}</label>
-    <input id="disabled-toilets" type="checkbox" name="accessibility" value="Disabled toilets" {{checkOptionsValue event.accessibilityOptions "Disabled parking"}}>
+    <input id="disabled-toilets" type="checkbox" name="accessibility" value="Disabled toilets" {{checkOptionsValue event.accessibilityOptions "Disabled toilets"}}>
   </div>
 </fieldset>
 
+<span class="text-muted"><em><span style="color:red;">*</span>At least one category is required</em></span>
 <fieldset>
   <legend>{{localText.categories}}</legend>
   <div>
