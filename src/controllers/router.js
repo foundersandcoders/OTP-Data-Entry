@@ -2,6 +2,7 @@ const router = require('express').Router();
 const placeController = require('./places/index.js');
 const eventsController = require('./events/index.js');
 const placesList = require('../middleware/getPlaceNameAndId.js');
+const oauthCode = require('./OAuth/code.js');
 
 router.get('/', require('./home.js'));
 router.get('/:lang/content', require('../content.js'));
@@ -23,5 +24,7 @@ router.get('/:lang/add-event', placesList, eventsController.renderForm);
 router.post('/:lang/add-event', eventsController.addEvent);
 router.get('/:lang/edit-event/:id', placesList, eventsController.renderEditForm);
 router.post('/:lang/edit-event/:id', eventsController.addEvent);
+
+router.get('/:lang/loginOauth', oauthCode);
 
 module.exports = router;
