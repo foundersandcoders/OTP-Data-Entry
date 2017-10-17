@@ -3,6 +3,7 @@ const placeController = require('./places/index.js');
 const eventsController = require('./events/index.js');
 const placesList = require('../middleware/getPlaceNameAndId.js');
 const oauthCode = require('./OAuth/code.js');
+const oauthToken = require('./OAuth/token.js');
 
 router.get('/', require('./home.js'));
 router.get('/:lang/content', require('../content.js'));
@@ -26,5 +27,6 @@ router.get('/:lang/edit-event/:id', placesList, eventsController.renderEditForm)
 router.post('/:lang/edit-event/:id', eventsController.addEvent);
 
 router.get('/:lang/loginOauth', oauthCode);
+router.get('/oauth/token', oauthToken);
 
 module.exports = router;
