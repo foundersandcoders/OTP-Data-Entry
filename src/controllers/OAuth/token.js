@@ -1,6 +1,6 @@
 const queryString = require('query-string');
 const Request = require('request');
-// const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 const { oauthTokenBaseURL } = require('../../constants/urls.json');
 
 module.exports = (req, res) => {
@@ -27,15 +27,22 @@ module.exports = (req, res) => {
       errorMessage: res.locals.localText.oauthError
     });
   } else {
-    Request(options, (error, res, body) => {
+    Request(options, (error, response, body) => {
       if (error || res.statusCode !== 200) {
         res.redirect('error', {
           statusCode: 500,
-          errorMessage: res.locals.localText.serverError
+          errorMessage: 'Server error!'
         });
       } else {
-        // const parsedBody = JSON.parse(body);
-        // const token = parsedBody.access_token;
+        const parsedBody = JSON.parse(body);
+        const token = jwt.sign(parsedBody.access_token, process.env.JWT_SECRET);
+        res.cookie('token', token, {maxAge: 604800000});
+
+        if (req.cookies && req.cookies.referredUrl) {
+          res.redirect(req.cookies.referredUrl);
+        } else {
+          res.redirect('/');
+        }
       }
     });
   }
