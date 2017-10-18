@@ -70,7 +70,9 @@ module.exports = (req, res) => {
         url = `${placesURL}/${req.params.id}`;
         urlEndpoint = `place/${req.params.id}`;
         correctResponseStatusCode = 200;
-        auth = { 'bearer': decodedToken };
+        auth = {
+          'bearer': decodedToken
+        };
         break;
       default:
         return res.render('error', {
