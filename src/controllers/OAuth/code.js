@@ -1,3 +1,7 @@
+// This handler redirects the users to the tourism platform login
+// page with the queries so they would be redirected back to /oauth/token
+// with the code!
+
 const queryString = require('query-string');
 const { oauthCodeBaseURL } = require('../../constants/urls.json');
 

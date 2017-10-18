@@ -1,3 +1,5 @@
+// This handler gets the state and the code from the url and if the state
+// matches our state ,exchange the code for a token and store it in a cookie
 const queryString = require('query-string');
 const Request = require('request');
 const jwt = require('jsonwebtoken');
