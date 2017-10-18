@@ -9,11 +9,17 @@ const lang = require('./middleware/setLanguage.js');
 const checkOptionsValue = require('./helpers/check_options_value.js');
 const checkedDropDown = require('./helpers/check_dropdown_option.js');
 const cookieParser = require('cookie-parser');
-const checkCookie = require('./helpers/check_cookie.js');
+const compression = require('compression');
 
 const app = express();
-app.use(cookieParser());
 
+// Middleware
+app.use(compression());
+app.use(cookieParser());
+app.use(express.static('public'));
+app.use(bodyParser.urlencoded({extended: false}));
+
+// Set up local languages
 app.locals.en = languages.en;
 app.locals.ar = languages.ar;
 
@@ -23,18 +29,17 @@ app.engine('hbs', hbs({
   helpers: {
     getMapLink,
     checkOptionsValue,
-    checkedDropDown,
-    checkCookie
+    checkedDropDown
   }
 }));
 
 app.set('view engine', 'hbs');
 app.set('port', process.env.PORT || 4000);
 
-app.use(express.static('public'));
-app.use(bodyParser.urlencoded({extended: false}));
+// Custom middlewares
 app.use(langError);
 app.use(lang);
+
 app.use(router);
 
 module.exports = app;
