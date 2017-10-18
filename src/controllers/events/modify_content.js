@@ -1,6 +1,6 @@
 const Request = require('request');
 const { eventsURL } = require('../../constants/urls.json');
-const jwt = require('jsonwebtoken');
+const checkCookie = require('../../helpers/check_cookie.js');
 
 module.exports = (req, res) => {
   const apiBody = {
@@ -28,19 +28,7 @@ module.exports = (req, res) => {
 
   apiBody.categories = req.body.categories;
 
-  const checkCookie = (cb) => {
-    if (req.cookies.token) {
-      jwt.verify(req.cookies.token, process.env.JWT_SECRET, (error, decoded) => {
-        if (error) cb(error);
-        else {
-          cb(null, decoded);
-        }
-      });
-    } else {
-      cb();
-    }
-  };
-  checkCookie((error, decodedToken) => {
+  checkCookie(req, (error, decodedToken) => {
     if (error) {
       return res.render('error', {
         statusCode: 500,

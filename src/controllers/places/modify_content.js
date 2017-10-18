@@ -1,7 +1,7 @@
 const Request = require('request');
 const { placesURL } = require('../../constants/urls.json');
 const getLatLng = require('../../helpers/getLatLng.js');
-const jwt = require('jsonwebtoken');
+const checkCookie = require('../../helpers/check_cookie.js');
 
 module.exports = (req, res) => {
   const apiBody = {
@@ -39,20 +39,7 @@ module.exports = (req, res) => {
     }
   });
 
-  const checkCookie = (cb) => {
-    if (req.cookies.token) {
-      jwt.verify(req.cookies.token, process.env.JWT_SECRET, (error, decoded) => {
-        if (error) cb(error);
-        else {
-          cb(null, decoded);
-        }
-      });
-    } else {
-      cb();
-    }
-  };
-
-  checkCookie((err, decodedToken) => {
+  checkCookie(req, (err, decodedToken) => {
     if (err) {
       return res.render('error', {
         statusCode: 500,

@@ -9,6 +9,7 @@ const lang = require('./middleware/setLanguage.js');
 const checkOptionsValue = require('./helpers/check_options_value.js');
 const checkedDropDown = require('./helpers/check_dropdown_option.js');
 const cookieParser = require('cookie-parser');
+const checkCookie = require('./helpers/check_cookie.js');
 
 const app = express();
 app.use(cookieParser());
@@ -22,7 +23,8 @@ app.engine('hbs', hbs({
   helpers: {
     getMapLink,
     checkOptionsValue,
-    checkedDropDown
+    checkedDropDown,
+    checkCookie
   }
 }));
 
