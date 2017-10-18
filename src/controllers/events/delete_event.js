@@ -36,5 +36,10 @@ module.exports = (req, res) => {
         });
       }
     });
+  } else {
+    return res.redirect('error', {
+      statusCode: 500,
+      errorMessage: res.locals.localText.serverError
+    });
   }
 };
