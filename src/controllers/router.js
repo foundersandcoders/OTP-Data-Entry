@@ -27,7 +27,7 @@ router.post('/:lang/add-event', eventsController.addEvent);
 router.get('/:lang/edit-event/:id', checkLoggedIn, placesList, eventsController.renderEditForm);
 router.post('/:lang/edit-event/:id', checkLoggedIn, eventsController.addEvent);
 
-router.get('/:lang/loginOauth', oauthCode);
+router.get('/:lang/login', oauthCode);
 router.get('/oauth/token', oauthToken);
 
 module.exports = router;
