@@ -20,7 +20,6 @@ module.exports = {
     categories: 'Categories',
     formInfo: 'Details below are required in at least one of Arabic and English.',
     required: 'Required field',
-    oauthError: 'Something went wrong with your login information! please try again.',
     // places
     placesTitle: 'Places',
     placeAddress: 'Address',
@@ -98,7 +97,6 @@ module.exports = {
     categories: 'فئات',
     formInfo: 'التفاصيل ادناه مطلوبة على الاقل في واحدة من اللغتين العربية اوالانجليزية',
     required: ' مطلوب التعبئة',
-    oauthError: 'عذراً, حصل خطأ ما في معلومات تسجيل الدخول! حاول مرة اخرى.',
     // places
     placesTitle: 'أماكن',
     placesView: 'إعرض',
