@@ -1,15 +1,15 @@
 {{#if edit}}
-  <form class="add-form" action="/{{lang}}/edit-event/{{event._id}}" method="post">
+  <form class="" action="/{{lang}}/edit-event/{{event._id}}" method="post">
     <h1>{{localText.edit}}</h1>
     <input type="hidden" name="_method" value="put">
 {{else}}
-  <form class="add-form" action="/{{lang}}/add-event" method="post">
+  <form class="" action="/{{lang}}/add-event" method="post">
     <h1>{{localText.add}}</h1>
     <input type="hidden" name="_method" value="post">
 {{/if}}
 
 <span>{{localText.formInfo}}</span>
-<fieldset name="en" class="langFieldset">
+<fieldset name="en" class="">
   <legend>{{localText.english}}</legend>
   <label>{{localText.eventsName}}
     {{#if event.en.name}}
@@ -28,7 +28,7 @@
   </label>
 </fieldset>
 
-<fieldset name="ar" class="langFieldset">
+<fieldset name="ar" class="">
   <legend>{{localText.arabic}}</legend>
   <label>{{localText.eventsName}}
     {{#if event.ar.name}}
