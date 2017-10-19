@@ -31,7 +31,7 @@ module.exports = (req, res) => {
   } else {
     Request(options, (error, responseToken, body) => {
       if (error || responseToken.statusCode !== 200) {
-        responseToken.redirect('error', {
+        return res.redirect('error', {
           statusCode: 500,
           errorMessage: 'Server error!'
         });
