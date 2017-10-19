@@ -8,11 +8,14 @@ const langError = require('./middleware/langError.js');
 const lang = require('./middleware/setLanguage.js');
 const checkOptionsValue = require('./helpers/check_options_value.js');
 const checkedDropDown = require('./helpers/check_dropdown_option.js');
+const cookieParser = require('cookie-parser');
 const compression = require('compression');
 
 const app = express();
+
 // Middleware
 app.use(compression());
+app.use(cookieParser());
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
 
