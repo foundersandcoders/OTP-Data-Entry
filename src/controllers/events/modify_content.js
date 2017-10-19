@@ -1,5 +1,6 @@
 const Request = require('request');
 const { eventsURL } = require('../../constants/urls.json');
+const checkCookie = require('../../helpers/check_cookie.js');
 
 module.exports = (req, res) => {
   const apiBody = {
@@ -27,44 +28,56 @@ module.exports = (req, res) => {
 
   apiBody.categories = req.body.categories;
 
-  let url, urlEndpoint, correctResponseStatusCode;
-  switch (req.body._method) {
-    case 'post' :
-      url = eventsURL;
-      urlEndpoint = 'events';
-      correctResponseStatusCode = 201;
-      break;
-    case 'put':
-      url = `${eventsURL}/${req.params.id}`;
-      urlEndpoint = `event/${req.params.id}`;
-      correctResponseStatusCode = 200;
-      break;
-    default:
-      return res.render('error', {
-        statusCode: 500,
-        errorMessage: res.locals.localText.serverError
-      });
-  }
-  const reqOptions = {
-    url,
-    method: req.body._method,
-    body: apiBody,
-    json: true
-  };
-  Request(reqOptions, (error, apiResponse, apiResponseBody) => {
+  checkCookie(req, (error, decodedToken) => {
     if (error) {
       return res.render('error', {
         statusCode: 500,
         errorMessage: res.locals.localText.serverError
       });
     }
-    if (apiResponse.statusCode !== correctResponseStatusCode) {
-      return res.render('error', {
-        statusCode: 400,
-        errorMessage: res.locals.localText.badRequest
-      });
-    } else {
-      res.redirect(`/${req.params.lang}/${urlEndpoint}`);
+    let url, urlEndpoint, correctResponseStatusCode, auth;
+    switch (req.body._method) {
+      case 'post' :
+        url = eventsURL;
+        urlEndpoint = 'events';
+        correctResponseStatusCode = 201;
+        break;
+      case 'put':
+        url = `${eventsURL}/${req.params.id}`;
+        urlEndpoint = `event/${req.params.id}`;
+        correctResponseStatusCode = 200;
+        auth = {
+          'bearer': decodedToken
+        };
+        break;
+      default:
+        return res.render('error', {
+          statusCode: 500,
+          errorMessage: res.locals.localText.serverError
+        });
     }
+    const reqOptions = {
+      url,
+      method: req.body._method,
+      body: apiBody,
+      json: true,
+      auth
+    };
+    Request(reqOptions, (error, apiResponse, apiResponseBody) => {
+      if (error) {
+        return res.render('error', {
+          statusCode: 500,
+          errorMessage: res.locals.localText.serverError
+        });
+      }
+      if (apiResponse.statusCode !== correctResponseStatusCode) {
+        return res.render('error', {
+          statusCode: 400,
+          errorMessage: res.locals.localText.badRequest
+        });
+      } else {
+        res.redirect(`/${req.params.lang}/${urlEndpoint}`);
+      }
+    });
   });
 };
