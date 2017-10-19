@@ -26,12 +26,12 @@ module.exports = (req, res) => {
   if (req.query.state !== process.env.STATE) {
     return res.redirect('error', {
       statusCode: 400,
-      errorMessage: res.locals.localText.oauthError
+      errorMessage: 'Something went wrong with your login information! please try again.'
     });
   } else {
-    Request(options, (error, response, body) => {
-      if (error || res.statusCode !== 200) {
-        res.redirect('error', {
+    Request(options, (error, responseToken, body) => {
+      if (error || responseToken.statusCode !== 200) {
+        responseToken.redirect('error', {
           statusCode: 500,
           errorMessage: 'Server error!'
         });
