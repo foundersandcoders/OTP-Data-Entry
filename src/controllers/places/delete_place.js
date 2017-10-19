@@ -3,7 +3,7 @@ const { placesURL } = require('../../constants/urls.json');
 const jwt = require('jsonwebtoken');
 
 module.exports = (req, res) => {
-  if (req.cookies.token) {
+  if (req.cookies && req.cookies.token) {
     jwt.verify(req.cookies.token, process.env.JWT_SECRET, (error, decodedToken) => {
       if (error) {
         return res.render('error', {
