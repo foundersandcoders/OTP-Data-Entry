@@ -41,6 +41,7 @@
     "semistandard": "^11.0.0",
     "snazzy": "^7.0.0",
     "supertest": "^3.0.0",
+    "tachyons": "^4.8.1",
     "tap-spec": "^4.1.1",
     "tape": "^4.8.0"
   },
