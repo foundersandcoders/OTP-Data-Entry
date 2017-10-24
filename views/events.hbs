@@ -1,24 +1,39 @@
- <ul>
-  <h1 class="">{{localText.eventsTitle}}
-  <div class="">
-    <a href="/{{lang}}/add-event">{{localText.add}}</a>
+{{>header}}
+{{>options}}
+
+<a class="f6 ma4 w4 tc grow no-underline br-pill ba bw1 pv2 dib mid-gray b gray" href="/{{lang}}/add-event">{{localText.add}}</a>
+<ul class="list pl0 mt0 mw7 center">
+  <div class="mw8 center">
   {{#each events}}
-    <li class="">
-      <img class="" src="{{this.imageUrl}}" alt="{{localtext.image}}">
-      <div class="">
-        <span class="">{{this.local.name}}</span>
+  <li class="dt w-100 h4">
+  <a class="link dtc dim items-center v-mid lh-copy pa3 ph0-l bb b--black-10" href="/{{../lang}}/event/{{_id}}">
+    <div class="dtc w3 v-mid ">
+      {{#if this.imageUrl}}
+        <img src="{{this.imageUrl}}" alt="{{localtext.image}}" class="db w-100"/>
+      {{else}}
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" alt="{{localtext.image}}" class="db w-100"/>
+      {{/if}}
+    </div>
+    <div class="pa2 dtc w4">
+      <span class="f4 b db black-70">{{this.local.name}}</span>
+    </div>
+    <div class="pa2 dtc w4">
+      <span class="f5 db black-70">
         {{#if this.local.description}}
-          <span class="">{{this.local.description}}</span>
+          {{this.local.description}}
+        {{else}}
+          {{../localText.noDescription}}
         {{/if}}
-        {{#if this.place}}
-          <span class="">{{this.place.local.name}}</span>
-        {{/if}}
-      </div>
-      <div class="">
-        <a href="/{{../lang}}/event/{{_id}}">{{../localText.view}}</a>
-        <a href="/{{../lang}}/edit-event/{{_id}}">{{../localText.edit}}</a>
-        <a href="/{{../lang}}/delete-event/{{_id}}">{{../localText.delete}}</a>
-      </div>
-    </li>
+      </span>
+    </div>
+    <div class="pa2 dtc w4">
+      <span class="f5 db black-70">{{this.categories}}</span>
+    </div>
+  </a>
+  <div class="pa2 dtc w4 v-mid">
+    <a href="/{{../lang}}/edit-event/{{_id}}" class="f6 w4 tc grow no-underline br-pill ba bw1 ph4 pv2 mb2 dib mid-gray b gray">{{../localText.edit}}</a>
+    <a href="/{{../lang}}/delete-event/{{_id}}" class="f6 w4 tc grow no-underline br-pill ba bw1 ph4 pv2 mb2 dib mid-gray b gray">{{../localText.delete}}</a>
+  </div>
+</li>
   {{/each}}
 </ul>
