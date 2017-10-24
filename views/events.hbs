@@ -19,10 +19,10 @@
     </div>
     <div class="pa2 dtc w4">
       <span class="f5 db black-70">
-        {{#if this.local.description}}
-          {{this.local.description}}
+        {{#if this.place}}
+          {{this.place.local.name}}
         {{else}}
-          {{../localText.noDescription}}
+          {{../localText.noLocation}}
         {{/if}}
       </span>
     </div>
