@@ -1,53 +1,59 @@
+{{>header}}
+{{>options}}
 
-<ul class="">
-  <div class="">
-    <a href="/">{{localText.homePage}}</a>
-    <a href="/{{lang}}/places">{{localText.backList}}</a>
-  </div>
-  <div>
-    <img src="{{place.imageUrl}}" alt="place image">
-  </div>
-  <li>{{localText.name}}:
-    {{place.local.name}}
-  </li>
+<a class="f6 ma5 w4 tc grow no-underline br-pill ba bw1 pv2 dib mid-gray b gray" href="/{{lang}}/add-place">{{localText.add}}</a>
+<ul class="list pl0 mt0 mw8 center lh-copy">
+  <div class="flex h5 w100 ">
+    <img class="h-75 w-50" src="{{place.imageUrl}}" alt="place image">
+  <div class="pa2 dtc w-50 v-mid f-subheadline-l flex-auto">
+    <div class="f1 b dark-text tc w-33">
+      {{place.local.name}}
+    </div>
+    <div class="fr">
+      <a href="/{{../lang}}/edit-place/{{_id}}" class="f6 w4  tc grow no-underline br-pill ba bw1 ph4 pv2 mb2 dib mid-gray b gray">{{localText.edit}}</a>
+      <a href="/{{../lang}}/delete-place/{{_id}}" class="f6 w4 tc grow no-underline br-pill ba bw1 ph4 pv2 mb2 dib mid-gray b gray">{{localText.delete}}</a>
+    </div>
+   </div>
+ </div>
+</ul>
+<ul class="felx list pl0 mt0 mw8 center lh-copy">
 
-  <li>{{localText.description}}:
+  <li class="light-text f4 b flex-auto">{{localText.description}}:
     {{place.local.description}}
   </li>
 
-  <li>{{localText.placeAddress}}:
+  <li class="light-text f4 b">{{localText.placeAddress}}:
     {{place.local.address}}
   </li>
 
-  <li>{{localText.placeHours}}:
+  <li class="light-text f4 b">{{localText.placeHours}}:
     {{place.local.openingHours}}
   </li>
 
-  <li>{{localText.placeWebsite}}:
+  <li class="light-text f4 b">{{localText.placeWebsite}}:
     <a href="{{place.website}}">{{localText.viewWebsite}}</a>
   </li>
 
-  <li>{{localText.placePhone}}:
+  <li class="light-text f4 b">{{localText.placePhone}}:
     {{place.phone}}
   </li>
 
-  <li>{{localText.placeEmail}}:
+  <li class="light-text f4 b">{{localText.placeEmail}}:
     {{place.email}}
   </li>
 
-  <li>{{localText.accessibilityOptions}}:
+  <li class="light-text f4 b">{{localText.accessibilityOptions}}:
     {{place.accessibilityOptions}}
   </li>
 
-  <li>{{localText.categories}}:
+  <li class="light-text f4 b">{{localText.categories}}:
     {{place.categories}}
   </li>
   <div id="map" data-loc="{{place.location}}"></div>
-  <div class="">
-    <a href="/{{lang}}/edit-place/{{place._id}}">{{localText.edit}}</a>
-    <a href="/{{lang}}/delete-place/{{place._id}}">{{localText.delete}}</a>
-  </div>
 </ul>
+
+
+
 
 
 <script type="text/javascript" src="/map.js"></script>
