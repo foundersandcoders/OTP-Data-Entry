@@ -1,60 +1,64 @@
 {{>header}}
 {{>options}}
 
-<a class="f6 ma5 w4 tc grow no-underline br-pill ba bw1 pv2 dib mid-gray b gray" href="/{{lang}}/add-place">{{localText.add}}</a>
-<ul class="list pl0 mt0 mw8 center lh-copy">
-  <div class="flex h5 w100 ">
-    <img class="h-75 w-50" src="{{place.imageUrl}}" alt="place image">
-  <div class="pa2 dtc w-50 v-mid f-subheadline-l flex-auto">
-    <div class="f1 b dark-text tc w-33">
-      {{place.local.name}}
-    </div>
-    <div class="fr">
-      <a href="/{{../lang}}/edit-place/{{_id}}" class="f6 w4  tc grow no-underline br-pill ba bw1 ph4 pv2 mb2 dib mid-gray b gray">{{localText.edit}}</a>
-      <a href="/{{../lang}}/delete-place/{{_id}}" class="f6 w4 tc grow no-underline br-pill ba bw1 ph4 pv2 mb2 dib mid-gray b gray">{{localText.delete}}</a>
-    </div>
-   </div>
- </div>
-</ul>
-<ul class="felx list pl0 mt0 mw8 center lh-copy">
-
-  <li class="light-text f4 b flex-auto">{{localText.description}}:
-    {{place.local.description}}
-  </li>
-
-  <li class="light-text f4 b">{{localText.placeAddress}}:
-    {{place.local.address}}
-  </li>
-
-  <li class="light-text f4 b">{{localText.placeHours}}:
-    {{place.local.openingHours}}
-  </li>
-
-  <li class="light-text f4 b">{{localText.placeWebsite}}:
-    <a href="{{place.website}}">{{localText.viewWebsite}}</a>
-  </li>
-
-  <li class="light-text f4 b">{{localText.placePhone}}:
-    {{place.phone}}
-  </li>
-
-  <li class="light-text f4 b">{{localText.placeEmail}}:
-    {{place.email}}
-  </li>
-
-  <li class="light-text f4 b">{{localText.accessibilityOptions}}:
-    {{place.accessibilityOptions}}
-  </li>
-
-  <li class="light-text f4 b">{{localText.categories}}:
-    {{place.categories}}
-  </li>
-  <div id="map" data-loc="{{place.location}}"></div>
-</ul>
-
-
-
-
+<a class="f6 ma4 w4 tc grow no-underline br-pill ba bw1 pv2 dib mid-gray b gray" href="/{{lang}}/add-place">{{localText.add}}</a>
+<div class="pa4">
+  <div class="overflow-auto">
+    <table class="f6 w-100 mw8 center" cellspacing="0">
+      <thead>
+        <tr class="ma2">
+          <th class="fw6 tl pa3">
+            <img src="{{place.imageUrl}}" alt="place image">
+          </th>
+          <th class="f1 tc dark-text">{{place.local.name}}</th>
+          <th class="fw6 pa3">
+              <a href="/{{../lang}}/edit-place/{{_id}}" class="f6 w4 grow no-underline br-pill ba bw1 pv2 mv2 db mid-gray b gray">{{localText.edit}}</a>
+          <th>
+            <a href="/{{../lang}}/delete-place/{{_id}}" class="f6 w4 tc grow no-underline br-pill ba bw1 ph4 pv2 mv2 pv2 db mid-gray b gray">{{localText.delete}}</a>
+          </th>
+          </th>
+        </tr>
+      </thead>
+      <tbody class="">
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.description}}:</td>
+          <td class="tl light-text f4">{{place.local.description}}</td>
+        </tr>
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.placeAddress}}:</td>
+          <td class="tl light-text f4">{{place.local.address}}</td>
+        </tr>
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.placeHours}}:</td>
+          <td class="tl light-text f4">{{place.local.openingHours}}</td>
+        </tr>
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.placeWebsite}}:</td>
+          <td class="tl light-text f4">{{place.website}}</td>
+        </tr>
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.placePhone}}:</td>
+          <td class="tl light-text f4">{{place.phone}}</td>
+        </tr>
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.placeEmail}}:</td>
+          <td class="tl light-text f4">{{place.email}}</td>
+        </tr>
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.accessibilityOptions}}:</td>
+          <td class="tl light-text f4">{{place.accessibilityOptions}}</td>
+        </tr>
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.categories}}:</td>
+          <td class="tl light-text f4">{{place.categories}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="f3 b text-turquoise mw8 center">
+    __________________________________________________________________________
+  </div>
+</div>
 
 <script type="text/javascript" src="/map.js"></script>
 <script type="text/javascript" src={{{getMapLink}}}></script>
