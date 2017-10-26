@@ -21,3 +21,7 @@
  .text-turquoise {
    color: #409A93;
  }
+
+.b--turquoise {
+  border-color: #409A93;
+}
