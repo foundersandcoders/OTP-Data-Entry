@@ -4,11 +4,15 @@
 <a class="f6 ma4 w4 tc grow no-underline br-pill ba bw1 pv2 dib mid-gray b gray" href="/{{lang}}/add-place">{{localText.add}}</a>
 <div class="pa4">
   <div class="overflow-auto">
-    <table class="f6 w-100 mw8 center" cellspacing="0">
+    <table class="f6 w-100 mw8 center bb b--turquoise bw2" cellspacing="0">
       <thead>
         <tr class="ma2">
           <th class="fw6 tl pa3">
-            <img src="{{place.imageUrl}}" alt="place image">
+            {{#if place.imageUrl}}
+              <img src="{{place.imageUrl}}" alt="{{localText.image}}">
+            {{else}}
+              <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" alt="{{localText.image}}">
+            {{/if}}
           </th>
           <th class="f1 tc dark-text">{{place.local.name}}</th>
           <th class="fw6 pa3">
@@ -54,9 +58,6 @@
         </tr>
       </tbody>
     </table>
-  </div>
-  <div class="f3 b text-turquoise mw8 center">
-    __________________________________________________________________________
   </div>
 </div>
 
