@@ -13,3 +13,15 @@
  .lato {
    font-family: 'lato', sans-serif;
  }
+
+ .dark-text {
+   color: #5C5C5C;
+ }
+
+ .text-turquoise {
+   color: #409A93;
+ }
+
+.b--turquoise {
+  border-color: #409A93;
+}

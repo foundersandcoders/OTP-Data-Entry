@@ -1,54 +1,65 @@
+{{>header}}
+{{>options}}
 
-<ul class="">
-  <div class="">
-    <a href="/">{{localText.homePage}}</a>
-    <a href="/{{lang}}/places">{{localText.backList}}</a>
+<a class="f6 ma4 w4 tc grow no-underline br-pill ba bw1 pv2 dib mid-gray b gray" href="/{{lang}}/add-place">{{localText.add}}</a>
+<div class="pa4">
+  <div class="overflow-auto">
+    <table class="f6 w-100 mw8 center bb b--turquoise bw2" cellspacing="0">
+      <thead>
+        <tr class="ma2">
+          <th class="fw6 pa3 tr w-25">
+            {{#if place.imageUrl}}
+              <img src="{{place.imageUrl}}" alt="{{localText.image}}">
+            {{else}}
+              <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" alt="{{localText.image}}">
+            {{/if}}
+          </th>
+          <th class="f1 tc dark-text">{{place.local.name}}</th>
+          <th class="fw6 pa3">
+              <a href="/{{lang}}/edit-place/{{place._id}}" class="f6 w4 grow no-underline br-pill ba bw1 pv2 mv2 db mid-gray b gray">{{localText.edit}}</a>
+          <th>
+            <a href="/{{lang}}/delete-place/{{place._id}}" class="f6 w4 tc grow no-underline br-pill ba bw1 ph4 pv2 mv2 pv2 db mid-gray b gray">{{localText.delete}}</a>
+          </th>
+          </th>
+        </tr>
+      </thead>
+      <tbody class="">
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.description}}:</td>
+          <td class="tl light-text f4">{{place.local.description}}</td>
+        </tr>
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.placeAddress}}:</td>
+          <td class="tl light-text f4">{{place.local.address}}</td>
+        </tr>
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.placeHours}}:</td>
+          <td class="tl light-text f4">{{place.local.openingHours}}</td>
+        </tr>
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.placeWebsite}}:</td>
+          <td class="tl light-text f4">{{place.website}}</td>
+        </tr>
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.placePhone}}:</td>
+          <td class="tl light-text f4">{{place.phone}}</td>
+        </tr>
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.placeEmail}}:</td>
+          <td class="tl light-text f4">{{place.email}}</td>
+        </tr>
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.accessibilityOptions}}:</td>
+          <td class="tl light-text f4">{{place.accessibilityOptions}}</td>
+        </tr>
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.categories}}:</td>
+          <td class="tl light-text f4">{{place.categories}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div>
-    <img src="{{place.imageUrl}}" alt="place image">
-  </div>
-  <li>{{localText.name}}:
-    {{place.local.name}}
-  </li>
-
-  <li>{{localText.description}}:
-    {{place.local.description}}
-  </li>
-
-  <li>{{localText.placeAddress}}:
-    {{place.local.address}}
-  </li>
-
-  <li>{{localText.placeHours}}:
-    {{place.local.openingHours}}
-  </li>
-
-  <li>{{localText.placeWebsite}}:
-    <a href="{{place.website}}">{{localText.viewWebsite}}</a>
-  </li>
-
-  <li>{{localText.placePhone}}:
-    {{place.phone}}
-  </li>
-
-  <li>{{localText.placeEmail}}:
-    {{place.email}}
-  </li>
-
-  <li>{{localText.accessibilityOptions}}:
-    {{place.accessibilityOptions}}
-  </li>
-
-  <li>{{localText.categories}}:
-    {{place.categories}}
-  </li>
-  <div id="map" data-loc="{{place.location}}"></div>
-  <div class="">
-    <a href="/{{lang}}/edit-place/{{place._id}}">{{localText.edit}}</a>
-    <a href="/{{lang}}/delete-place/{{place._id}}">{{localText.delete}}</a>
-  </div>
-</ul>
-
+</div>
 
 <script type="text/javascript" src="/map.js"></script>
 <script type="text/javascript" src={{{getMapLink}}}></script>
