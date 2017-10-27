@@ -12,138 +12,159 @@
 <table class="w-100 mw8 center bb b--turquoise bw2">
   <tbody>
     <tr>
-      <td class="dark-text f4 b pa3 tr">{{localText.name}}</td>
-      <td class="">
-        <th class="">
+      <th class=" dark-text f4 b pa3 tr">{{localText.name}}</th>
+      <th class="w5">
           {{#if place.en.name}}
-            <input class="input-reset w-100 br2 ba b--gray" type="text" name="name_en" value="{{place.en.name}}">
+            <input class="input-reset w5 br2 ba b--gray" type="text" name="name_en" value="{{place.en.name}}">
           {{else}}
-            <input class="input-reset w-100 br2 ba b--gray dib" type="text" name="name_en" placeholder="{{localText.english}}">
+            <input class="input-reset w5 br2 ba b--gray dib" type="text" name="name_en" placeholder="{{localText.english}}">
           {{/if}}
-        </th>
-        <th>
+      </th>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="">
           {{#if place.ar.name}}
             <input class="input-reset w-100 br2 ba b--gray" type="text" name="name_ar" value="{{place.ar.name}}">
           {{else}}
             <input class="input-reset w-100 br2 ba b--gray dib" type="text" name="name_ar" placeholder="{{localText.arabic}}">
           {{/if}}
-        </th>
-      </td>
+        </td>
     </tr>
     <tr>
-      <td class="dark-text f4 b pa3 tr">{{localText.description}}</td>
-      <td class="">
-        <th class="w-100">
+      <th class=" dark-text f4 b pa3 tr">{{localText.description}}</th>
+      <th class="w5">
           {{#if place.en.description}}
-            <input class="input-reset w-100 br2 ba b--gray" type="text" name="description_en" value="{{place.en.description}}">
+            <input class="input-reset w5 br2 ba b--gray" type="text" name="description_en" value="{{place.en.description}}">
           {{else}}
-            <input class="input-reset w-100 br2 ba b--gray" type="text" name="description_en" placeholder="{{localText.english}}">
+            <input class="input-reset w5 br2 ba b--gray dib" type="text" name="descriptiondescription_en" placeholder="{{localText.english}}">
           {{/if}}
-        </th>
-        <th class="w-100">
-          {{#if place.ar.description}}
-            <input class="input-reset w5 br2 ba b--gray" type="text" name="description_ar" value="{{place.ar.description}}">
-          {{else}}
-            <input class="input-reset w5 br2 ba b--gray" type="text" name="description_ar" placeholder="{{localText.arabic}}">
-          {{/if}}
-        </th>
-      </td>
+      </th>
     </tr>
     <tr>
-      <td class="dark-text f4 b pa3 tr">{{localText.placeAddress}}</td>
-      <td class="">
-        <th>
+        <td></td>
+        <td class="">
+          {{#if place.ar.description}}
+            <input class="input-reset w-100 br2 ba b--gray" type="text" name="description_ar" value="{{place.ar.description}}">
+          {{else}}
+            <input class="input-reset w-100 br2 ba b--gray dib" type="text" name="description_ar" placeholder="{{localText.arabic}}">
+          {{/if}}
+        </td>
+    </tr>
+    <tr>
+      <th class=" dark-text f4 b pa3 tr">{{localText.placeAddress}}</th>
+      <th class="w5">
           {{#if place.en.address}}
             <input class="input-reset w5 br2 ba b--gray" type="text" name="address_en" value="{{place.en.address}}">
           {{else}}
-            <input class="input-reset w5 br2 ba b--gray" type="text" name="address_en" placeholder="{{localText.english}}">
+            <input class="input-reset w5 br2 ba b--gray dib" type="text" name="address_en" placeholder="{{localText.english}}">
           {{/if}}
-        </th>
-        <th>
-          {{#if place.ar.address}}
-            <input class="input-reset w5 br2 ba b--gray" type="text" name="address_ar" value="{{place.ar.address}}">
-          {{else}}
-            <input class="input-reset w5 br2 ba b--gray" type="text" name="address_ar" placeholder="{{localText.arabic}}">
-          {{/if}}
-        </th>
-      </td>
+      </th>
     </tr>
     <tr>
-      <td class="dark-text f4 b pa3 tr">{{localText.placeHours}}</td>
-      <td class="">
-        <th>
+        <td></td>
+        <td class="">
+          {{#if place.ar.address}}
+            <input class="input-reset w-100 br2 ba b--gray" type="text" name="address_ar" value="{{place.ar.address}}">
+          {{else}}
+            <input class="input-reset w-100 br2 ba b--gray dib" type="text" name="address_ar" placeholder="{{localText.arabic}}">
+          {{/if}}
+        </td>
+    </tr>
+    <tr>
+      <th class=" dark-text f4 b pa3 tr">{{localText.placeHours}}</th>
+      <th class="w5">
           {{#if place.en.openingHours}}
             <input class="input-reset w5 br2 ba b--gray" type="text" name="openingHours_en" value="{{place.en.openingHours}}">
           {{else}}
-            <input class="input-reset w5 br2 ba b--gray" type="text" name="address_en" placeholder="{{localText.english}}">
+            <input class="input-reset w5 br2 ba b--gray dib" type="text" name="openingHours_en" placeholder="{{localText.english}}">
           {{/if}}
-        </th>
-        <th>
-          {{#if place.ar.openingHours}}
-            <input class="input-reset w5 br2 ba b--gray" type="text" name="openingHours_ar" value="{{place.ar.openingHours}}">
-          {{else}}
-            <input class="input-reset w5 br2 ba b--gray" type="text" name="openingHours_ar" placeholder="{{localText.arabic}}">
-          {{/if}}
-        </th>
-      </td>
+      </th>
     </tr>
     <tr>
-      <td class="dark-text db b pa3 tr f4">{{localText.placeWebsite}}</td>
-      <td class="">
-        <th class="">
+        <td></td>
+        <td class="">
+          {{#if place.ar.openingHours}}
+            <input class="input-reset w-100 br2 ba b--gray" type="text" name="openingHours_ar" value="{{place.ar.openingHours}}">
+          {{else}}
+            <input class="input-reset w-100 br2 ba b--gray dib" type="text" name="openingHours_ar" placeholder="{{localText.arabic}}">
+          {{/if}}
+        </td>
+    </tr>
+    <tr>
+      <th class=" dark-text f4 b pa3 tr">{{localText.placeWebsite}}</th>
+      <th class="w5">
           {{#if place.website}}
             <input class="input-reset w5 br2 ba b--gray" type="text" name="website" value="{{place.website}}">
           {{else}}
-            <input class="input-reset w5 br2 ba b--gray" type="text" name="website">
+            <input class="input-reset w5 br2 ba b--gray dib" type="text" name="website">
           {{/if}}
-        </th>
-      </td>
-    </tr>
-    <tr class="">
-      <td class="dark-text f4 b pa3 tr ">{{localText.placeEmail}}</td>
-      <td class="">
-        <th class="w-100">
-          {{#if place.email}}
-            <input class="input-reset br2 ba b--gray" type="text" name="email" value="{{place.email}}">
-          {{else}}
-            <input class="input-reset w5 br2 ba b--gray" type="text" name="email">
-          {{/if}}
-        </th>
-      </td>
+      </th>
     </tr>
     <tr>
-      <td class="dark-text f4 b pa3 tr">{{localText.formImageUrl}}</td>
-      <td class="">
-        <th>
+      <th class=" dark-text f4 b pa3 tr">{{localText.placeEmail}}</th>
+      <th class="w5">
+          {{#if place.email}}
+            <input class="input-reset w5 br2 ba b--gray" type="text" name="email" value="{{place.email}}">
+          {{else}}
+            <input class="input-reset w5 br2 ba b--gray dib" type="text" name="email">
+          {{/if}}
+      </th>
+    </tr>
+    <tr>
+      <th class=" dark-text f4 b pa3 tr">{{localText.formImageUrl}}</th>
+      <th class="w5">
           {{#if place.imageUrl}}
             <input class="input-reset w5 br2 ba b--gray" type="text" name="imageUrl" value="{{place.imageUrl}}">
           {{else}}
-            <input class="input-reset w5 br2 ba b--gray" type="text" name="imageUrl">
+            <input class="input-reset w5 br2 ba b--gray dib" type="text" name="imageUrl">
           {{/if}}
+      </th>
+    </tr>
+    <tr>
+      <th class=" dark-text f4 b pa3 tr">{{localText.accessibilityOptions}}</th>
+      <th class="flex items-start mb2">
+      <th class="flex items-center mb2">
+        <input class="mr2" id="braille" type="checkbox" name="accessibility" value="Braille" {{checkOptionsValue place.accessibilityOptions "Braille"}}>
+        <label for="braille" class="light-text">{{localText.brailleMenu}}</label>
+      </th>
+        <th class="flex items-center mb2">
+          <input class="mr2" id="audio-recordings" type="checkbox" name="accessibility" value="audio-recordings" {{checkOptionsValue place.accessibilityOptions "audio-recordings"}}>
+          <label for="audio-recordings" class="light-text">{{localText.audioRecordings}}</label>
         </th>
-      </td>
+        <th class="flex items-center mb2">
+          <input class="mr2" id="big-fonts" type="checkbox" name="accessibility" value="Big fonts" {{checkOptionsValue place.accessibilityOptions "Big fonts"}}>
+          <label for="big-fonts" class="light-text">{{localText.bigFonts}}</label>
+        </th>
+        <th class="flex items-center mb2">
+          <input class="mr2" id="carer" type="checkbox" name="accessibility" value="carer" {{checkOptionsValue place.accessibilityOptions "Carer"}}>
+          <label for="carer" class="light-text">{{localText.carer}}</label>
+        </th>
+        <th class="flex items-center mb2">
+          <input class="mr2" id="guide-dog" type="checkbox" name="accessibility" value="Place for guide dog" {{checkOptionsValue place.accessibilityOptions "Place for guide dog"}}>
+          <label for="guide-dog" class="light-text">{{localText.guideDog}}</label>
+        </th>
+        <th class="flex items-center mb2">
+          <input class="mr2" id="sms-message" type="checkbox" name="accessibility" value="SMS messaging" {{checkOptionsValue place.accessibilityOptions "SMS messaging"}}>
+          <label for="sms-message" class="light-text">{{localText.smsMessaging}}</label>
+        </th>
+        <th class="flex items-center mb2">
+          <input class="mr2" id="sign-lang" type="checkbox" name="accessibility" value="Sign language" {{{checkOptionsValue place.accessibilityOptions "Sign language"}}}>
+          <label for="sign-lang" class="light-text">{{localText.signLang}}</label>
+        </th>
+        <th class="flex items-center mb2">
+          <input class="mr2" id="good-lighting" type="checkbox" name="accessibility" value="Good lighting" {{checkOptionsValue place.accessibilityOptions "Good lighting"}}>
+          <label for="good-lighting" class="light-text">{{localText.goodLighting}}</label>
+        </th>
+      </th>
+    </fieldset>
+
+
     </tr>
     <tr>
       <td class="dark-text f4 b pa3 tr">{{localText.accessibilityOptions}}</td>
       <td class="">
-        <th>
-          <label for="audio-recordings" class="light-text">{{localText.audioRecordings}}</label>
-          <input id="audio-recordings" type="checkbox" name="accessibility" value="Audio recordings" {{checkOptionsValue place.accessibilityOptions "Audio recordings"}}>
-          <label for="braille" class="light-text">{{localText.brailleMenu}}</label>
-          <input id="braille" type="checkbox" name="accessibility" value="Braille" {{checkOptionsValue place.accessibilityOptions "Braille"}}>
-        </th>
-        <th>
-          <label for="big-fonts" class="light-text">{{localText.bigFonts}}</label>
-          <input id="big-fonts" type="checkbox" name="accessibility" value="Big fonts" {{checkOptionsValue place.accessibilityOptions "Big fonts"}}>
-          <label for="carer" class="light-text">{{localText.carer}}</label>
-          <input id="carer" type="checkbox" name="accessibility" value="carer" {{checkOptionsValue place.accessibilityOptions "Carer"}}>
-        </th>
-        <th>
-          <label for="guide-dog" class="light-text">{{localText.guideDog}}</label>
-          <input id="guide-dog" type="checkbox" name="accessibility" value="Place for guide dog" {{checkOptionsValue place.accessibilityOptions "Place for guide dog"}}>
-          <label for="sms-message" class="light-text">{{localText.smsMessaging}}</label>
-          <input id="sms-message" type="checkbox" name="accessibility" value="SMS messaging" {{checkOptionsValue place.accessibilityOptions "SMS messaging"}}>
-        </th>
+
         <th>
           <label for="sign-lang" class="light-text">{{localText.signLang}}</label>
           <input id="sign-lang" type="checkbox" name="accessibility" value="Sign language" {{{checkOptionsValue place.accessibilityOptions "Sign language"}}}>
