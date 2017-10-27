@@ -1,6 +1,9 @@
 {{>header}}
 {{>options}}
 
+<div class="tc w-100 pt5 mt2">
+  <span class="dark-text">{{localText.formInfo}}</span>
+</div>
 {{#if edit}}
   <form class="" action="/{{lang}}/edit-place/{{place._id}}" method="post">
     <input type="hidden" name="_method" value="put">
@@ -8,28 +11,21 @@
   <form class="" action="/{{lang}}/add-place" method="post">
     <input type="hidden" name="_method" value="post">
 {{/if}}
-
 <table class="f6 w-100 mw8 center bb b--turquoise bw2">
-  <thead>
-    <tr class="ma2">
-      <th>
-      </th>
-    </tr>
-  </thead>
   <tbody>
     <tr>
-      <th class=" dark-text f4 b pa3 tr">{{localText.name}}</th>
-      <th class="w5">
+      <td class="w-20 dark-text f4 b pa3 tr">*{{localText.name}}</td>
+      <td class="w-100">
           {{#if place.en.name}}
-            <input class="input-reset w5 br2 ba b--gray" type="text" name="name_en" value="{{place.en.name}}">
+            <input class="input-reset w-100 br2 ba b--gray" type="text" name="name_en" value="{{place.en.name}}">
           {{else}}
-            <input class="input-reset w5 br2 ba b--gray dib" type="text" name="name_en" placeholder="{{localText.english}}">
+            <input class="input-reset w-100 br2 ba b--gray dib" type="text" name="name_en" placeholder="{{localText.english}}">
           {{/if}}
-      </th>
+      </td>
     </tr>
     <tr>
-        <td></td>
-        <td class="">
+        <td class="w-20"></td>
+        <td class="w-100">
           {{#if place.ar.name}}
             <input class="input-reset w-100 br2 ba b--gray" type="text" name="name_ar" value="{{place.ar.name}}">
           {{else}}
@@ -38,38 +34,38 @@
         </td>
     </tr>
     <tr>
-      <th class=" dark-text f4 b pa3 tr">{{localText.description}}</th>
-      <th class="w5">
+      <td class="w-20 dark-text f4 b pa3 tr">{{localText.description}}</td>
+      <td class="w-100 pt3">
           {{#if place.en.description}}
-            <input class="input-reset w5 br2 ba b--gray" type="text" name="description_en" value="{{place.en.description}}">
+            <textarea class="input-reset w-100 br2 ba b--gray" type="text" name="description_en" value="{{place.en.description}}"></textarea>
           {{else}}
-            <input class="input-reset w5 br2 ba b--gray dib" type="text" name="descriptiondescription_en" placeholder="{{localText.english}}">
+            <textarea class="input-reset w-100 br2 ba b--gray dib" type="text" name="description_en" placeholder="{{localText.english}}"></textarea>
           {{/if}}
-      </th>
+      </td>
     </tr>
     <tr>
-        <td></td>
-        <td class="">
+        <td class="w-20"></td>
+        <td class="w-100">
           {{#if place.ar.description}}
-            <input class="input-reset w-100 br2 ba b--gray" type="text" name="description_ar" value="{{place.ar.description}}">
+            <textarea class="input-reset w-100 br2 ba b--gray" type="text" name="description_ar" value="{{place.ar.description}}"></textarea>
           {{else}}
-            <input class="input-reset w-100 br2 ba b--gray dib" type="text" name="description_ar" placeholder="{{localText.arabic}}">
+            <textarea class="input-reset w-100 br2 ba b--gray dib" type="text" name="description_ar" placeholder="{{localText.arabic}}"></textarea>
           {{/if}}
         </td>
     </tr>
     <tr>
-      <th class=" dark-text f4 b pa3 tr">{{localText.placeAddress}}</th>
-      <th class="w5">
+      <td class="w-20 dark-text f4 b pa3 tr">{{localText.placeAddress}}</td>
+      <td class="w-100">
           {{#if place.en.address}}
-            <input class="input-reset w5 br2 ba b--gray" type="text" name="address_en" value="{{place.en.address}}">
+            <input class="input-reset w-100 br2 ba b--gray" type="text" name="address_en" value="{{place.en.address}}">
           {{else}}
-            <input class="input-reset w5 br2 ba b--gray dib" type="text" name="address_en" placeholder="{{localText.english}}">
+            <input class="input-reset w-100 br2 ba b--gray dib" type="text" name="address_en" placeholder="{{localText.english}}">
           {{/if}}
-      </th>
+      </td>
     </tr>
     <tr>
-        <td></td>
-        <td class="">
+        <td class="w-20"></td>
+        <td class="w-100">
           {{#if place.ar.address}}
             <input class="input-reset w-100 br2 ba b--gray" type="text" name="address_ar" value="{{place.ar.address}}">
           {{else}}
@@ -78,18 +74,18 @@
         </td>
     </tr>
     <tr>
-      <th class=" dark-text f4 b pa3 tr">{{localText.placeHours}}</th>
-      <th class="w5">
+      <td class="w-20 dark-text f4 b pa3 tr">{{localText.placeHours}}</td>
+      <td class="w-100">
           {{#if place.en.openingHours}}
-            <input class="input-reset w5 br2 ba b--gray" type="text" name="openingHours_en" value="{{place.en.openingHours}}">
+            <input class="input-reset w-100 br2 ba b--gray" type="text" name="openingHours_en" value="{{place.en.openingHours}}">
           {{else}}
-            <input class="input-reset w5 br2 ba b--gray dib" type="text" name="openingHours_en" placeholder="{{localText.english}}">
+            <input class="input-reset w-100 br2 ba b--gray dib" type="text" name="openingHours_en" placeholder="{{localText.english}}">
           {{/if}}
-      </th>
+      </td>
     </tr>
     <tr>
-        <td></td>
-        <td class="">
+        <td class="w-20"></td>
+        <td class="w-100">
           {{#if place.ar.openingHours}}
             <input class="input-reset w-100 br2 ba b--gray" type="text" name="openingHours_ar" value="{{place.ar.openingHours}}">
           {{else}}
@@ -98,129 +94,126 @@
         </td>
     </tr>
     <tr>
-      <th class=" dark-text f4 b pa3 tr">{{localText.placeWebsite}}</th>
-      <th class="w5">
+      <td class="w-20 dark-text f4 b pb3 ph3 pt1 tr">{{localText.placeWebsite}}</td>
+      <td class="w-100">
           {{#if place.website}}
-            <input class="input-reset w5 br2 ba b--gray" type="text" name="website" value="{{place.website}}">
+            <input class="input-reset w-100 br2 ba b--gray" type="text" name="website" value="{{place.website}}">
           {{else}}
-            <input class="input-reset w5 br2 ba b--gray dib" type="text" name="website">
+            <input class="input-reset w-100 br2 ba b--gray dib" type="text" name="website">
           {{/if}}
-      </th>
+      </td>
     </tr>
     <tr>
-      <th class=" dark-text f4 b pa3 tr">{{localText.placeEmail}}</th>
-      <th class="w5">
+      <td class="w-20 dark-text f4 b ph3 pb3 pt0 tr">{{localText.placeEmail}}</td>
+      <td class="w-100">
           {{#if place.email}}
-            <input class="input-reset w5 br2 ba b--gray" type="text" name="email" value="{{place.email}}">
+            <input class="input-reset w-100 br2 ba b--gray" type="text" name="email" value="{{place.email}}">
           {{else}}
-            <input class="input-reset w5 br2 ba b--gray dib" type="text" name="email">
+            <input class="input-reset w-100 br2 ba b--gray dib" type="text" name="email">
           {{/if}}
-      </th>
+      </td>
     </tr>
     <tr>
-      <th class=" dark-text f4 b pa3 tr">{{localText.formImageUrl}}</th>
-      <th class="w5">
+      <td class="w-20 dark-text f4 b ph3 pb3 pt0 tr">{{localText.formImageUrl}}</td>
+      <td class="w-100">
           {{#if place.imageUrl}}
-            <input class="input-reset w5 br2 ba b--gray" type="text" name="imageUrl" value="{{place.imageUrl}}">
+            <input class="input-reset w-100 br2 ba b--gray" type="text" name="imageUrl" value="{{place.imageUrl}}">
           {{else}}
-            <input class="input-reset w5 br2 ba b--gray dib" type="text" name="imageUrl">
+            <input class="input-reset w-100 br2 ba b--gray dib" type="text" name="imageUrl">
           {{/if}}
-      </th>
+      </td>
     </tr>
     <tr>
-      <th class=" dark-text f4 b pa3 tr">{{localText.accessibilityOptions}}</th>
-      <th class="flex items-start mb2">
-      <th class="flex items-center mb2">
-        <input class="mr2" id="braille" type="checkbox" name="accessibility" value="Braille" {{checkOptionsValue place.accessibilityOptions "Braille"}}>
-        <label for="braille" class="light-text">{{localText.brailleMenu}}</label>
-      </th>
-        <th class="flex items-center mb2">
-          <input class="mr2" id="audio-recordings" type="checkbox" name="accessibility" value="audio-recordings" {{checkOptionsValue place.accessibilityOptions "audio-recordings"}}>
-          <label for="audio-recordings" class="light-text">{{localText.audioRecordings}}</label>
-        </th>
-        <th class="flex items-center mb2">
-          <input class="mr2" id="big-fonts" type="checkbox" name="accessibility" value="Big fonts" {{checkOptionsValue place.accessibilityOptions "Big fonts"}}>
-          <label for="big-fonts" class="light-text">{{localText.bigFonts}}</label>
-        </th>
-        <th class="flex items-center mb2">
-          <input class="mr2" id="carer" type="checkbox" name="accessibility" value="carer" {{checkOptionsValue place.accessibilityOptions "Carer"}}>
-          <label for="carer" class="light-text">{{localText.carer}}</label>
-        </th>
-        <th class="flex items-center mb2">
-          <input class="mr2" id="guide-dog" type="checkbox" name="accessibility" value="Place for guide dog" {{checkOptionsValue place.accessibilityOptions "Place for guide dog"}}>
-          <label for="guide-dog" class="light-text">{{localText.guideDog}}</label>
-        </th>
-        <th class="flex items-center mb2">
-          <input class="mr2" id="sms-message" type="checkbox" name="accessibility" value="SMS messaging" {{checkOptionsValue place.accessibilityOptions "SMS messaging"}}>
-          <label for="sms-message" class="light-text">{{localText.smsMessaging}}</label>
-        </th>
-        <th class="flex items-center mb2">
-          <input class="mr2" id="sign-lang" type="checkbox" name="accessibility" value="Sign language" {{{checkOptionsValue place.accessibilityOptions "Sign language"}}}>
-          <label for="sign-lang" class="light-text">{{localText.signLang}}</label>
-        </th>
-        <th class="flex items-center mb2">
-          <input class="mr2" id="good-lighting" type="checkbox" name="accessibility" value="Good lighting" {{checkOptionsValue place.accessibilityOptions "Good lighting"}}>
-          <label for="good-lighting" class="light-text">{{localText.goodLighting}}</label>
-        </th>
-        <th class="flex items-center mb2">
-          <input class="mr2" id="wheelchair" type="checkbox" name="accessibility" value="Wheelchair access" {{checkOptionsValue place.accessibilityOptions "Wheelchair access"}}>
-          <label for="wheelchair" class="light-text">{{localText.wheelchairFriendly}}</label>
-        </th>
-        <th class="flex items-center mb2">
-          <input class="mr2" id="disabled-parking" type="checkbox" name="accessibility" value="Disabled parking" {{checkOptionsValue place.accessibilityOptions "Disabled parking"}}>
-          <label for="disabled-parking" class="light-text">{{localText.disabledParking}}</label>
-        </th>
-        <th class="flex items-center mb2">
-          <input class="mr2" id="disabled-toilets" type="checkbox" name="accessibility" value="Disabled toilets" {{checkOptionsValue place.accessibilityOptions "Disabled toilets"}}>
-          <label for="disabled-toilets" class="light-text">{{localText.disabledToilet}}</label>
-        </th>
-      </th>
-    </fieldset>
-    </tr>
-    <tr>
-      <th class="dark-text f4 b pa3 tr">{{localText.categories}}</th>
-      <th class="flex items-center mb2">
-      <th class="flex items-center mb2">
-        <input class="mr2" id="cafe" type="checkbox" name="categories" value="cafe" {{checkOptionsValue place.categories "cafe"}}>
-        <label for="cafe" class="light-text">{{localText.cafe}}</label>
-      </th>
-        <th class="flex items-center mb2">
+      <td class="w-20 dark-text f4 b pa3 tr">{{localText.accessibilityOptions}}
+      </td>
+      <td><table><tr>
+          <td class="flex items-center mb2 ">
+            <input class="mr2" id="braille" type="checkbox" name="accessibility" value="Braille" {{checkOptionsValue place.accessibilityOptions "Braille"}}>
+            <label for="braille" class="light-text">{{localText.brailleMenu}}</label>
+          </td>
+          <td class="flex items-center mb2">
+            <input class="mr2" id="audio-recordings" type="checkbox" name="accessibility" value="Audio-recordings" {{checkOptionsValue place.accessibilityOptions "Audio-recordings"}}>
+            <label for="audio-recordings" class="light-text">{{localText.audioRecordings}}</label>
+          </td>
+          <td class="flex items-center mb2">
+            <input class="mr2" id="big-fonts" type="checkbox" name="accessibility" value="Big fonts" {{checkOptionsValue place.accessibilityOptions "Big fonts"}}>
+            <label for="big-fonts" class="light-text">{{localText.bigFonts}}</label>
+          </td>
+          <td class="flex items-center mb2">
+            <input class="mr2" id="carer" type="checkbox" name="accessibility" value="Carer" {{checkOptionsValue place.accessibilityOptions "Carer"}}>
+            <label for="carer" class="light-text">{{localText.carer}}</label>
+          </td>
+          <td class="flex items-center mb2">
+            <input class="mr2" id="guide-dog" type="checkbox" name="accessibility" value="Place for guide dog" {{checkOptionsValue place.accessibilityOptions "Place for guide dog"}}>
+            <label for="guide-dog" class="light-text">{{localText.guideDog}}</label>
+          </td>
+          <td class="flex items-center mb2">
+            <input class="mr2" id="sms-message" type="checkbox" name="accessibility" value="SMS messaging" {{checkOptionsValue place.accessibilityOptions "SMS messaging"}}>
+            <label for="sms-message" class="light-text">{{localText.smsMessaging}}</label>
+          </td>
+          <td class="flex items-center mb2">
+            <input class="mr2" id="sign-lang" type="checkbox" name="accessibility" value="Sign language" {{{checkOptionsValue place.accessibilityOptions "Sign language"}}}>
+            <label for="sign-lang" class="light-text">{{localText.signLang}}</label>
+          </td>
+          <td class="flex items-center mb2">
+            <input class="mr2" id="good-lighting" type="checkbox" name="accessibility" value="Good lighting" {{checkOptionsValue place.accessibilityOptions "Good lighting"}}>
+            <label for="good-lighting" class="light-text">{{localText.goodLighting}}</label>
+          </td>
+          <td class="flex items-center mb2">
+            <input class="mr2" id="wheelchair" type="checkbox" name="accessibility" value="Wheelchair access" {{checkOptionsValue place.accessibilityOptions "Wheelchair access"}}>
+            <label for="wheelchair" class="light-text">{{localText.wheelchairFriendly}}</label>
+          </td>
+          <td class="flex items-center mb2">
+            <input class="mr2" id="disabled-parking" type="checkbox" name="accessibility" value="Disabled parking" {{checkOptionsValue place.accessibilityOptions "Disabled parking"}}>
+            <label for="disabled-parking" class="light-text">{{localText.disabledParking}}</label>
+          </td>
+          <td class="flex items-center mb2">
+            <input class="mr2" id="disabled-toilets" type="checkbox" name="accessibility" value="Disabled toilets" {{checkOptionsValue place.accessibilityOptions "Disabled toilets"}}>
+            <label for="disabled-toilets" class="light-text">{{localText.disabledToilet}}</label>
+          </td>
+        <td class="dark-text f4 b pa3">{{localText.categories}}</td>
+        <td class="flex items-center mb2">
+          <input class="mr2" id="cafe" type="checkbox" name="categories" value="cafe" {{checkOptionsValue place.categories "cafe"}}>
+          <label for="cafe" class="light-text">{{localText.cafe}}</label>
+        </td>
+        <td class="flex items-center mb2">
           <input class="mr2" id="music-venue" type="checkbox" name="categories" value="music venue" {{checkOptionsValue place.categories "music venue"}}>
           <label for="music-venue" class="light-text">{{localText.musicVenue}}</label>
-        </th>
-        <th class="flex items-center mb2">
+        </td>
+        <td class="flex items-center mb2">
           <input class="mr2" id="religious-site" type="checkbox" name="accessibility" value="religious site" {{checkOptionsValue place.categories "religious site"}}>
           <label for="religious-site" class="light-text">{{localText.religiousSite}}</label>
-        </th>
-        <th class="flex items-center mb2">
+        </td>
+        <td class="flex items-center mb2">
           <input class="mr2" id="restaurant" type="checkbox" name="categories" value="food and drink" {{checkOptionsValue place.categories "food and drink"}}>
           <label for="restaurant" class="light-text">{{localText.restaurant}}</label>
-        </th>
-        <th class="flex items-center mb2">
+        </td>
+        <td class="flex items-center mb2">
           <input class="mr2" id="education" type="checkbox" name="categories" value="education" {{checkOptionsValue place.categories "education"}}>
           <label for="education" class="light-text">{{localText.education}}</label>
-        </th>
-        <th class="flex items-center mb2">
+        </td>
+        <td class="flex items-center mb2">
           <input class="mr2" id="retail" type="checkbox" name="categories" value="retail" {{checkOptionsValue place.categories "retail"}}>
           <label for="retail" class="light-text">{{localText.retail}}</label>
-        </th>
-        <th class="flex items-center mb2">
+        </td>
+        <td class="flex items-center mb2">
           <input class="mr2" id="sport" type="checkbox" name="categories" value="sport" {{checkOptionsValue place.categories "sport"}}>
           <label class="light-text"for="sport">{{localText.sport}}</label>
-        </th>
-        <th class="flex items-center mb2">
+        </td>
+        <td class="flex items-center mb2">
           <input class="mr2" id="municipal" type="checkbox" name="categories" value="municipal" {{checkOptionsValue place.categories "municipal"}}>
           <label class="light-text" for="municipal">{{localText.municipal}}</label>
-        </th>
-        <th class="flex items-center mb2">
+        </td>
+        <td class="flex items-center mb2">
           <input class="mr2" id="healthcare" type="checkbox" name="categories" value="healthcare" {{checkOptionsValue place.categories "healthcare"}}>
           <label class="light-text" for="healthcare">{{localText.healthcare}}</label>
-        </th>
-      </th>
-    </fieldset>
+        </td>
+      </tr></table></td>
     </tr>
-  </tr>
   </tbody>
 </table>
-<input class="f6 w4 tc grow br-pill ba bw1 b--gray pv2 dib mid-gray b bg-main" type="submit" value="{{localText.formSubmit}}">
-  </form>
+<div class="w-100 tc pa4">
+
+  <input class="f6 w4 tc grow br-pill ba bw1 b--gray pv2 dib mid-gray b bg-main" type="submit" value="{{localText.formSubmit}}">
+</div>
+</form>
