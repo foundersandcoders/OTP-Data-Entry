@@ -18,10 +18,10 @@
    color: #5C5C5C;
  }
 
+ .b--turquoise {
+   border-color: #409A93;
+ }
+
  .text-turquoise {
    color: #409A93;
  }
-
-.b--turquoise {
-  border-color: #409A93;
-}

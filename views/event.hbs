@@ -1,56 +1,62 @@
-<ul class="">
-  <div class="">
-    <a href="/">{{localText.homePage}}</a>
-    <a href="/{{lang}}/events">{{localText.backList}}</a>
+{{>header}}
+{{>options}}
+
+<a class="f6 ma4 w4 tc grow no-underline br-pill ba bw1 pv2 dib mid-gray b gray" href="/{{lang}}/add-event">{{localText.add}}</a>
+<div class="pa4">
+  <div class="overflow-auto">
+    <table class="f6 w-100 mw8 center bb b--turquoise bw2" cellspacing="0">
+      <thead>
+        <tr class="ma2">
+          <th class="fw6 tl pa3 w-25">
+            {{#if event.imageUrl}}
+              <img src="{{event.imageUrl}}" alt="{{localText.image}}">
+            {{else}}
+              <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" alt="{{localText.image}}">
+            {{/if}}
+          </th>
+          <th class="f1 tc dark-text">{{event.local.name}}</th>
+          <th class="fw6 pa3">
+              <a href="/{{lang}}/edit-event/{{event._id}}" class="f6 w4 grow no-underline br-pill ba bw1 pv2 mv2 db mid-gray b gray">{{localText.edit}}</a>
+          <th>
+            <a href="/{{lang}}/delete-event/{{event._id}}" class="f6 w4 tc grow no-underline br-pill ba bw1 ph4 pv2 mv2 pv2 db mid-gray b gray">{{localText.delete}}</a>
+          </th>
+          </th>
+        </tr>
+      </thead>
+      <tbody class="">
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.description}}:</td>
+          <td class="tl light-text f4">{{event.local.description}}</td>
+        </tr>
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.eventsPlace}}:</td>
+          <td class="tl light-text f4">
+            <a href="/{{lang}}/place/{{event.place._id}}">
+              {{event.place.local.name}}
+            </a>
+          </td>
+        </tr>
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.eventStart}}:</td>
+          <td class="tl light-text f4">{{event.startTime}}</td>
+        </tr>
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.eventEnd}}:</td>
+          <td class="tl light-text f4">{{event.endTime}}</td>
+        </tr>
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.eventsCost}}:</td>
+          <td class="tl light-text f4">{{event.cost}}</td>
+        </tr>
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.accessibilityOptions}}:</td>
+          <td class="tl light-text f4">{{event.accessibilityOptions}}</td>
+        </tr>
+        <tr class="">
+          <td class="tr light-text f4 b pa3">{{localText.categories}}:</td>
+          <td class="tl light-text f4">{{event.categories}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <img src="{{event.imageUrl}}" alt="{{localText.image}}"></img>
-
-  <li>{{localText.name}}:
-    {{event.local.name}}
-  </li>
-
-  {{#if event.local.description}}
-    <li>{{localText.description}}:
-      {{event.local.description}}
-    </li>
-  {{/if}}
-
-  {{#if event.place.local.name}}
-    <li>{{localText.eventsPlace}}:
-      {{event.place.local.name}}
-    </li>
-  {{/if}}
-
-  {{#if event.startTime}}
-    <li>{{localText.eventStart}}:
-      {{event.startTime}}
-    </li>
-  {{/if}}
-
-  {{#if event.endTime}}
-    <li>{{localText.eventEnd}}:
-      {{event.endTime}}
-    </li>
-  {{/if}}
-
-  {{#if event.cost}}
-    <li>{{localText.eventsCost}}:
-      {{event.cost}}
-    </li>
-  {{/if}}
-
-  {{#if event.accessibilityOptions}}
-    <li>{{localText.accessibilityOptions}}:
-      {{event.accessibilityOptions}}
-    </li>
-  {{/if}}
-
-  <li>{{localText.categories}}:
-    {{event.categories}}
-  </li>
-
-  <div class="">
-    <a href="/{{lang}}/edit-event/{{event._id}}">{{localText.edit}}</a>
-    <a href="/{{lang}}/delete-event/{{event._id}}">{{localText.delete}}</a>
-  </div>
-</ul>
+</div>
