@@ -1,190 +1,208 @@
+{{>header}}
+{{>options}}
+
+<div class="tc w-100 pt5 mt2">
+  <span class="dark-text">{{localText.formInfo}}</span>
+</div>
 {{#if edit}}
   <form class="" action="/{{lang}}/edit-event/{{event._id}}" method="post">
-    <h1>{{localText.edit}}</h1>
     <input type="hidden" name="_method" value="put">
 {{else}}
   <form class="" action="/{{lang}}/add-event" method="post">
-    <h1>{{localText.add}}</h1>
     <input type="hidden" name="_method" value="post">
 {{/if}}
+<table class="f6 w-100 mw8 center bb b--turquoise bw2">
+  <tbody>
+    <tr>
+      <td class="w-20 dark-text f4 b pa3 tr">*{{localText.name}}</td>
+      <td class="w-70">
+          {{#if event.en.name}}
+            <input class="input-reset w-70 br2 ba b--gray" type="text" name="name_en" value="{{event.en.name}}">
+          {{else}}
+            <input class="input-reset w-70 br2 ba b--gray dib" type="text" name="name_en" placeholder="{{localText.english}}">
+          {{/if}}
+      </td>
+    </tr>
+    <tr>
+        <td class="w-20"></td>
+        <td class="w-70">
+          {{#if event.ar.name}}
+            <input class="input-reset w-70 br2 ba b--gray" type="text" name="name_ar" value="{{event.ar.name}}">
+          {{else}}
+            <input class="input-reset w-70 br2 ba b--gray dib" type="text" name="name_ar" placeholder="{{localText.arabic}}">
+          {{/if}}
+        </td>
+    </tr>
+    <tr>
+      <td class="w-20 dark-text f4 b pa3 tr">{{localText.description}}</td>
+      <td class="w-70 pt3">
+          {{#if event.en.description}}
+            <textarea class="input-reset w-70 br2 ba b--gray" type="text" name="description_en">{{event.en.description}}</textarea>
+          {{else}}
+            <textarea class="input-reset w-70 br2 ba b--gray dib" type="text" name="description_en" placeholder="{{localText.english}}"></textarea>
+          {{/if}}
+      </td>
+    </tr>
+    <tr>
+        <td class="w-20"></td>
+        <td class="w-70">
+          {{#if event.ar.description}}
+            <textarea class="input-reset w-70 br2 ba b--gray" type="text" name="description_ar">{{event.ar.description}}</textarea>
+          {{else}}
+            <textarea class="input-reset w-70 br2 ba b--gray dib" type="text" name="description_ar" placeholder="{{localText.arabic}}"></textarea>
+          {{/if}}
+        </td>
+    </tr>
+    <tr>
+        <td class="w-20 dark-text f4 b pa3 tr">{{localText.eventsPlace}}</td>
+        <td class="w-70">
+          <select class="w-70" name="eventPlace">
+            <option value="">{{localText.selectPlace}}</option>
+            {{#each placesNamesAndIds}}
+              <option value="{{this.id}}" {{checkedDropDown ../event.place._id this.id}}>{{this.name}}</option>
+            {{/each}}
+          </select>
+        </td>
+    </tr>
+    <tr>
+      <td class="w-20 dark-text f4 b pb3 ph3 pt1 tr">{{localText.eventStart}}</td>
+      <td class="w-70">
+          {{#if event.startTime}}
+            <input class="input-reset w-70 br2 ba b--gray" type="datetime-local" name="startTime" value="{{event.startTime}}">
+          {{else}}
+            <input class="input-reset w-70 br2 ba b--gray dib" type="datetime-local" name="startTime">
+          {{/if}}
+      </td>
+    </tr>
+    <tr>
+      <td class="w-20 dark-text f4 b ph3 pb3 pt0 tr">{{localText.eventEnd}}</td>
+      <td class="w-70">
+          {{#if event.endTime}}
+            <input class="input-reset w-70 br2 ba b--gray" type="datetime-local" name="endTime" value="{{event.endTime}}">
+          {{else}}
+            <input class="input-reset w-70 br2 ba b--gray dib" type="datetime-local" name="endTime">
+          {{/if}}
+      </td>
+    </tr>
+    <tr>
+      <td class="w-20 dark-text f4 b ph3 pb3 pt0 tr">{{localText.eventsCost}}</td>
+      <td class="w-70">
+          {{#if event.cost}}
+            <input class="input-reset w-70 br2 ba b--gray" type="text" name="cost" value="{{event.cost}}">
+          {{else}}
+            <input class="input-reset w-70 br2 ba b--gray dib" type="text" name="cost">
+          {{/if}}
+      </td>
+    </tr>
+    <tr>
+      <td class="w-20 dark-text f4 b ph3 pb3 pt0 tr">{{localText.formImageUrl}}</td>
+      <td class="w-70">
+          {{#if event.imageUrl}}
+            <input class="input-reset w-70 br2 ba b--gray" type="text" name="imageUrl" value="{{event.imageUrl}}">
+          {{else}}
+            <input class="input-reset w-70 br2 ba b--gray dib" type="text" name="imageUrl">
+          {{/if}}
+      </td>
+    </tr>
+    <tr>
+      <td class="w-20 dark-text f4 b pa3 tr">{{localText.accessibilityOptions}}
+      </td>
+      <td><table><tr>
+          <td class="flex items-center mb2 ">
+            <input class="mr2" id="braille" type="checkbox" name="accessibility" value="Braille" {{checkOptionsValue event.accessibilityOptions "Braille"}}>
+            <label for="braille" class="light-text">{{localText.brailleMenu}}</label>
+          </td>
+          <td class="flex items-center mb2">
+            <input class="mr2" id="audio-recordings" type="checkbox" name="accessibility" value="Audio recordings" {{checkOptionsValue event.accessibilityOptions "Audio recordings"}}>
+            <label for="audio-recordings" class="light-text">{{localText.audioRecordings}}</label>
+          </td>
+          <td class="flex items-center mb2">
+            <input class="mr2" id="big-fonts" type="checkbox" name="accessibility" value="Big fonts" {{checkOptionsValue event.accessibilityOptions "Big fonts"}}>
+            <label for="big-fonts" class="light-text">{{localText.bigFonts}}</label>
+          </td>
+          <td class="flex items-center mb2">
+            <input class="mr2" id="carer" type="checkbox" name="accessibility" value="Carer" {{checkOptionsValue event.accessibilityOptions "Carer"}}>
+            <label for="carer" class="light-text">{{localText.carer}}</label>
+          </td>
+          <td class="flex items-center mb2">
+            <input class="mr2" id="guide-dog" type="checkbox" name="accessibility" value="Place for guide dog" {{checkOptionsValue event.accessibilityOptions "Place for guide dog"}}>
+            <label for="guide-dog" class="light-text">{{localText.guideDog}}</label>
+          </td>
+          <td class="flex items-center mb2">
+            <input class="mr2" id="sms-message" type="checkbox" name="accessibility" value="SMS messaging" {{checkOptionsValue event.accessibilityOptions "SMS messaging"}}>
+            <label for="sms-message" class="light-text">{{localText.smsMessaging}}</label>
+          </td>
+          <td class="flex items-center mb2">
+            <input class="mr2" id="sign-lang" type="checkbox" name="accessibility" value="Sign language" {{{checkOptionsValue event.accessibilityOptions "Sign language"}}}>
+            <label for="sign-lang" class="light-text">{{localText.signLang}}</label>
+          </td>
+          <td class="flex items-center mb2">
+            <input class="mr2" id="good-lighting" type="checkbox" name="accessibility" value="Good lighting" {{checkOptionsValue event.accessibilityOptions "Good lighting"}}>
+            <label for="good-lighting" class="light-text">{{localText.goodLighting}}</label>
+          </td>
+          <td class="flex items-center mb2">
+            <input class="mr2" id="wheelchair" type="checkbox" name="accessibility" value="Wheelchair access" {{checkOptionsValue event.accessibilityOptions "Wheelchair access"}}>
+            <label for="wheelchair" class="light-text">{{localText.wheelchairFriendly}}</label>
+          </td>
+          <td class="flex items-center mb2">
+            <input class="mr2" id="disabled-parking" type="checkbox" name="accessibility" value="Disabled parking" {{checkOptionsValue event.accessibilityOptions "Disabled parking"}}>
+            <label for="disabled-parking" class="light-text">{{localText.disabledParking}}</label>
+          </td>
+          <td class="flex items-center mb2">
+            <input class="mr2" id="disabled-toilets" type="checkbox" name="accessibility" value="Disabled toilets" {{checkOptionsValue event.accessibilityOptions "Disabled toilets"}}>
+            <label for="disabled-toilets" class="light-text">{{localText.disabledToilet}}</label>
+          </td>
+        <td class="dark-text f4 b pa3">*{{localText.categories}}</td>
+        <td class="flex items-center mb2">
+          <input class="mr2" id="competition" type="checkbox" name="categories" value="competition" {{checkOptionsValue event.categories "competition"}}>
+          <label for="competition" class="light-text">{{localText.competition}}</label>
+        </td>
+        <td class="flex items-center mb2">
+          <input class="mr2" id="conference" type="checkbox" name="categories" value="conference" {{checkOptionsValue event.categories "conference"}}>
+          <label for="conference" class="light-text">{{localText.conference}}</label>
+        </td>
+        <td class="flex items-center mb2">
+          <input class="mr2" id="culture" type="checkbox" name="categories" value="culture" {{checkOptionsValue event.categories "culture"}}>
+          <label for="culture" class="light-text">{{localText.culture}}</label>
+        </td>
+        <td class="flex items-center mb2">
+          <input class="mr2" id="dining" type="checkbox" name="categories" value="dining" {{checkOptionsValue event.categories "dining"}}>
+          <label for="dining" class="light-text">{{localText.dining}}</label>
+        </td>
+        <td class="flex items-center mb2">
+          <input class="mr2" id="educational" type="checkbox" name="categories" value="educational" {{checkOptionsValue event.categories "educational"}}>
+          <label for="educational" class="light-text">{{localText.educational}}</label>
+        </td>
+        <td class="flex items-center mb2">
+          <input class="mr2" id="launch" type="checkbox" name="categories" value="launch" {{checkOptionsValue event.categories "launch"}}>
+          <label for="launch" class="light-text">{{localText.launch}}</label>
+        </td>
+        <td class="flex items-center mb2">
+          <input class="mr2" id="music" type="checkbox" name="categories" value="music" {{checkOptionsValue event.categories "music"}}>
+          <label class="light-text"for="music">{{localText.music}}</label>
+        </td>
+        <td class="flex items-center mb2">
+          <input class="mr2" id="miscellaneous" type="checkbox" name="categories" value="miscellaneous" {{checkOptionsValue event.categories "miscellaneous"}}>
+          <label class="light-text" for="miscellaneous">{{localText.miscellaneous}}</label>
+        </td>
+        <td class="flex items-center mb2">
+          <input class="mr2" id="party" type="checkbox" name="categories" value="party" {{checkOptionsValue event.categories "party"}}>
+          <label class="light-text" for="party">{{localText.party}}</label>
+        </td>
+        <td class="flex items-center mb2">
+          <input class="mr2" id="sport" type="checkbox" name="categories" value="sport" {{checkOptionsValue event.categories "sport"}}>
+          <label class="light-text" for="sport">{{localText.sport}}</label>
+        </td>
+        <td class="flex items-center mb2">
+          <input class="mr2" id="wedding" type="checkbox" name="categories" value="wedding" {{checkOptionsValue event.categories "wedding"}}>
+          <label class="light-text" for="wedding">{{localText.wedding}}</label>
+        </td>
+      </tr></table></td>
+    </tr>
+  </tbody>
+</table>
+<div class="w-100 tc pa4">
 
-<span>{{localText.formInfo}}</span>
-<fieldset name="en" class="">
-  <legend>{{localText.english}}</legend>
-  <label>{{localText.eventsName}}
-    {{#if event.en.name}}
-      <input type="text" name="name_en" value="{{event.en.name}}">
-    {{else}}
-      <input type="text" name="name_en">
-    {{/if}}
-  </label>
-
-  <label>{{localText.description}}
-    {{#if event.en.description}}
-      <input type="text" name="description_en" value="{{event.en.description}}">
-    {{else}}
-      <input type="text" name="description_en">
-    {{/if}}
-  </label>
-</fieldset>
-
-<fieldset name="ar" class="">
-  <legend>{{localText.arabic}}</legend>
-  <label>{{localText.eventsName}}
-    {{#if event.ar.name}}
-      <input type="text" name="name_ar" value="{{event.ar.name}}">
-    {{else}}
-      <input type="text" name="name_ar">
-    {{/if}}
-  </label>
-
-  <label>{{localText.description}}
-    {{#if event.ar.description}}
-      <input type="text" name="description_ar" value="{{event.ar.description}}">
-    {{else}}
-      <input type="text" name="description_ar">
-    {{/if}}
-  </label>
-</fieldset>
-
-
-<label>
-  <select name="eventPlace"required>
-    <option value="">*Select place</option>
-    {{#each placesNamesAndIds}}
-    <option value="{{this.id}}" {{checkedDropDown ../event.place._id this.id}} >{{this.name}}</option>
-    {{/each}}
-  </select>
-</label>
-
-<label>*{{localText.eventStart}}
-  {{#if event.startTime}}
-    <input type="datetime-local" name="startTime" required value="{{event.startTime}}">
-  {{else}}
-    <input type="datetime-local" name="startTime" required>
-  {{/if}}
-</label>
-
-<label>*{{localText.eventEnd}}
-  {{#if event.endTime}}
-    <input type="datetime-local" name="endTime" required value="{{event.endTime}}">
-  {{else}}
-    <input type="datetime-local" name="endTime" required>
-  {{/if}}
-</label>
-
-<label>*{{localText.eventsCost}}
-  {{#if event.cost}}
-    <input type="text" name="cost" required value="{{event.cost}}">
-  {{else}}
-    <input type="text" name="cost" required>
-  {{/if}}
-</label>
-
-<label>{{localText.image}}
-  {{#if event.imageUrl}}
-    <input type="text" name="imageUrl" value="{{event.imageUrl}}">
-  {{else}}
-    <input type="text" name="imageUrl">
-  {{/if}}
-</label>
-
-<fieldset>
-  <legend>{{localText.accessibilityOptions}}</legend>
-  <div>
-    <label for="audio-recordings">{{localText.audioRecordings}}</label>
-    <input id="audio-recordings" type="checkbox" name="accessibility" value="Audio recordings" {{checkOptionsValue event.accessibilityOptions "Audio recordings"}}>
-  </div>
-  <div>
-    <label for="braille">{{localText.brailleMenu}}</label>
-    <input id="braille" type="checkbox" name="accessibility" value="Braille" {{checkOptionsValue event.accessibilityOptions "Braille"}}>
-  </div>
-  <div>
-    <label for="big-fonts">{{localText.bigFonts}}</label>
-    <input id="big-fonts" type="checkbox" name="accessibility" value="Big fonts" {{checkOptionsValue event.accessibilityOptions "Big fonts"}}>
-  </div>
-  <div>
-    <label for="carer">{{localText.carer}}</label>
-    <input id="carer" type="checkbox" name="accessibility" value="Carer" {{checkOptionsValue event.accessibilityOptions "Carer"}}>
-  </div>
-  <div>
-    <label for="guide-dog">{{localText.guideDog}}</label>
-    <input id="guide-dog" type="checkbox" name="accessibility" value="Place for guide dog" {{checkOptionsValue event.accessibilityOptions "Place for guide dog"}}>
-  </div>
-  <div>
-    <label for="sms-message">{{localText.smsMessaging}}</label>
-    <input id="sms-message" type="checkbox" name="accessibility" value="SMS messaging" {{checkOptionsValue event.accessibilityOptions "SMS messaging"}}>
-  </div>
-  <div>
-    <label for="sign-lang">{{localText.signLang}}</label>
-    <input id="sign-lang" type="checkbox" name="accessibility" value="Sign language" {{{checkOptionsValue event.accessibilityOptions "Sign language"}}}>
-  </div>
-  <div>
-    <label for="good-lighting">{{localText.goodLighting}}</label>
-    <input id="good-lighting" type="checkbox" name="accessibility" value="Good lighting" {{checkOptionsValue event.accessibilityOptions "Good lighting"}}>
-  </div>
-  <div>
-    <label for="wheelchair">{{localText.wheelchairFriendly}}</label>
-    <input id="wheelchair" type="checkbox" name="accessibility" value="Wheelchair access" {{checkOptionsValue event.accessibilityOptions "Wheelchair access"}}>
-  </div>
-  <div>
-    <label for="disabled-parking">{{localText.disabledParking}}</label>
-    <input id="disabled-parking" type="checkbox" name="accessibility" value="Disabled parking" {{checkOptionsValue event.accessibilityOptions "Disabled parking"}}>
-  </div>
-  <div>
-    <label for="disabled-toilets">{{localText.disabledToilet}}</label>
-    <input id="disabled-toilets" type="checkbox" name="accessibility" value="Disabled toilets" {{checkOptionsValue event.accessibilityOptions "Disabled toilets"}}>
-  </div>
-</fieldset>
-
-<fieldset>
-  <legend>*{{localText.categories}}</legend>
-  <div>
-    <label for="competition">{{localText.competition}}</label>
-    <input id="competition" type="checkbox" name="categories" value="competition" {{checkOptionsValue event.categories "competition"}}>
-  </div>
-  <div>
-    <label for="music-venue">{{localText.conference}}</label>
-    <input id="conference" type="checkbox" name="categories" value="conference" {{checkOptionsValue event.categories "conference"}}>
-  </div>
-  <div>
-    <label for="culture">{{localText.culture}}</label>
-    <input id="culture" type="checkbox" name="categories" value="culture" {{checkOptionsValue event.categories "culture"}}>
-  </div>
-  <div>
-    <label for="dining">{{localText.dining}}</label>
-    <input id="dining" type="checkbox" name="categories" value="dining" {{checkOptionsValue event.categories "dining"}}>
-  </div>
-  <div>
-    <label for="educational">{{localText.educational}}</label>
-    <input id="educational" type="checkbox" name="categories" value="educational" {{checkOptionsValue event.categories "educational"}}>
-  </div>
-  <div>
-    <label for="launch">{{localText.launch}}</label>
-    <input id="launch" type="checkbox" name="categories" value="launch" {{checkOptionsValue event.categories "launch"}}>
-  </div>
-  <div>
-    <label for="music">{{localText.music}}</label>
-    <input id="music" type="checkbox" name="categories" value="music" {{checkOptionsValue event.categories "music"}}>
-  </div>
-  <div>
-    <label for="miscellaneous">{{localText.miscellaneous}}</label>
-    <input id="miscellaneous" type="checkbox" name="categories" value="miscellaneous" {{checkOptionsValue event.categories "miscellaneous"}}>
-  </div>
-  <div>
-    <label for="party">{{localText.party}}</label>
-    <input id="party" type="checkbox" name="categories" value="party" {{checkOptionsValue event.categories "party"}}>
-  </div>
-  <div>
-    <label for="sport">{{localText.sportEvent}}</label>
-    <input id="sport" type="checkbox" name="categories" value="sport" {{checkOptionsValue event.categories "sport"}}>
-  </div>
-  <div>
-    <label for="wedding">{{localText.wedding}}</label>
-    <input id="wedding" type="checkbox" name="categories" value="wedding" {{checkOptionsValue event.categories "wedding"}}>
-  </div>
-</fieldset>
-
-<span><em>*{{localText.required}}</em></span>
-<input type="submit" value="{{localText.formSubmit}}">
+  <input class="f6 w4 tc grow br-pill ba bw1 b--gray pv2 dib mid-gray b bg-main" type="submit" value="{{localText.formSubmit}}">
+</div>
 </form>

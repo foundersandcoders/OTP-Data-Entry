@@ -21,6 +21,7 @@ module.exports = {
     categories: 'Categories',
     formInfo: '*indicates a required field in at least one of English or Arabic',
     required: 'Required field',
+    selectPlace: 'Select place',
     // places
     placesTitle: 'Places',
     placeAddress: 'Address',
@@ -100,6 +101,7 @@ module.exports = {
     categories: 'فئات',
     formInfo: '* مطلوب التعبئة على الاقل في واحدة من اللغتين العربية او الانجليزية',
     required: ' مطلوب التعبئة',
+    selectPlace: 'اختر مكان الحدث',
     // places
     placesTitle: 'أماكن',
     placesView: 'إعرض',
