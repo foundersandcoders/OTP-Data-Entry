@@ -10,7 +10,7 @@ module.exports = (req, res) => {
       });
     }
     if (response.statusCode !== 200) {
-      res.render('error', {
+      return res.render('error', {
         statusCode: 400,
         errorMessage: res.locals.localText.badRequest
       });
