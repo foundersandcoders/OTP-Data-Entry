@@ -15,111 +15,121 @@
   <tbody>
     <tr>
       <td class="w-20 dark-text f4 b pa3 tr">*{{localText.name}}</td>
-      <td class="w-100">
+      <td class="w-70">
           {{#if place.en.name}}
-            <input class="input-reset w-100 br2 ba b--gray" type="text" name="name_en" value="{{place.en.name}}">
+            <input class="input-reset w-70 br2 ba b--gray" type="text" name="name_en" value="{{place.en.name}}">
           {{else}}
-            <input class="input-reset w-100 br2 ba b--gray dib" type="text" name="name_en" placeholder="{{localText.english}}">
+            <input class="input-reset w-70 br2 ba b--gray dib" type="text" name="name_en" placeholder="{{localText.english}}">
           {{/if}}
       </td>
     </tr>
     <tr>
         <td class="w-20"></td>
-        <td class="w-100">
+        <td class="w-70">
           {{#if place.ar.name}}
-            <input class="input-reset w-100 br2 ba b--gray" type="text" name="name_ar" value="{{place.ar.name}}">
+            <input class="input-reset w-70 br2 ba b--gray" type="text" name="name_ar" value="{{place.ar.name}}">
           {{else}}
-            <input class="input-reset w-100 br2 ba b--gray dib" type="text" name="name_ar" placeholder="{{localText.arabic}}">
+            <input class="input-reset w-70 br2 ba b--gray dib" type="text" name="name_ar" placeholder="{{localText.arabic}}">
           {{/if}}
         </td>
     </tr>
     <tr>
       <td class="w-20 dark-text f4 b pa3 tr">{{localText.description}}</td>
-      <td class="w-100 pt3">
+      <td class="w-70 pt3">
           {{#if place.en.description}}
-            <textarea class="input-reset w-100 br2 ba b--gray" type="text" name="description_en" value="{{place.en.description}}"></textarea>
+            <textarea class="input-reset w-70 br2 ba b--gray" type="text" name="description_en">{{place.en.description}}</textarea>
           {{else}}
-            <textarea class="input-reset w-100 br2 ba b--gray dib" type="text" name="description_en" placeholder="{{localText.english}}"></textarea>
+            <textarea class="input-reset w-70 br2 ba b--gray dib" type="text" name="description_en" placeholder="{{localText.english}}"></textarea>
           {{/if}}
       </td>
     </tr>
     <tr>
         <td class="w-20"></td>
-        <td class="w-100">
+        <td class="w-70">
           {{#if place.ar.description}}
-            <textarea class="input-reset w-100 br2 ba b--gray" type="text" name="description_ar" value="{{place.ar.description}}"></textarea>
+            <textarea class="input-reset w-70 br2 ba b--gray" type="text" name="description_ar">{{place.ar.description}}</textarea>
           {{else}}
-            <textarea class="input-reset w-100 br2 ba b--gray dib" type="text" name="description_ar" placeholder="{{localText.arabic}}"></textarea>
+            <textarea class="input-reset w-70 br2 ba b--gray dib" type="text" name="description_ar" placeholder="{{localText.arabic}}"></textarea>
           {{/if}}
         </td>
     </tr>
     <tr>
       <td class="w-20 dark-text f4 b pa3 tr">{{localText.placeAddress}}</td>
-      <td class="w-100">
+      <td class="w-70">
           {{#if place.en.address}}
-            <input class="input-reset w-100 br2 ba b--gray" type="text" name="address_en" value="{{place.en.address}}">
+            <input class="input-reset w-70 br2 ba b--gray" type="text" name="address_en" value="{{place.en.address}}">
           {{else}}
-            <input class="input-reset w-100 br2 ba b--gray dib" type="text" name="address_en" placeholder="{{localText.english}}">
+            <input class="input-reset w-70 br2 ba b--gray dib" type="text" name="address_en" placeholder="{{localText.english}}">
           {{/if}}
       </td>
     </tr>
     <tr>
         <td class="w-20"></td>
-        <td class="w-100">
+        <td class="w-70">
           {{#if place.ar.address}}
-            <input class="input-reset w-100 br2 ba b--gray" type="text" name="address_ar" value="{{place.ar.address}}">
+            <input class="input-reset w-70 br2 ba b--gray" type="text" name="address_ar" value="{{place.ar.address}}">
           {{else}}
-            <input class="input-reset w-100 br2 ba b--gray dib" type="text" name="address_ar" placeholder="{{localText.arabic}}">
+            <input class="input-reset w-70 br2 ba b--gray dib" type="text" name="address_ar" placeholder="{{localText.arabic}}">
           {{/if}}
         </td>
     </tr>
     <tr>
       <td class="w-20 dark-text f4 b pa3 tr">{{localText.placeHours}}</td>
-      <td class="w-100">
+      <td class="w-70">
           {{#if place.en.openingHours}}
-            <input class="input-reset w-100 br2 ba b--gray" type="text" name="openingHours_en" value="{{place.en.openingHours}}">
+            <input class="input-reset w-70 br2 ba b--gray" type="text" name="openingHours_en" value="{{place.en.openingHours}}">
           {{else}}
-            <input class="input-reset w-100 br2 ba b--gray dib" type="text" name="openingHours_en" placeholder="{{localText.english}}">
+            <input class="input-reset w-70 br2 ba b--gray dib" type="text" name="openingHours_en" placeholder="{{localText.english}}">
           {{/if}}
       </td>
     </tr>
     <tr>
         <td class="w-20"></td>
-        <td class="w-100">
+        <td class="w-70">
           {{#if place.ar.openingHours}}
-            <input class="input-reset w-100 br2 ba b--gray" type="text" name="openingHours_ar" value="{{place.ar.openingHours}}">
+            <input class="input-reset w-70 br2 ba b--gray" type="text" name="openingHours_ar" value="{{place.ar.openingHours}}">
           {{else}}
-            <input class="input-reset w-100 br2 ba b--gray dib" type="text" name="openingHours_ar" placeholder="{{localText.arabic}}">
+            <input class="input-reset w-70 br2 ba b--gray dib" type="text" name="openingHours_ar" placeholder="{{localText.arabic}}">
           {{/if}}
         </td>
     </tr>
     <tr>
       <td class="w-20 dark-text f4 b pb3 ph3 pt1 tr">{{localText.placeWebsite}}</td>
-      <td class="w-100">
+      <td class="w-70">
           {{#if place.website}}
-            <input class="input-reset w-100 br2 ba b--gray" type="text" name="website" value="{{place.website}}">
+            <input class="input-reset w-70 br2 ba b--gray" type="text" name="website" value="{{place.website}}">
           {{else}}
-            <input class="input-reset w-100 br2 ba b--gray dib" type="text" name="website">
+            <input class="input-reset w-70 br2 ba b--gray dib" type="text" name="website">
+          {{/if}}
+      </td>
+    </tr>
+    <tr>
+      <td class="w-20 dark-text f4 b pb3 ph3 pt1 tr">{{localText.placePhone}}</td>
+      <td class="w-70">
+          {{#if place.phone}}
+            <input class="input-reset w-70 br2 ba b--gray" type="text" name="phone" value="{{place.phone}}">
+          {{else}}
+            <input class="input-reset w-70 br2 ba b--gray dib" type="text" name="phone">
           {{/if}}
       </td>
     </tr>
     <tr>
       <td class="w-20 dark-text f4 b ph3 pb3 pt0 tr">{{localText.placeEmail}}</td>
-      <td class="w-100">
+      <td class="w-70">
           {{#if place.email}}
-            <input class="input-reset w-100 br2 ba b--gray" type="text" name="email" value="{{place.email}}">
+            <input class="input-reset w-70 br2 ba b--gray" type="text" name="email" value="{{place.email}}">
           {{else}}
-            <input class="input-reset w-100 br2 ba b--gray dib" type="text" name="email">
+            <input class="input-reset w-70 br2 ba b--gray dib" type="text" name="email">
           {{/if}}
       </td>
     </tr>
     <tr>
       <td class="w-20 dark-text f4 b ph3 pb3 pt0 tr">{{localText.formImageUrl}}</td>
-      <td class="w-100">
+      <td class="w-70">
           {{#if place.imageUrl}}
-            <input class="input-reset w-100 br2 ba b--gray" type="text" name="imageUrl" value="{{place.imageUrl}}">
+            <input class="input-reset w-70 br2 ba b--gray" type="text" name="imageUrl" value="{{place.imageUrl}}">
           {{else}}
-            <input class="input-reset w-100 br2 ba b--gray dib" type="text" name="imageUrl">
+            <input class="input-reset w-70 br2 ba b--gray dib" type="text" name="imageUrl">
           {{/if}}
       </td>
     </tr>
