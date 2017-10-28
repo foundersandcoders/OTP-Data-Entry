@@ -30,7 +30,7 @@ module.exports = (req, res) => {
         event.place.local = event.place[alternativeLang];
       }
     }
-    res.render('event-form', {
+    return res.render('event-form', {
       event,
       edit: true
     });
