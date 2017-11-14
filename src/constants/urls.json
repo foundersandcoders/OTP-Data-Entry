@@ -1,6 +1,10 @@
 {
-  "placesURL": "https://nazareth-open-tourism-platform.herokuapp.com/places",
-  "eventsURL": "https://nazareth-open-tourism-platform.herokuapp.com/events",
-  "oauthCodeBaseURL": "https://nazareth-open-tourism-platform.herokuapp.com/oauth/authorize",
-  "oauthTokenBaseURL": "https://nazareth-open-tourism-platform.herokuapp.com/oauth/token"
+  "placesURL":
+    "https://nazareth-open-tourism-platform.herokuapp.com/api/v1/places",
+  "eventsURL":
+    "https://nazareth-open-tourism-platform.herokuapp.com/api/v1/events",
+  "oauthCodeBaseURL":
+    "https://nazareth-open-tourism-platform.herokuapp.com/oauth/authorize",
+  "oauthTokenBaseURL":
+    "https://nazareth-open-tourism-platform.herokuapp.com/oauth/token"
 }
