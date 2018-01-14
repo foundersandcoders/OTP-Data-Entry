@@ -4,11 +4,16 @@
 <div class="tc w-100 pt5 mt2">
   <span class="dark-text">{{localText.formInfo}}</span>
 </div>
+
+<div class="tc w-100 mt2">
+  <span class="red" id="EventErrorBox"></span>
+</div>
+
 {{#if edit}}
-  <form class="" action="/{{lang}}/edit-event/{{event._id}}" method="post">
+  <form id="EditEventForm" action="/{{lang}}/edit-event/{{event._id}}" method="post">
     <input type="hidden" name="_method" value="put">
 {{else}}
-  <form class="" action="/{{lang}}/add-event" method="post">
+  <form id="AddEventForm" action="/{{lang}}/add-event" method="post">
     <input type="hidden" name="_method" value="post">
 {{/if}}
 <table class="f6 w-100 mw8 center bb b--turquoise bw2">
@@ -17,9 +22,9 @@
       <td class="w-20 dark-text f4 b pa3 tr">*{{localText.name}}</td>
       <td class="w-70">
           {{#if event.en.name}}
-            <input class="input-reset w-70 br2 ba b--gray" type="text" name="name_en" value="{{event.en.name}}">
+            <input class="input-reset w-70 br2 ba pa1 b--gray" type="text" name="name_en" value="{{event.en.name}}">
           {{else}}
-            <input class="input-reset w-70 br2 ba b--gray dib" type="text" name="name_en" placeholder="{{localText.english}}">
+            <input class="input-reset w-70 br2 ba pa1 b--gray dib" type="text" name="name_en" placeholder="{{localText.english}}">
           {{/if}}
       </td>
     </tr>
@@ -27,9 +32,9 @@
         <td class="w-20"></td>
         <td class="w-70">
           {{#if event.ar.name}}
-            <input class="input-reset w-70 br2 ba b--gray" type="text" name="name_ar" value="{{event.ar.name}}">
+            <input class="input-reset w-70 br2 ba pa1 b--gray" type="text" name="name_ar" value="{{event.ar.name}}">
           {{else}}
-            <input class="input-reset w-70 br2 ba b--gray dib" type="text" name="name_ar" placeholder="{{localText.arabic}}">
+            <input class="input-reset w-70 br2 ba pa1 b--gray dib" type="text" name="name_ar" placeholder="{{localText.arabic}}">
           {{/if}}
         </td>
     </tr>
@@ -37,9 +42,9 @@
       <td class="w-20 dark-text f4 b pa3 tr">{{localText.description}}</td>
       <td class="w-70 pt3">
           {{#if event.en.description}}
-            <textarea class="input-reset w-70 br2 ba b--gray" type="text" name="description_en">{{event.en.description}}</textarea>
+            <textarea class="input-reset w-70 br2 ba pa1 b--gray" type="text" name="description_en">{{event.en.description}}</textarea>
           {{else}}
-            <textarea class="input-reset w-70 br2 ba b--gray dib" type="text" name="description_en" placeholder="{{localText.english}}"></textarea>
+            <textarea class="input-reset w-70 br2 ba pa1 b--gray dib" type="text" name="description_en" placeholder="{{localText.english}}"></textarea>
           {{/if}}
       </td>
     </tr>
@@ -47,16 +52,16 @@
         <td class="w-20"></td>
         <td class="w-70">
           {{#if event.ar.description}}
-            <textarea class="input-reset w-70 br2 ba b--gray" type="text" name="description_ar">{{event.ar.description}}</textarea>
+            <textarea class="input-reset w-70 br2 ba pa1 b--gray" type="text" name="description_ar">{{event.ar.description}}</textarea>
           {{else}}
-            <textarea class="input-reset w-70 br2 ba b--gray dib" type="text" name="description_ar" placeholder="{{localText.arabic}}"></textarea>
+            <textarea class="input-reset w-70 br2 ba pa1 b--gray dib" type="text" name="description_ar" placeholder="{{localText.arabic}}"></textarea>
           {{/if}}
         </td>
     </tr>
     <tr>
         <td class="w-20 dark-text f4 b pa3 tr">{{localText.eventsPlace}}</td>
         <td class="w-70">
-          <select class="w-70" name="eventPlace">
+          <select class="w-70 pa1" name="eventPlace">
             <option value="">{{localText.selectPlace}}</option>
             {{#each placesNamesAndIds}}
               <option value="{{this.id}}" {{checkedDropDown ../event.place._id this.id}}>{{this.name}}</option>
@@ -68,9 +73,9 @@
       <td class="w-20 dark-text f4 b pb3 ph3 pt1 tr">{{localText.eventStart}}</td>
       <td class="w-70">
           {{#if event.startTime}}
-            <input class="input-reset w-70 br2 ba b--gray" type="datetime-local" name="startTime" value="{{event.startTime}}">
+            <input class="input-reset w-70 br2 ba pa1 b--gray" type="datetime-local" name="startTime" value="{{event.startTime}}">
           {{else}}
-            <input class="input-reset w-70 br2 ba b--gray dib" type="datetime-local" name="startTime">
+            <input class="input-reset w-70 br2 ba pa1 b--gray dib" type="datetime-local" name="startTime">
           {{/if}}
       </td>
     </tr>
@@ -78,9 +83,9 @@
       <td class="w-20 dark-text f4 b ph3 pb3 pt0 tr">{{localText.eventEnd}}</td>
       <td class="w-70">
           {{#if event.endTime}}
-            <input class="input-reset w-70 br2 ba b--gray" type="datetime-local" name="endTime" value="{{event.endTime}}">
+            <input class="input-reset w-70 br2 ba pa1 b--gray" type="datetime-local" name="endTime" value="{{event.endTime}}">
           {{else}}
-            <input class="input-reset w-70 br2 ba b--gray dib" type="datetime-local" name="endTime">
+            <input class="input-reset w-70 br2 ba pa1 b--gray dib" type="datetime-local" name="endTime">
           {{/if}}
       </td>
     </tr>
@@ -88,9 +93,9 @@
       <td class="w-20 dark-text f4 b ph3 pb3 pt0 tr">{{localText.eventsCost}}</td>
       <td class="w-70">
           {{#if event.cost}}
-            <input class="input-reset w-70 br2 ba b--gray" type="text" name="cost" value="{{event.cost}}">
+            <input class="input-reset w-70 br2 ba pa1 b--gray" type="text" name="cost" value="{{event.cost}}">
           {{else}}
-            <input class="input-reset w-70 br2 ba b--gray dib" type="text" name="cost">
+            <input class="input-reset w-70 br2 ba pa1 b--gray dib" type="text" name="cost">
           {{/if}}
       </td>
     </tr>
@@ -98,9 +103,9 @@
       <td class="w-20 dark-text f4 b ph3 pb3 pt0 tr">{{localText.formImageUrl}}</td>
       <td class="w-70">
           {{#if event.imageUrl}}
-            <input class="input-reset w-70 br2 ba b--gray" type="text" name="imageUrl" value="{{event.imageUrl}}">
+            <input class="input-reset w-70 br2 ba pa1 b--gray" type="text" name="imageUrl" value="{{event.imageUrl}}">
           {{else}}
-            <input class="input-reset w-70 br2 ba b--gray dib" type="text" name="imageUrl">
+            <input class="input-reset w-70 br2 ba pa1 b--gray dib" type="text" name="imageUrl">
           {{/if}}
       </td>
     </tr>
@@ -152,6 +157,7 @@
             <input class="mr2" id="disabled-toilets" type="checkbox" name="accessibility" value="Disabled toilets" {{checkOptionsValue event.accessibilityOptions "Disabled toilets"}}>
             <label for="disabled-toilets" class="light-text">{{localText.disabledToilet}}</label>
           </td>
+
         <td class="dark-text f4 b pa3">*{{localText.categories}}</td>
         <td class="flex items-center mb2">
           <input class="mr2" id="competition" type="checkbox" name="categories" value="competition" {{checkOptionsValue event.categories "competition"}}>
@@ -206,3 +212,5 @@
   <input class="f6 w4 tc grow br-pill ba bw1 b--gray pv2 dib mid-gray b bg-main" type="submit" value="{{localText.formSubmit}}">
 </div>
 </form>
+
+<script src="/validate-event-form.js" charset="utf-8"></script>

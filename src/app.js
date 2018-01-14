@@ -17,21 +17,25 @@ const app = express();
 app.use(compression());
 app.use(cookieParser());
 app.use(express.static('public'));
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Set up local languages
 app.locals.en = languages.en;
 app.locals.ar = languages.ar;
 
-app.engine('hbs', hbs({
-  defaultLayout: 'main',
-  extname: 'hbs',
-  helpers: {
-    getMapLink,
-    checkOptionsValue,
-    checkedDropDown
-  }
-}));
+app.engine(
+  'hbs',
+  hbs({
+    defaultLayout: 'main',
+    extname: 'hbs',
+    helpers: {
+      getMapLink,
+      checkOptionsValue,
+      checkedDropDown,
+    },
+  }),
+);
 
 app.set('view engine', 'hbs');
 app.set('port', process.env.PORT || 4000);
