@@ -1,18 +1,17 @@
 {
   "name": "otp-data-entry",
   "version": "1.0.0",
-  "description": "Application to allow users to enter data into the Nazareth Open Tourism Platform database",
+  "description":
+    "Application to allow users to enter data into the Nazareth Open Tourism Platform database",
   "main": "index.js",
   "scripts": {
     "start": "node src/start.js",
     "dev": "nodemon src/start.js",
     "test": "node tests/test.js | tap-spec",
-    "lint": "semistandard --verbose | snazzy"
+    "lint": "standard --verbose | snazzy"
   },
   "semistandard": {
-    "ignore": [
-      "public/map.js"
-    ]
+    "ignore": ["public/map.js"]
   },
   "repository": {
     "type": "git",
@@ -45,8 +44,5 @@
     "tap-spec": "^4.1.1",
     "tape": "^4.8.0"
   },
-  "pre-commit": [
-    "lint",
-    "test"
-  ]
+  "pre-commit": ["lint", "test"]
 }

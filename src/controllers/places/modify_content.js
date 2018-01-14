@@ -8,7 +8,7 @@ module.exports = (req, res) => {
     imageUrl: req.body.imageUrl,
     website: req.body.website,
     phone: req.body.phone,
-    email: req.body.email
+    email: req.body.email,
   };
 
   if (req.body.name_en) {
@@ -16,7 +16,7 @@ module.exports = (req, res) => {
       name: req.body.name_en,
       description: req.body.description_en,
       address: req.body.address_en,
-      openingHours: req.body.openingHours_en
+      openingHours: req.body.openingHours_en,
     };
   }
 
@@ -25,13 +25,14 @@ module.exports = (req, res) => {
       name: req.body.name_ar,
       description: req.body.description_ar,
       address: req.body.address_ar,
-      openingHours: req.body.openingHours_ar
+      openingHours: req.body.openingHours_ar,
     };
   }
 
   if (req.body.ownerId) apiBody.owner = req.body.ownerId;
   if (req.body.categories) apiBody.categories = req.body.categories;
-  if (req.body.accessibility) apiBody.accessibilityOptions = req.body.accessibility;
+  if (req.body.accessibility)
+    apiBody.accessibilityOptions = req.body.accessibility;
 
   getLatLng(req.body.address, (err, response) => {
     if (!err) {
@@ -43,7 +44,7 @@ module.exports = (req, res) => {
     if (err) {
       return res.render('error', {
         statusCode: 500,
-        errorMessage: res.locals.localText.serverError
+        errorMessage: res.locals.localText.serverError,
       });
     }
     let url, urlEndpoint, correctResponseStatusCode, auth;
@@ -58,13 +59,13 @@ module.exports = (req, res) => {
         urlEndpoint = `place/${req.params.id}`;
         correctResponseStatusCode = 200;
         auth = {
-          'bearer': decodedToken
+          bearer: decodedToken,
         };
         break;
       default:
         return res.render('error', {
           statusCode: 500,
-          errorMessage: res.locals.localText.serverError
+          errorMessage: res.locals.localText.serverError,
         });
     }
     const reqOptions = {
@@ -72,22 +73,24 @@ module.exports = (req, res) => {
       method: req.body._method,
       body: apiBody,
       json: true,
-      auth
+      auth,
     };
     Request(reqOptions, (error, apiResponse, apiResponseBody) => {
       if (error) {
         return res.render('error', {
           statusCode: 500,
-          errorMessage: res.locals.localText.serverError
+          errorMessage: res.locals.localText.serverError,
         });
       }
       if (apiResponse.statusCode !== correctResponseStatusCode) {
         return res.render('error', {
           statusCode: 400,
-          errorMessage: res.locals.localText.badRequest
+          errorMessage: res.locals.localText.badRequest,
         });
       } else {
-        res.redirect(`/${req.params.lang}/${urlEndpoint}`);
+        res.end(
+          JSON.stringify({ redirectUrl: `/${req.params.lang}/${urlEndpoint}` }),
+        );
       }
     });
   });
