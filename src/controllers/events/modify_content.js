@@ -30,10 +30,7 @@ module.exports = (req, res) => {
 
   checkCookie(req, (error, decodedToken) => {
     if (error) {
-      return res.render('error', {
-        statusCode: 500,
-        errorMessage: res.locals.localText.serverError,
-      });
+      return res.status(500).send(res.locals.localText.serverError);
     }
     let url, urlEndpoint, correctResponseStatusCode, auth;
     switch (req.body._method) {
@@ -51,10 +48,7 @@ module.exports = (req, res) => {
         };
         break;
       default:
-        return res.render('error', {
-          statusCode: 500,
-          errorMessage: res.locals.localText.serverError,
-        });
+        return res.status(500).send(res.locals.localText.serverError);
     }
     const reqOptions = {
       url,
@@ -65,18 +59,12 @@ module.exports = (req, res) => {
     };
     Request(reqOptions, (error, apiResponse, apiResponseBody) => {
       if (error) {
-        return res.render('error', {
-          statusCode: 500,
-          errorMessage: res.locals.localText.serverError,
-        });
-      }
-      if (apiResponse.statusCode !== correctResponseStatusCode) {
-        return res.render('error', {
-          statusCode: 400,
-          errorMessage: res.locals.localText.badRequest,
-        });
+        return res.status(500).send(res.locals.localText.serverError);
+      } else if (apiResponse.statusCode !== correctResponseStatusCode) {
+        return res
+          .status(apiResponseBody.statusCode)
+          .send(apiResponseBody.message);
       } else {
-        console.log('oyyy', `/${req.params.lang}/${urlEndpoint}`);
         res.end(
           JSON.stringify({ redirectUrl: `/${req.params.lang}/${urlEndpoint}` }),
         );
