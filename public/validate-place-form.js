@@ -21,8 +21,6 @@
       name_ar: elements.name_ar.value,
       address_en: elements.address_en.value,
       address_ar: elements.address_ar.value,
-      categories: elements.categories,
-      accessibility: elements.accessibility,
       openingHours_en: elements.openingHours_en.value,
       openingHours_ar: elements.openingHours_ar.value,
       website: elements.website.value,
@@ -78,7 +76,7 @@
     // Check if a category was selected
     var categorySelectedCheck = false;
     var checkedCategories = [];
-    data.categories.forEach(function(categoryElement) {
+    elements.categories.forEach(function(categoryElement) {
       if (categoryElement.checked) {
         checkedCategories.push(categoryElement.value);
         categorySelectedCheck = true;
@@ -95,7 +93,7 @@
 
     // Add the selected accessibility options to the request body
     var checkedAccessibility = [];
-    data.accessibility.forEach(function(accessibility) {
+    elements.accessibility.forEach(function(accessibility) {
       if (accessibility.checked) {
         checkedAccessibility.push(accessibility.value);
       }

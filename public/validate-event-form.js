@@ -21,10 +21,8 @@
       description_en: elements.description_en.value,
       description_ar: elements.description_ar.value,
       eventPlace: elements.eventPlace.value,
-      // categories: elements.categories,
       startTime: elements.startTime.value,
       endTime: elements.endTime.value,
-      accessibility: elements.accessibility,
       imageUrl: elements.imageUrl.value,
       cost: elements.cost.value,
     };
@@ -80,26 +78,26 @@
     }
 
     // Check if a category was selected
-    // var categorySelectedCheck = false;
-    // var checkedCategories = [];
-    // data.categories.forEach(function(categoryElement) {
-    //   if (categoryElement.checked) {
-    //     checkedCategories.push(categoryElement.value);
-    //     categorySelectedCheck = true;
-    //   }
-    // });
-    //
-    // // Handle if a category wasn't selected
-    // if (!categorySelectedCheck) {
-    //   return notValid('*Select an event category');
-    // } else {
-    //   data.categories = checkedCategories;
-    //   errorBox.innerText = '';
-    // }
+    var categorySelectedCheck = false;
+    var checkedCategories = [];
+    elements.categories.forEach(function(categoryElement) {
+      if (categoryElement.checked) {
+        checkedCategories.push(categoryElement.value);
+        categorySelectedCheck = true;
+      }
+    });
+
+    // Handle if a category wasn't selected
+    if (!categorySelectedCheck) {
+      return notValid('*Select an event category');
+    } else {
+      data.categories = checkedCategories;
+      errorBox.innerText = '';
+    }
 
     // Add the selected accessibility options to the request body
     var checkedAccessibility = [];
-    data.accessibility.forEach(function(accessibility) {
+    elements.accessibility.forEach(function(accessibility) {
       if (accessibility.checked) {
         checkedAccessibility.push(accessibility.value);
       }
