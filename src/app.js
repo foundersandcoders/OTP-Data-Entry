@@ -33,6 +33,7 @@ app.engine(
       getMapLink,
       checkOptionsValue,
       checkedDropDown,
+      formatDate: date => `${new Date(date).toUTCString()}`,
     },
   }),
 );
