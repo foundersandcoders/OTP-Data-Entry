@@ -21,11 +21,24 @@
       description_en: elements.description_en.value,
       description_ar: elements.description_ar.value,
       eventPlace: elements.eventPlace.value,
-      startTime: elements.startTime.value,
-      endTime: elements.endTime.value,
       imageUrl: elements.imageUrl.value,
       cost: elements.cost.value,
     };
+
+    // set time in the data object
+    data.startTime = new Date(
+      new Date(
+        new Date(elements.startTime.value).setMinutes(
+          elements.startMinutes.value,
+        ),
+      ).setHours(elements.startHour.value),
+    ).toISOString();
+
+    data.endTime = new Date(
+      new Date(
+        new Date(elements.endTime.value).setMinutes(elements.endMinutes.value),
+      ).setHours(elements.endHour.value),
+    ).toISOString();
 
     // Check if event name input were filled
     if (!data.name_ar && !data.name_en) {

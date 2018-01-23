@@ -8,6 +8,7 @@ const langError = require('./middleware/langError.js');
 const lang = require('./middleware/setLanguage.js');
 const checkOptionsValue = require('./helpers/check_options_value.js');
 const checkedDropDown = require('./helpers/check_dropdown_option.js');
+const iterate = require('./helpers/iterate.js');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
 
@@ -33,6 +34,10 @@ app.engine(
       getMapLink,
       checkOptionsValue,
       checkedDropDown,
+      iterate,
+      getDate: date => date.split('T')[0],
+      getHours: date => new Date(date).getHours(),
+      getMinutes: date => new Date(date).getMinutes(),
     },
   }),
 );
