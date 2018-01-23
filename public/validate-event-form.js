@@ -21,9 +21,12 @@
       description_en: elements.description_en.value,
       description_ar: elements.description_ar.value,
       eventPlace: elements.eventPlace.value,
-      imageUrl: elements.imageUrl.value,
       cost: elements.cost.value,
     };
+
+    data.imageUrl = elements.s3Url
+      ? elements.s3Url.value
+      : elements.imageUrl.value;
 
     // set time in the data object
     data.startTime = new Date(
