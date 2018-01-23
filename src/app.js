@@ -34,6 +34,7 @@ app.engine(
       getMapLink,
       checkOptionsValue,
       checkedDropDown,
+      formatDate: date => `${new Date(date).toUTCString()}`,
       iterate,
       getDate: date => date.split('T')[0],
       getHours: date => new Date(date).getHours(),
