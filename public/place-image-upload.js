@@ -1,7 +1,7 @@
 (function() {
-  var fileInput = document.getElementById('eventFileInput');
-  var fileErrorMessage = document.getElementById('fileErrorMessage');
+  var fileInput = document.getElementById('placeImageInput');
   var hiddenFileInput = document.getElementById('hiddenFileInput');
+  var fileErrorMessage = document.getElementById('fileErrorMessage');
   var spinner = document.getElementById('spinner');
   var imagePreview = document.getElementById('imagePreview');
 

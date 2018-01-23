@@ -26,8 +26,11 @@
       website: elements.website.value,
       phone: elements.phone.value,
       email: elements.email.value,
-      imageUrl: elements.imageUrl.value,
     };
+
+    data.imageUrl = elements.s3Url
+      ? elements.s3Url.value
+      : elements.imageUrl.value;
 
     // Check if place name input were filled
     if (!data.name_en && !data.name_ar) {
