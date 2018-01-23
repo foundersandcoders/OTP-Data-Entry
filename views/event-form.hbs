@@ -73,9 +73,34 @@
       <td class="w-20 dark-text f4 b pb3 ph3 pt1 tr">{{localText.eventStart}}</td>
       <td class="w-70">
           {{#if event.startTime}}
-            <input class="input-reset w-70 br2 ba pa1 b--gray" type="datetime-local" name="startTime" value="{{event.startTime}}">
+            <input class="w-50 br2 ba pa1 b--gray" type="date" name="startTime" value="{{getDate event.startTime}}" required>
+            <select class="w-10 br2 ba pa1 b--gray bg-white dib" name="startHour" required>
+                <option value="{{getHours event.startTime}}">{{getHours event.startTime}}</option>
+                {{#iterate 23}}
+                  <option value="{{this}}">{{this}}</option>
+                {{/iterate}}
+            </select>
+            <select class="w-10 br2 ba pa1 b--gray bg-white dib" name="startMinutes" required>
+                <option value="{{getMinutes event.startTime}}">{{getMinutes event.startTime}}</option>
+                {{#iterate 59}}
+                  <option value="{{this}}">{{this}}</option>
+                {{/iterate}}
+            </select>
           {{else}}
-            <input class="input-reset w-70 br2 ba pa1 b--gray dib" type="datetime-local" name="startTime">
+            <input class="input-reset w-50 br2 ba pa1 b--gray dib" type="date" name="startTime" required>
+            <select class="w-10 br2 ba pa1 b--gray bg-white dib" name="startHour" required>
+                <option value="">Hour</option>
+                {{#iterate 23}}
+                  <option value="{{this}}">{{this}}</option>
+                {{/iterate}}
+            </select>
+            <select class="w-10 br2 ba pa1 b--gray bg-white dib" name="startMinutes" required>
+                <option value="">Minute</option>
+                {{#iterate 59}}
+                  <option value="{{this}}">{{this}}</option>
+                {{/iterate}}
+            </select>
+
           {{/if}}
       </td>
     </tr>
@@ -83,9 +108,33 @@
       <td class="w-20 dark-text f4 b ph3 pb3 pt0 tr">{{localText.eventEnd}}</td>
       <td class="w-70">
           {{#if event.endTime}}
-            <input class="input-reset w-70 br2 ba pa1 b--gray" type="datetime-local" name="endTime" value="{{event.endTime}}">
+            <input class="input-reset w-50 br2 ba pa1 b--gray" type="date" name="endTime" value="{{getDate event.endTime}}" required>
+            <select class="w-10 br2 ba pa1 b--gray bg-white dib" name="endHour" required>
+                <option value="{{getHours event.endTime}}">{{getHours event.endTime}}</option>
+                {{#iterate 23}}
+                  <option value="{{this}}">{{this}}</option>
+                {{/iterate}}
+            </select>
+            <select class="w-10 br2 ba pa1 b--gray bg-white dib" name="endMinutes" required>
+                <option value="{{getMinutes event.endTime}}">{{getMinutes event.endTime}}</option>
+                {{#iterate 59}}
+                  <option value="{{this}}">{{this}}</option>
+                {{/iterate}}
+            </select>
           {{else}}
-            <input class="input-reset w-70 br2 ba pa1 b--gray dib" type="datetime-local" name="endTime">
+            <input class="input-reset w-50 br2 ba pa1 b--gray dib" type="date" name="endTime" required>
+            <select class="w-10 br2 ba pa1 b--gray bg-white dib" name="endHour" required>
+                <option value="">Hour</option>
+                {{#iterate 23}}
+                  <option value="{{this}}">{{this}}</option>
+                {{/iterate}}
+            </select>
+            <select class="w-10 br2 ba pa1 b--gray bg-white dib" name="endMinutes" required>
+                <option value="">Minute</option>
+                {{#iterate 59}}
+                  <option value="{{this}}">{{this}}</option>
+                {{/iterate}}
+            </select>
           {{/if}}
       </td>
     </tr>
@@ -209,7 +258,7 @@
 </table>
 <div class="w-100 tc pa4">
 
-  <input class="f6 w4 tc grow br-pill ba bw1 b--gray pv2 dib mid-gray b bg-main" type="submit" value="{{localText.formSubmit}}">
+  <input class="f6 w4 tc grow br-pill ba bw1 b--gray pv2 dib mid-gray b bg-main outline-0" type="submit" value="{{localText.formSubmit}}">
 </div>
 </form>
 
