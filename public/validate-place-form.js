@@ -28,6 +28,13 @@
       email: elements.email.value,
     };
 
+    // checks if a file is being uploaded
+    if (
+      document.getElementById('spinner').classList.value.indexOf('dn') === -1
+    ) {
+      return notValid('*Image did not finish upload');
+    }
+
     data.imageUrl = elements.s3Url
       ? elements.s3Url.value
       : elements.imageUrl.value;
