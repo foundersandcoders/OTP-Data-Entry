@@ -6,10 +6,6 @@ const oauthCode = require('./OAuth/code.js');
 const oauthToken = require('./OAuth/token.js');
 const checkLoggedIn = require('../middleware/checkLoggedIn.js');
 
-router.get('*', (req, res, next) => {
-  console.log(req.url);
-  next();
-});
 router.get('/', require('./home.js'));
 router.get('/sign-s3', require('./sign_s3.js'));
 router.get('/:lang/content', require('../content.js'));

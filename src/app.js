@@ -11,6 +11,7 @@ const checkedDropDown = require('./helpers/check_dropdown_option.js');
 const iterate = require('./helpers/iterate.js');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const morgan = require('morgan');
 
 const app = express();
 
@@ -20,6 +21,11 @@ app.use(cookieParser());
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(
+  morgan('dev', {
+    skip: (req, res) => res.statusCode < 400,
+  }),
+);
 
 // Set up local languages
 app.locals.en = languages.en;
