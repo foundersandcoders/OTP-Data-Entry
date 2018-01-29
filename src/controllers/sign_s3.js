@@ -1,5 +1,6 @@
 const aws = require('aws-sdk');
 require('env2')('./config.env');
+const uuidv4 = require('uuid/v4');
 const S3_BUCKET = process.env.S3_BUCKET;
 
 // set the region of the S3 bucket
@@ -11,7 +12,7 @@ module.exports = (req, res) => {
   const fileType = req.query['file-type'];
   const s3Params = {
     Bucket: S3_BUCKET,
-    Key: fileName,
+    Key: `${fileName}:${uuidv4()}`,
     Expires: 60,
     ContentType: fileType,
     ACL: 'public-read',
