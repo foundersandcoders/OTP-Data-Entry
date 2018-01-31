@@ -1,5 +1,7 @@
 (function() {
-  var fileInput = document.getElementById('placeImageInput');
+  var fileInput =
+    document.getElementById('eventFileInput') ||
+    document.getElementById('placeImageInput');
   var hiddenFileInput = document.getElementById('hiddenFileInput');
   var fileErrorMessage = document.getElementById('fileErrorMessage');
   var spinner = document.getElementById('spinner');
@@ -8,7 +10,7 @@
   fileInput.onchange = function() {
     var fileInputFiles = fileInput.files;
     var file = fileInputFiles[0];
-    imagePreview.src && (imagePreview.src = '');
+    imagePreview.src = imagePreview.src && '';
     spinner.classList.toggle('dn');
     imagePreview.classList.add('dn');
     getSignedRequest(file)
