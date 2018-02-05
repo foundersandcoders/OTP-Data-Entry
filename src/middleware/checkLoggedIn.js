@@ -9,7 +9,6 @@ module.exports = (req, res, next) => {
   const access = req.cookies && req.cookies.access;
 
   if (access) {
-    console.log('worked ?');
     verifyToken(req)
       .then(() => next())
       .catch(err => res.redirect(`/${req.params.lang}/login`));

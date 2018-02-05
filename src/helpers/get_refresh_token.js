@@ -24,8 +24,6 @@ module.exports = (req, res) => {
     };
     return new Promise((resolve, reject) => {
       Request(options, (error, responseToken, body) => {
-        console.log('refresh status code', responseToken.statusCode);
-        console.log(body);
         if (error || responseToken.statusCode !== 200) {
           reject(error);
         } else {
@@ -34,7 +32,6 @@ module.exports = (req, res) => {
             { access_token, refresh_token },
             process.env.JWT_SECRET,
           );
-          console.log('TOKEN', token);
           res.clearCookie('access');
           res.cookie('access', token, { maxAge: 604800000 });
           resolve();

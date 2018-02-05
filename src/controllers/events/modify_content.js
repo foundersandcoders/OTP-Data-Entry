@@ -62,8 +62,6 @@ module.exports = (req, res) => {
       if (error) {
         return res.status(500).send(res.locals.localText.serverError);
       } else if (apiResponse.statusCode !== correctResponseStatusCode) {
-        console.log('im here lad');
-        console.log(apiResponseBody);
         if (apiResponseBody.error === 'Unauthorized') {
           getRefreshToken(req, res)
             .then(() => res.status(400).send('Try again'))
