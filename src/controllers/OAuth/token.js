@@ -11,7 +11,7 @@ module.exports = (req, res) => {
     client_id: process.env.CLIENT_ID,
     client_secret: process.env.CLIENT_SECRET,
     redirect_uri: process.env.REDIRECT_URI,
-    grant_type: 'authorization_code'
+    grant_type: 'authorization_code',
   };
 
   const options = {
@@ -19,26 +19,30 @@ module.exports = (req, res) => {
     uri: oauthTokenBaseURL,
     body: queryString.stringify(tokenQueries),
     headers: {
-      'content-type': 'application/x-www-form-urlencoded'
-    }
+      'content-type': 'application/x-www-form-urlencoded',
+    },
   };
 
   if (req.query.state !== process.env.STATE) {
     return res.redirect('error', {
       statusCode: 400,
-      errorMessage: 'Something went wrong with your login information! please try again.'
+      errorMessage:
+        'Something went wrong with your login information! please try again.',
     });
   } else {
     Request(options, (error, responseToken, body) => {
       if (error || responseToken.statusCode !== 200) {
         return res.redirect('error', {
           statusCode: 500,
-          errorMessage: 'Server error!'
+          errorMessage: 'Server error!',
         });
       } else {
-        const parsedBody = JSON.parse(body);
-        const token = jwt.sign(parsedBody.access_token, process.env.JWT_SECRET);
-        res.cookie('token', token, {maxAge: 604800000});
+        const { access_token, refresh_token } = JSON.parse(body);
+        const token = jwt.sign(
+          { access_token, refresh_token },
+          process.env.JWT_SECRET,
+        );
+        res.cookie('access', token, { maxAge: 604800000 });
 
         if (req.cookies && req.cookies.referredUrl) {
           res.redirect(req.cookies.referredUrl);
