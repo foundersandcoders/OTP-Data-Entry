@@ -19,7 +19,8 @@ module.exports = {
     noLocation: 'No Location available',
     accessibilityOptions: 'Accessibility Options',
     categories: 'Categories',
-    formInfo: '*indicates a required field in at least one of English or Arabic',
+    formInfo:
+      '*indicates a required field in at least one of English or Arabic',
     required: 'Required field',
     selectPlace: 'Select place',
     // places
@@ -42,7 +43,8 @@ module.exports = {
     eventStart: 'Start time',
     eventEnd: 'End time',
     formOwnerId: 'Owner ID',
-    formImageUrl: 'Image URL',
+    formImage: 'Image',
+    formImageUrl: 'Image-URL',
     formSubmit: 'Submit',
     // Accessibility options
     audioRecordings: 'Audio recordings',
@@ -77,7 +79,7 @@ module.exports = {
     miscellaneous: 'Miscellaneous',
     party: 'Party',
     sportEvent: 'Sport',
-    wedding: 'Wedding'
+    wedding: 'Wedding',
   },
   ar: {
     pageTitle: 'إدخال البيانات',
@@ -99,7 +101,8 @@ module.exports = {
     noLocation: 'لا يوجد مكان',
     accessibilityOptions: 'امكانيات سهولة الوصول',
     categories: 'فئات',
-    formInfo: '* مطلوب التعبئة على الاقل في واحدة من اللغتين العربية او الانجليزية',
+    formInfo:
+      '* مطلوب التعبئة على الاقل في واحدة من اللغتين العربية او الانجليزية',
     required: ' مطلوب التعبئة',
     selectPlace: 'اختر مكان الحدث',
     // places
@@ -130,7 +133,8 @@ module.exports = {
     eventStart: 'وقت البدء',
     eventEnd: 'وقت النهاية',
     formOwnerId: 'هوية صاحب المكان',
-    formImageUrl: 'صورة',
+    formImage: 'صورة',
+    formImageUrl: 'رابط الصورة',
     formSubmit: 'إعرض',
     // Accessibility options
     audioRecordings: 'خدمات صوتية',
@@ -165,7 +169,6 @@ module.exports = {
     miscellaneous: 'متنوع',
     party: 'حفل',
     sportEvent: 'رياضة',
-    wedding: 'عرس'
-
-  }
+    wedding: 'عرس',
+  },
 };

@@ -129,13 +129,31 @@
       </td>
     </tr>
     <tr>
-      <td class="w-20 dark-text f4 b ph3 pb3 pt0 tr">{{localText.formImageUrl}}</td>
+      <td class="w-20 dark-text f4 b ph3 pb2 pt0 tr">{{localText.formImageUrl}}</td>
       <td class="w-70">
           {{#if place.imageUrl}}
-            <input class="input-reset w-70 br2 ba pa1 b--gray" type="text" name="imageUrl" value="{{place.imageUrl}}">
+            <input class="input-reset w-70 br2 ba pa1 b--gray" type="text" name="imageUrl" value="{{place.imageUrl}}" placeholder="{{localText.formImageUrl}}">
           {{else}}
-            <input class="input-reset w-70 br2 ba pa1 b--gray dib" type="text" name="imageUrl">
+            <input class="input-reset w-70 br2 ba pa1 b--gray dib" type="text" name="imageUrl" placeholder="{{localText.formImageUrl}}">
           {{/if}}
+      </td>
+    </tr>
+    <tr>
+      <td class="tr pb3 pl4 pt0"></td>
+      <td class="">
+        <span class="b dark-text">OR</span>
+      </td>
+    </tr>
+    <tr>
+      <td class="w-20 dark-text f4 b ph3 pb3 pt0 tr">{{localText.formImage}}</td>
+      <td class="w-70">
+          <input type="hidden" id="hiddenFileInput" name="s3Url">
+          <div class="flex">
+            <input type="file" class="input-reset w-60 br2 ba pa1 b--gray dib" accept="image/jpeg,image/x-png" id="placeImageInput">
+            <div id="spinner" class="dn mh2"></div>
+          </div>
+          <img src="" id="imagePreview" class="w-10 h-10 dn pa1" alt="Your uploaded image">
+          <span id="fileErrorMessage" class="dib red"></span>
       </td>
     </tr>
     <tr>
@@ -232,5 +250,5 @@
   <input class="f6 w4 tc grow br-pill ba bw1 b--gray pv2 dib mid-gray b bg-main" type="submit" value="{{localText.formSubmit}}">
 </div>
 </form>
-
+<script src="/image-upload.js" charset="utf-8"></script>
 <script src="/validate-place-form.js" charset="utf-8"></script>
