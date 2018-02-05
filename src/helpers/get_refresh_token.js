@@ -43,7 +43,7 @@ module.exports = (req, res) => {
   return new Promise((resolve, reject) => {
     verifyToken(req)
       .then(requestToken)
-      .then(() => resolve())
-      .catch(() => reject());
+      .then(resolve)
+      .catch(reject);
   });
 };
