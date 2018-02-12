@@ -1,27 +1,56 @@
 .bg-turquoise {
-  background-color: #409A93;
+  background-color: #409a93;
 }
 
 .bg-main {
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
 }
 
- .light-text {
-   color: #95989A;
- }
+.light-text {
+  color: #95989a;
+}
 
- .lato {
-   font-family: 'lato', sans-serif;
- }
+.lato {
+  font-family: 'lato', sans-serif;
+}
 
- .dark-text {
-   color: #5C5C5C;
- }
+.dark-text {
+  color: #5c5c5c;
+}
 
- .b--turquoise {
-   border-color: #409A93;
- }
+.b--turquoise {
+  border-color: #409a93;
+}
 
- .text-turquoise {
-   color: #409A93;
- }
+.text-turquoise {
+  color: #409a93;
+}
+
+#spinner {
+  border: 0.2rem solid #f3f3f3;
+  border-radius: 75%;
+  border-top: 0.2rem solid #3498db;
+  width: 2rem;
+  height: 2rem;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -139,7 +139,7 @@
       </td>
     </tr>
     <tr>
-      <td class="w-20 dark-text f4 b ph3 pb3 pt0 tr">{{localText.eventsCost}}</td>
+      <td class="w-20 dark-text f4 b ph3 pb2 pt0 tr">{{localText.eventsCost}}</td>
       <td class="w-70">
           {{#if event.cost}}
             <input class="input-reset w-70 br2 ba pa1 b--gray" type="text" name="cost" value="{{event.cost}}">
@@ -149,13 +149,31 @@
       </td>
     </tr>
     <tr>
-      <td class="w-20 dark-text f4 b ph3 pb3 pt0 tr">{{localText.formImageUrl}}</td>
+      <td class="w-20 dark-text f4 b ph3 pb2 pt0 tr">{{localText.formImageUrl}}</td>
       <td class="w-70">
           {{#if event.imageUrl}}
-            <input class="input-reset w-70 br2 ba pa1 b--gray" type="text" name="imageUrl" value="{{event.imageUrl}}">
+            <input class="input-reset w-70 br2 ba pa1 b--gray" type="text" name="imageUrl" value="{{event.imageUrl}}" placeholder="{{localText.formImageUrl}}">
           {{else}}
-            <input class="input-reset w-70 br2 ba pa1 b--gray dib" type="text" name="imageUrl">
+            <input class="input-reset w-70 br2 ba pa1 b--gray dib" type="text" name="imageUrl" placeholder="{{localText.formImageUrl}}">
           {{/if}}
+      </td>
+    </tr>
+    <tr>
+      <td class="tr pb3 pl4 pt0"></td>
+      <td class="">
+        <span class="b dark-text">OR</span>
+      </td>
+    </tr>
+    <tr>
+      <td class="w-20 dark-text f4 b ph3 pb3 pt0 tr">{{localText.formImage}}</td>
+      <td class="w-70">
+          <input type="hidden" id="hiddenFileInput" name="s3Url">
+          <div class="flex">
+            <input type="file" class="input-reset w-60 br2 ba pa1 b--gray dib" accept="image/jpeg,image/x-png" id="eventFileInput">
+            <div id="spinner" class="dn mh2"></div>
+          </div>
+          <img src="" id="imagePreview" class="w-10 h-10 dn pa1" alt="Your uploaded image">
+          <span id="fileErrorMessage" class="dib red"></span>
       </td>
     </tr>
     <tr>
@@ -263,3 +281,4 @@
 </form>
 
 <script src="/validate-event-form.js" charset="utf-8"></script>
+<script src="/image-upload.js" charset="utf-8"></script>
