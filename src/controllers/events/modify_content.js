@@ -1,9 +1,9 @@
 const Request = require('request');
 const { eventsURL } = require('../../constants/urls.json');
 const checkCookie = require('../../helpers/check_cookie.js');
-const getRefreshToken = require('../../helpers/get_refresh_token.js');
+const OTP = require('../../otp_sdk');
 
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
   const apiBody = {
     imageUrl: req.body.imageUrl,
     cost: req.body.cost,
@@ -29,53 +29,61 @@ module.exports = (req, res) => {
 
   apiBody.categories = req.body.categories;
 
-  checkCookie(req, (error, decodedToken) => {
+  checkCookie(req, async (error, decodedToken) => {
     if (error) {
       return res.status(500).send(res.locals.localText.serverError);
     }
-    let url, urlEndpoint, correctResponseStatusCode, auth;
+    let headers;
+    const tools = {};
     switch (req.body._method) {
       case 'post':
-        url = eventsURL;
-        urlEndpoint = 'events';
-        correctResponseStatusCode = 201;
+        tools.url = eventsURL;
+        tools.urlEndpoint = 'events';
+        tools.correctResponseStatusCode = 201;
         break;
       case 'put':
-        url = `${eventsURL}/${req.params.id}`;
-        urlEndpoint = `event/${req.params.id}`;
-        correctResponseStatusCode = 200;
-        auth = {
-          bearer: decodedToken,
+        tools.url = `${eventsURL}/${req.params.id}`;
+        tools.urlEndpoint = `event/${req.params.id}`;
+        tools.correctResponseStatusCode = 200;
+        headers = {
+          Authorization: 'Bearer ' + decodedToken,
         };
         break;
       default:
         return res.status(500).send(res.locals.localText.serverError);
     }
+
+    // adds the redirectUrls to the tools
+    tools.redirectUrl = JSON.stringify({
+      redirectUrl: `/${req.params.lang}/${tools.urlEndpoint}`,
+    });
+
     const reqOptions = {
-      url,
+      url: tools.url,
       method: req.body._method,
-      body: apiBody,
-      json: true,
-      auth,
+      data: apiBody,
+      responseType: 'json',
+      headers,
     };
-    Request(reqOptions, (error, apiResponse, apiResponseBody) => {
-      if (error) {
-        return res.status(500).send(res.locals.localText.serverError);
-      } else if (apiResponse.statusCode !== correctResponseStatusCode) {
-        if (apiResponseBody.error === 'Unauthorized') {
-          getRefreshToken(req, res)
-            .then(() => res.status(400).send('Try again'))
-            .catch(() => res.status(500).send('Server error! try again'));
-        } else {
-          return res
-            .status(apiResponseBody.statusCode)
-            .send(apiResponseBody.message);
+
+    try {
+      await OTP.events.modify(reqOptions, tools);
+      res.send(tools.redirectUrl);
+    } catch (error) {
+      if (error.Unauthorized) {
+        try {
+          const newToken = await OTP.auth.getRefreshToken(req, res);
+          reqOptions.headers = {
+            Authorization: 'Bearer ' + newToken,
+          };
+          await OTP.events.modify(reqOptions, tools);
+          res.send(tools.redirectUrl);
+        } catch (e) {
+          return res.status(500).send('Server Error');
         }
       } else {
-        res.end(
-          JSON.stringify({ redirectUrl: `/${req.params.lang}/${urlEndpoint}` }),
-        );
+        return res.status(500).send(error);
       }
-    });
+    }
   });
 };

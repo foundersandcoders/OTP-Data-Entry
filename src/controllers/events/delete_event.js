@@ -14,14 +14,16 @@ module.exports = (req, res) => {
             errorMessage: res.locals.localText.serverError,
           });
         } else {
+          console.log(decodedToken.access_token);
           const reqOptions = {
             url: `${eventsURL}/${req.params.id}`,
             method: 'DELETE',
             auth: {
-              bearer: decodedToken,
+              bearer: decodedToken.access_token,
             },
           };
-          Request(reqOptions, (error, response) => {
+
+          Request(reqOptions, (error, response, body) => {
             if (error) {
               return res.render('error', {
                 statusCode: 500,
