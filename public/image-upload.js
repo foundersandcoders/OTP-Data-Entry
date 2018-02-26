@@ -29,7 +29,6 @@
         imagePreview.classList.remove('dn');
       })
       .catch(function(err) {
-        console.log(err);
         imagePreview.src = '';
         hiddenFileInput.value = '';
         fileErrorMessage.textContent = 'Could not upload file';
