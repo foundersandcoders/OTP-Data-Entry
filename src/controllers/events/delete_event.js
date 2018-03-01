@@ -14,7 +14,6 @@ module.exports = (req, res) => {
             errorMessage: res.locals.localText.serverError,
           });
         } else {
-          console.log(decodedToken.access_token);
           const reqOptions = {
             url: `${eventsURL}/${req.params.id}`,
             method: 'DELETE',
