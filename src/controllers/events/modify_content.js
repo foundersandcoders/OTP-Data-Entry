@@ -1,9 +1,8 @@
-const Request = require('request');
 const { eventsURL } = require('../../constants/urls.json');
 const checkCookie = require('../../helpers/check_cookie.js');
 const OTP = require('../../otp_sdk');
 
-module.exports = async (req, res) => {
+module.exports = (req, res) => {
   const apiBody = {
     imageUrl: req.body.imageUrl,
     cost: req.body.cost,
@@ -29,7 +28,7 @@ module.exports = async (req, res) => {
 
   apiBody.categories = req.body.categories;
 
-  checkCookie(req, async (error, decodedToken) => {
+  checkCookie(req, (error, decodedToken) => {
     if (error) {
       return res.status(500).send(res.locals.localText.serverError);
     }
@@ -66,24 +65,26 @@ module.exports = async (req, res) => {
       headers,
     };
 
-    try {
-      await OTP.events.modify(reqOptions, tools);
-      res.send(tools.redirectUrl);
-    } catch (error) {
-      if (error.Unauthorized) {
-        try {
-          const newToken = await OTP.auth.getRefreshToken(req, res);
-          reqOptions.headers = {
-            Authorization: 'Bearer ' + newToken,
-          };
-          await OTP.events.modify(reqOptions, tools);
-          res.send(tools.redirectUrl);
-        } catch (e) {
-          return res.status(500).send('Server Error');
+    OTP.events
+      .modify(reqOptions, tools)
+      .then(() => res.send(tools.redirectUrl))
+      .catch(err => {
+        if (err.Unauthorized) {
+          OTP.auth
+            .getRefreshToken(req.cookies)
+            .then(tokens => {
+              res.clearCookie('access');
+              res.cookie('access', tokens.token, { maxAge: 604800000 });
+              reqOptions.headers = {
+                Authorization: 'Bearer ' + tokens.access_token,
+              };
+              OTP.events
+                .modify(reqOptions, tools)
+                .then(() => res.send(tools.redirectUrl))
+                .catch(e => res.status(500).send('Server Error'));
+            })
+            .catch(e => res.status(500).send('Server Error'));
         }
-      } else {
-        return res.status(500).send(error);
-      }
-    }
+      });
   });
 };
