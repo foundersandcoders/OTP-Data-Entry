@@ -4,9 +4,8 @@ const qs = require('querystring');
 const jwt = require('jsonwebtoken');
 const { oauthTokenBaseURL } = require('../constants/urls.json');
 
-module.exports = (req, res) => {
-  const requestToken = token => {
-    console.log(1);
+module.exports = reqCookiesObject => {
+  const requestToken = async token => {
     const tokenQueries = {
       grant_type: 'refresh_token',
       refresh_token: token.refresh_token,
@@ -20,28 +19,23 @@ module.exports = (req, res) => {
       baseURL: oauthTokenBaseURL,
       data: qs.stringify(tokenQueries),
     };
-
-    return new Promise(async (resolve, reject) => {
-      try {
-        const apiTokenResponse = await axios(options);
-        const { access_token, refresh_token } = apiTokenResponse.data;
-        const token = jwt.sign(
-          { access_token, refresh_token },
-          process.env.JWT_SECRET,
-        );
-        res.clearCookie('access');
-        res.cookie('access', token, { maxAge: 604800000 });
-        resolve(access_token);
-      } catch (e) {
-        reject(e);
-      }
-    });
+    try {
+      const apiTokenResponse = await axios(options);
+      const { access_token, refresh_token } = apiTokenResponse.data;
+      const token = await jwt.sign(
+        { access_token, refresh_token },
+        process.env.JWT_SECRET,
+      );
+      return { access_token, token };
+    } catch (e) {
+      return e;
+    }
   };
 
-  return new Promise(async (resolve, reject) => {
-    verifyToken(req)
+  return new Promise((resolve, reject) => {
+    verifyToken(reqCookiesObject)
       .then(requestToken)
-      .then(token => resolve(token))
+      .then(tokens => resolve(tokens))
       .catch(reject);
   });
 };

@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
-module.exports = req => {
-  const { access } = req.cookies && req.cookies;
+module.exports = reqCookiesObject => {
+  const { access } = reqCookiesObject && reqCookiesObject;
 
   return new Promise((resolve, reject) => {
     jwt.verify(access, process.env.JWT_SECRET, (error, decoded) => {
