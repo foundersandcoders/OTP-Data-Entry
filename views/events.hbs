@@ -33,7 +33,7 @@
   <div class="pa2 dtc w4 v-mid">
     <a href="/{{../lang}}/edit-event/{{_id}}" class="f6 w4 tc grow no-underline br-pill ba bw1 ph4 pv2 mb2 dib mid-gray b gray">{{../localText.edit}}</a>
     <a href="/{{../lang}}/delete-event/{{_id}}" class="f6 w4 tc grow no-underline br-pill ba bw1 ph4 pv2 mb2 dib mid-gray b gray">{{../localText.delete}}</a>
-    <div class="f6 w4 tc grow no-underline br-pill ba bw1 ph4 pv2 {{#if this.verified}} green {{else}} red {{/if}} mb2 dib b"> Verified</div>
+    <div class="f6 w4 tc grow no-underline br-pill ba bw1 ph4 pv2 {{#if this.verified}} green {{else}} red {{/if}} mb2 dib b"> Verified {{#if this.verified}}✔️{{else}}✖️{{/if}}</div>
   </div>
 </li>
   {{/each}}
