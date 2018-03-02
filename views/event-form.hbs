@@ -183,12 +183,7 @@
 
           {{#each localText.accOptions}}
             <td class="flex items-center mb2">
-              <input
-              class="mr2"
-              id="{{getKey this ../lang}}"
-              type="checkbox"
-              name="accessibility"
-              value="{{this.en}}" {{checkOptionsValue ../event.accessibilityOptions getKey this ../lang}}>
+              <input class="mr2" id="{{getKey this ../lang}}" type="checkbox" name="accessibility" value="{{this.en}}" {{checkOptionsValue ../event.accessibilityOptions getKey this ../lang}}>
               <label  for="{{getKey this ../lang}}" class="light-text">{{getKey this ../lang}}</label>
             </td>
           {{/each}}
