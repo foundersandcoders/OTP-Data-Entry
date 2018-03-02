@@ -160,87 +160,23 @@
       <td class="w-20 dark-text f4 b pa3 tr">{{localText.accessibilityOptions}}
       </td>
       <td><table><tr>
-          <td class="flex items-center mb2 ">
-            <input class="mr2" id="braille" type="checkbox" name="accessibility" value="Braille" {{checkOptionsValue place.accessibilityOptions "Braille"}}>
-            <label for="braille" class="light-text">{{localText.brailleMenu}}</label>
-          </td>
-          <td class="flex items-center mb2">
-            <input class="mr2" id="audio-recordings" type="checkbox" name="accessibility" value="Audio recordings" {{checkOptionsValue place.accessibilityOptions "Audio recordings"}}>
-            <label for="audio-recordings" class="light-text">{{localText.audioRecordings}}</label>
-          </td>
-          <td class="flex items-center mb2">
-            <input class="mr2" id="big-fonts" type="checkbox" name="accessibility" value="Big fonts" {{checkOptionsValue place.accessibilityOptions "Big fonts"}}>
-            <label for="big-fonts" class="light-text">{{localText.bigFonts}}</label>
-          </td>
-          <td class="flex items-center mb2">
-            <input class="mr2" id="carer" type="checkbox" name="accessibility" value="Carer" {{checkOptionsValue place.accessibilityOptions "Carer"}}>
-            <label for="carer" class="light-text">{{localText.carer}}</label>
-          </td>
-          <td class="flex items-center mb2">
-            <input class="mr2" id="guide-dog" type="checkbox" name="accessibility" value="Place for guide dog" {{checkOptionsValue place.accessibilityOptions "Place for guide dog"}}>
-            <label for="guide-dog" class="light-text">{{localText.guideDog}}</label>
-          </td>
-          <td class="flex items-center mb2">
-            <input class="mr2" id="sms-message" type="checkbox" name="accessibility" value="SMS messaging" {{checkOptionsValue place.accessibilityOptions "SMS messaging"}}>
-            <label for="sms-message" class="light-text">{{localText.smsMessaging}}</label>
-          </td>
-          <td class="flex items-center mb2">
-            <input class="mr2" id="sign-lang" type="checkbox" name="accessibility" value="Sign language" {{{checkOptionsValue place.accessibilityOptions "Sign language"}}}>
-            <label for="sign-lang" class="light-text">{{localText.signLang}}</label>
-          </td>
-          <td class="flex items-center mb2">
-            <input class="mr2" id="good-lighting" type="checkbox" name="accessibility" value="Good lighting" {{checkOptionsValue place.accessibilityOptions "Good lighting"}}>
-            <label for="good-lighting" class="light-text">{{localText.goodLighting}}</label>
-          </td>
-          <td class="flex items-center mb2">
-            <input class="mr2" id="wheelchair" type="checkbox" name="accessibility" value="Wheelchair access" {{checkOptionsValue place.accessibilityOptions "Wheelchair access"}}>
-            <label for="wheelchair" class="light-text">{{localText.wheelchairFriendly}}</label>
-          </td>
-          <td class="flex items-center mb2">
-            <input class="mr2" id="disabled-parking" type="checkbox" name="accessibility" value="Disabled parking" {{checkOptionsValue place.accessibilityOptions "Disabled parking"}}>
-            <label for="disabled-parking" class="light-text">{{localText.disabledParking}}</label>
-          </td>
-          <td class="flex items-center mb2">
-            <input class="mr2" id="disabled-toilets" type="checkbox" name="accessibility" value="Disabled toilets" {{checkOptionsValue place.accessibilityOptions "Disabled toilets"}}>
-            <label for="disabled-toilets" class="light-text">{{localText.disabledToilet}}</label>
-          </td>
+
+          {{#each localText.accOptions}}
+            <td class="flex items-center mb2">
+              <input class="mr2" id="{{getKey this ../lang}}" type="checkbox" name="accessibility" value="{{this.en}}" {{checkOptionsValue ../place.accessibilityOptions (getKey this 'en')}}>
+              <label  for="{{getKey this ../lang}}" class="light-text">{{getKey this ../lang}}</label>
+            </td>
+          {{/each}}
+
         <td class="dark-text f4 b pa3">{{localText.categories}}</td>
-        <td class="flex items-center mb2">
-          <input class="mr2" id="cafe" type="checkbox" name="categories" value="cafe" {{checkOptionsValue place.categories "cafe"}}>
-          <label for="cafe" class="light-text">{{localText.cafe}}</label>
-        </td>
-        <td class="flex items-center mb2">
-          <input class="mr2" id="music-venue" type="checkbox" name="categories" value="music venue" {{checkOptionsValue place.categories "music venue"}}>
-          <label for="music-venue" class="light-text">{{localText.musicVenue}}</label>
-        </td>
-        <td class="flex items-center mb2">
-          <input class="mr2" id="religious-site" type="checkbox" name="categories" value="religious site" {{checkOptionsValue place.categories "religious site"}}>
-          <label for="religious-site" class="light-text">{{localText.religiousSite}}</label>
-        </td>
-        <td class="flex items-center mb2">
-          <input class="mr2" id="restaurant" type="checkbox" name="categories" value="food and drink" {{checkOptionsValue place.categories "food and drink"}}>
-          <label for="restaurant" class="light-text">{{localText.restaurant}}</label>
-        </td>
-        <td class="flex items-center mb2">
-          <input class="mr2" id="education" type="checkbox" name="categories" value="education" {{checkOptionsValue place.categories "education"}}>
-          <label for="education" class="light-text">{{localText.education}}</label>
-        </td>
-        <td class="flex items-center mb2">
-          <input class="mr2" id="retail" type="checkbox" name="categories" value="retail" {{checkOptionsValue place.categories "retail"}}>
-          <label for="retail" class="light-text">{{localText.retail}}</label>
-        </td>
-        <td class="flex items-center mb2">
-          <input class="mr2" id="sport" type="checkbox" name="categories" value="sport" {{checkOptionsValue place.categories "sport"}}>
-          <label class="light-text"for="sport">{{localText.sport}}</label>
-        </td>
-        <td class="flex items-center mb2">
-          <input class="mr2" id="municipal" type="checkbox" name="categories" value="municipal" {{checkOptionsValue place.categories "municipal"}}>
-          <label class="light-text" for="municipal">{{localText.municipal}}</label>
-        </td>
-        <td class="flex items-center mb2">
-          <input class="mr2" id="healthcare" type="checkbox" name="categories" value="healthcare" {{checkOptionsValue place.categories "healthcare"}}>
-          <label class="light-text" for="healthcare">{{localText.healthcare}}</label>
-        </td>
+
+        {{#each localText.placeCategories}}
+          <td class="flex items-center mb2">
+            <input class="mr2" id="{{getKey this ../lang}}" type="checkbox" name="categories" value="{{this.en}}" {{checkOptionsValue ../place.categories (getKey this 'en')}}>
+            <label for="{{getKey this ../lang}}" class="light-text">{{toUpperCase (getKey this ../lang)}}</label>
+          </td>
+        {{/each}}
+
       </tr></table></td>
     </tr>
   </tbody>
