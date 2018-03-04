@@ -1,6 +1,6 @@
-const Request = require('request');
 const { eventsURL } = require('../../constants/urls.json');
 const checkCookie = require('../../helpers/check_cookie.js');
+const OTP = require('../../otp_sdk');
 
 module.exports = (req, res) => {
   const apiBody = {
@@ -32,43 +32,59 @@ module.exports = (req, res) => {
     if (error) {
       return res.status(500).send(res.locals.localText.serverError);
     }
-    let url, urlEndpoint, correctResponseStatusCode, auth;
+    let headers;
+    const tools = {};
     switch (req.body._method) {
       case 'post':
-        url = eventsURL;
-        urlEndpoint = 'events';
-        correctResponseStatusCode = 201;
+        tools.url = eventsURL;
+        tools.urlEndpoint = 'events';
+        tools.correctResponseStatusCode = 201;
         break;
       case 'put':
-        url = `${eventsURL}/${req.params.id}`;
-        urlEndpoint = `event/${req.params.id}`;
-        correctResponseStatusCode = 200;
-        auth = {
-          bearer: decodedToken,
+        tools.url = `${eventsURL}/${req.params.id}`;
+        tools.urlEndpoint = `event/${req.params.id}`;
+        tools.correctResponseStatusCode = 200;
+        headers = {
+          Authorization: 'Bearer ' + decodedToken,
         };
         break;
       default:
         return res.status(500).send(res.locals.localText.serverError);
     }
-    const reqOptions = {
-      url,
-      method: req.body._method,
-      body: apiBody,
-      json: true,
-      auth,
-    };
-    Request(reqOptions, (error, apiResponse, apiResponseBody) => {
-      if (error) {
-        return res.status(500).send(res.locals.localText.serverError);
-      } else if (apiResponse.statusCode !== correctResponseStatusCode) {
-        return res
-          .status(apiResponseBody.statusCode)
-          .send(apiResponseBody.message);
-      } else {
-        res.end(
-          JSON.stringify({ redirectUrl: `/${req.params.lang}/${urlEndpoint}` }),
-        );
-      }
+
+    // adds the redirectUrls to the tools
+    tools.redirectUrl = JSON.stringify({
+      redirectUrl: `/${req.params.lang}/${tools.urlEndpoint}`,
     });
+
+    const reqOptions = {
+      url: tools.url,
+      method: req.body._method,
+      data: apiBody,
+      responseType: 'json',
+      headers,
+    };
+
+    OTP.events
+      .modify(reqOptions, tools)
+      .then(() => res.send(tools.redirectUrl))
+      .catch(err => {
+        if (err.Unauthorized) {
+          OTP.auth
+            .getRefreshToken(req.cookies)
+            .then(tokens => {
+              res.clearCookie('access');
+              res.cookie('access', tokens.token, { maxAge: 604800000 });
+              reqOptions.headers = {
+                Authorization: 'Bearer ' + tokens.access_token,
+              };
+              OTP.events
+                .modify(reqOptions, tools)
+                .then(() => res.send(tools.redirectUrl))
+                .catch(e => res.status(500).send('Server Error'));
+            })
+            .catch(e => res.status(500).send('Server Error'));
+        }
+      });
   });
 };

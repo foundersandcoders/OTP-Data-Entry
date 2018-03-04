@@ -3,20 +3,17 @@
 // referredUrl to know where to go back to after looged in!
 
 const jwt = require('jsonwebtoken');
+const verifyToken = require('../helpers/verify_token.js');
 
 module.exports = (req, res, next) => {
-  const token = req.cookies && req.cookies.token;
+  const access = req.cookies && req.cookies.access;
 
-  if (token) {
-    jwt.verify(token, process.env.JWT_SECRET, (error) => {
-      if (error) {
-        return res.redirect(`/${req.params.lang}/login`);
-      } else {
-        return next();
-      }
-    });
+  if (access) {
+    verifyToken(req.cookies)
+      .then(() => next())
+      .catch(err => res.redirect(`/${req.params.lang}/login`));
   } else {
-    res.cookie('referredUrl', req.url, {maxAge: 300000});
+    res.cookie('referredUrl', req.url, { maxAge: 300000 });
     return res.redirect(`/${req.params.lang}/login`);
   }
 };
