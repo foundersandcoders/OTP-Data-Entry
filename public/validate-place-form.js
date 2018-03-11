@@ -95,7 +95,7 @@
 
     // Handle if a category wasn't selected
     if (!categorySelectedCheck) {
-      return notValid('*Select an event category');
+      return notValid('*Select an place category');
     } else {
       data.categories = checkedCategories;
       errorBox.innerText = '';
