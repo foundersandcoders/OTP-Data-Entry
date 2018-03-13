@@ -1,4 +1,3 @@
-const { placesURL } = require('../../constants/urls.json');
 const getLatLng = require('../../helpers/getLatLng.js');
 const checkCookie = require('../../helpers/check_cookie.js');
 const OTP = require('../../otp_sdk');
@@ -44,43 +43,24 @@ module.exports = (req, res) => {
     if (err) {
       return res.status(500).send(res.locals.localText.serverError);
     }
-
-    let headers;
-    const tools = {};
-    switch (req.body._method) {
-      case 'post':
-        tools.url = placesURL;
-        tools.urlEndpoint = 'places';
-        tools.correctResponseStatusCode = 201;
-        break;
-      case 'put':
-        tools.url = `${placesURL}/${req.params.id}`;
-        tools.urlEndpoint = `PLACE/${req.params.id}`;
-        tools.correctResponseStatusCode = 200;
-        headers = {
-          Authorization: 'Bearer ' + decodedToken,
-        };
-        break;
-      default:
-        return res.status(500).send(res.locals.localText.serverError);
-    }
-
-    // adds the redirectUrls to the tools
-    tools.redirectUrl = JSON.stringify({
-      redirectUrl: `/${req.params.lang}/${tools.urlEndpoint}`,
-    });
-
-    const reqOptions = {
-      url: tools.url,
+    const opts = {
       method: req.body._method,
       data: apiBody,
       responseType: 'json',
-      headers,
+      headers: {
+        Authorization: 'Bearer ' + decodedToken,
+      },
     };
 
-    OTP.events
-      .modify(reqOptions, tools)
-      .then(() => res.send(tools.redirectUrl))
+    OTP.places
+      .modify(opts, req.params.id)
+      .then(place =>
+        res.send(
+          JSON.stringify({
+            redirectUrl: `/${req.params.lang}/place/${place._id}`,
+          }),
+        ),
+      )
       .catch(err => {
         if (err.Unauthorized) {
           OTP.auth
@@ -88,15 +68,23 @@ module.exports = (req, res) => {
             .then(tokens => {
               res.clearCookie('access');
               res.cookie('access', tokens.token, { maxAge: 604800000 });
-              reqOptions.headers = {
+              opts.headers = {
                 Authorization: 'Bearer ' + tokens.access_token,
               };
-              OTP.events
-                .modify(reqOptions, tools)
-                .then(() => res.send(tools.redirectUrl))
+              OTP.places
+                .modify(opts, req.params.id)
+                .then(place => {
+                  return res.send(
+                    JSON.stringify({
+                      redirectUrl: `/${req.params.lang}/place/${place._id}`,
+                    }),
+                  );
+                })
                 .catch(e => res.status(500).send('Server Error'));
             })
             .catch(e => res.status(500).send('Server Error'));
+        } else {
+          res.status(500).send('Server Error');
         }
       });
   });
