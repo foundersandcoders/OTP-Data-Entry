@@ -53,7 +53,7 @@ module.exports = (req, res) => {
     };
 
     OTP.places
-      .modify(opts, req.params.id)
+      .update(opts, req.params.id)
       .then(place =>
         res.send(
           JSON.stringify({
