@@ -2,7 +2,6 @@ const axios = require('axios');
 const { eventsURL } = require('../constants/urls.json');
 
 module.exports.update = (options, id) => {
-  console.log(options);
   return new Promise(async (resolve, reject) => {
     let reqOpts;
     switch (options.method) {
@@ -22,7 +21,6 @@ module.exports.update = (options, id) => {
       const newEvent = await axios(reqOpts);
       resolve(newEvent.data);
     } catch (error) {
-      console.log(error);
       error.response.data.error === 'Unauthorized'
         ? reject({ Unauthorized: true })
         : reject();
