@@ -20,7 +20,6 @@ module.exports = (req, res, next) => {
       );
   } else {
     res.cookie('referredUrl', req.url, { maxAge: 300000 });
-    console.log(req.url);
     res.send(
       JSON.stringify({
         redirectUrl: `/${req.params.lang}/login`,

@@ -10,7 +10,7 @@ module.exports = (req, res) => {
     place: req.body.eventPlace,
     accessibilityOptions: req.body.accessibility || [],
   };
-  console.log(req.body);
+
   if (req.body.name_en) {
     apiBody.en = {
       name: req.body.name_en,
