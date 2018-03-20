@@ -1,4 +1,3 @@
-const { eventsURL } = require('../../constants/urls.json');
 const checkCookie = require('../../helpers/check_cookie.js');
 const OTP = require('../../otp_sdk');
 
@@ -32,42 +31,25 @@ module.exports = (req, res) => {
     if (error) {
       return res.status(500).send(res.locals.localText.serverError);
     }
-    let headers;
-    const tools = {};
-    switch (req.body._method) {
-      case 'post':
-        tools.url = eventsURL;
-        tools.urlEndpoint = 'events';
-        tools.correctResponseStatusCode = 201;
-        break;
-      case 'put':
-        tools.url = `${eventsURL}/${req.params.id}`;
-        tools.urlEndpoint = `event/${req.params.id}`;
-        tools.correctResponseStatusCode = 200;
-        headers = {
-          Authorization: 'Bearer ' + decodedToken,
-        };
-        break;
-      default:
-        return res.status(500).send(res.locals.localText.serverError);
-    }
-
-    // adds the redirectUrls to the tools
-    tools.redirectUrl = JSON.stringify({
-      redirectUrl: `/${req.params.lang}/${tools.urlEndpoint}`,
-    });
 
     const reqOptions = {
-      url: tools.url,
       method: req.body._method,
       data: apiBody,
       responseType: 'json',
-      headers,
+      headers: {
+        Authorization: 'Bearer ' + decodedToken,
+      },
     };
 
     OTP.events
-      .modify(reqOptions, tools)
-      .then(() => res.send(tools.redirectUrl))
+      .update(reqOptions, req.params.id)
+      .then(event =>
+        res.send(
+          JSON.stringify({
+            redirectUrl: `/${req.params.lang}/event/${event._id}`,
+          }),
+        ),
+      )
       .catch(err => {
         if (err.Unauthorized) {
           OTP.auth
@@ -79,11 +61,19 @@ module.exports = (req, res) => {
                 Authorization: 'Bearer ' + tokens.access_token,
               };
               OTP.events
-                .modify(reqOptions, tools)
-                .then(() => res.send(tools.redirectUrl))
+                .modify(reqOptions, req.params.id)
+                .then(event =>
+                  res.send(
+                    JSON.stringify({
+                      redirectUrl: `/${req.params.lang}/event/${event._id}`,
+                    }),
+                  ),
+                )
                 .catch(e => res.status(500).send('Server Error'));
             })
             .catch(e => res.status(500).send('Server Error'));
+        } else {
+          res.status(500).send('Server Error');
         }
       });
   });

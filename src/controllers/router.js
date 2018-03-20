@@ -13,8 +13,8 @@ router.get('/:lang/content', require('../content.js'));
 // places
 router.get('/:lang/places', placeController.getAll);
 router.get('/:lang/place/:id', placeController.getSpecific);
-router.get('/:lang/add-place', placeController.renderForm);
-router.post('/:lang/add-place', placeController.addPlace);
+router.get('/:lang/add-place', checkLoggedIn, placeController.renderForm);
+router.post('/:lang/add-place', checkLoggedIn, placeController.addPlace);
 router.get(
   '/:lang/edit-place/:id',
   checkLoggedIn,
@@ -35,8 +35,8 @@ router.get(
   checkLoggedIn,
   eventsController.deleteEvent,
 );
-router.get('/:lang/add-event', placesList, eventsController.renderForm);
-router.post('/:lang/add-event', eventsController.addEvent);
+router.get('/:lang/add-event', checkLoggedIn, placesList, eventsController.renderForm);
+router.post('/:lang/add-event', checkLoggedIn, eventsController.addEvent);
 router.get(
   '/:lang/edit-event/:id',
   checkLoggedIn,
