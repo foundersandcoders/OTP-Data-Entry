@@ -3,8 +3,9 @@
 
 <a class="f6 ma4 w4 tc grow no-underline br-pill ba bw1 pv2 dib mid-gray b gray" href="/{{lang}}/add-event">{{localText.add}}</a>
 <div class="pa4">
-  <div class="overflow-auto">
+  <div class="overflow-auto tc">
     <table class="f6 w-100 mw8 center bb b--turquoise bw2" cellspacing="0">
+      <span id="error-container" class="red b"></span>
       <thead>
         <tr class="ma2">
           <th class="fw6 tl pa3 w-25">
@@ -15,10 +16,13 @@
             {{/if}}
           </th>
           <th class="f1 tc dark-text">{{event.local.name}}</th>
-          <th class="fw6 pa3">
+          <th>
               <a href="/{{lang}}/edit-event/{{event._id}}" class="f6 w4 grow no-underline br-pill ba bw1 pv2 mv2 db mid-gray b gray">{{localText.edit}}</a>
           <th>
-            <a href="/{{lang}}/delete-event/{{event._id}}" class="f6 w4 tc grow no-underline br-pill ba bw1 ph4 pv2 mv2 pv2 db mid-gray b gray">{{localText.delete}}</a>
+            <a href="/{{lang}}/delete-event/{{event._id}}" class="f6 w4 grow no-underline br-pill ba bw1 ph4 pv2 mv2 pv2 db mid-gray b gray">{{localText.delete}}</a>
+          </th>
+          <th>
+            <div id="verify-button" class="f6 w4 grow no-underline br-pill ba bw1 ph3 pv2 {{#if event.verified}} green {{else}} red {{/if}} mv2 db b pointer"> Verify {{#if event.verified}}✔️{{else}}✖️{{/if}}</div>
           </th>
           </th>
         </tr>
@@ -60,3 +64,5 @@
     </table>
   </div>
 </div>
+
+<script src="/verify.js" charset="utf-8"></script>
