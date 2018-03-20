@@ -32,6 +32,7 @@ module.exports = (req, res) => {
   if (req.body.categories) apiBody.categories = req.body.categories;
   if (req.body.accessibility)
     apiBody.accessibilityOptions = req.body.accessibility;
+  if (req.body.verified) apiBody.verified = true;
 
   getLatLng(req.body.address, (err, response) => {
     if (!err) {

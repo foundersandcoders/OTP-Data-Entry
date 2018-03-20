@@ -8,9 +8,9 @@ module.exports = (req, res) => {
     startTime: req.body.startTime,
     endTime: req.body.endTime,
     place: req.body.eventPlace,
-    accessibilityOptions: req.body.accessibility || null,
+    accessibilityOptions: req.body.accessibility || [],
   };
-
+  console.log(req.body);
   if (req.body.name_en) {
     apiBody.en = {
       name: req.body.name_en,
@@ -24,7 +24,7 @@ module.exports = (req, res) => {
       description: req.body.description_ar,
     };
   }
-
+  if (req.body.verified) apiBody.verified = true;
   apiBody.categories = req.body.categories;
 
   checkCookie(req, (error, decodedToken) => {
