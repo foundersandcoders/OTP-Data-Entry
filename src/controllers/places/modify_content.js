@@ -80,9 +80,17 @@ module.exports = (req, res) => {
                     }),
                   );
                 })
-                .catch(e => res.status(500).send('Server Error'));
+                .catch(e =>
+                  res
+                    .status(500)
+                    .send('You are not authorised to access this resource'),
+                );
             })
-            .catch(e => res.status(500).send('Server Error'));
+            .catch(e =>
+              res
+                .status(500)
+                .send('You are not authorised to access this resource'),
+            );
         } else {
           res.status(500).send('Server Error');
         }
