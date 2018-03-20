@@ -1,16 +1,15 @@
-const verifyButton = document.getElementById('verify-button');
-const errorContainer = document.getElementById('error-container');
-const lang = window.location.pathname.split('/')[1];
-const resourceType = window.location.pathname.split('/')[2];
-const id = window.location.pathname.split('/')[3];
+var verifyButton = document.getElementById('verify-button');
+var errorContainer = document.getElementById('error-container');
+var lang = window.location.pathname.split('/')[1];
+var resourceType = window.location.pathname.split('/')[2];
+var id = window.location.pathname.split('/')[3];
 
-const url = `http://localhost:3000/api/v1/${resourceType}`;
+var url = 'http://localhost:3000/api/v1/' + resourceType;
 verifyButton.addEventListener('click', function() {
   axios
-    .get(`${url}s/${id}`)
-    .then(res => {
-      console.log(res.data);
-      let verifiedResource = Object.assign({}, res.data, {
+    .get(url + 's/' + id)
+    .then(function(res) {
+      var verifiedResource = Object.assign({}, res.data, {
         verified: true,
         _method: 'put',
       });
@@ -34,9 +33,15 @@ verifyButton.addEventListener('click', function() {
       }
 
       axios
-        .post(`/${lang}/edit-place/${id}`, verifiedResource)
-        .then(res => (window.location.href = res.data.redirectUrl))
-        .catch(err => (errorContainer.textContent = 'Unauthorized'));
+        .post('/' + lang + '/edit-' + resourceType + '/' + id, verifiedResource)
+        .then(function(res) {
+          window.location.href = res.data.redirectUrl;
+        })
+        .catch(function(err) {
+          return (errorContainer.textContent = 'Unauthorized');
+        });
     })
-    .catch(err => (errorContainer.textContent = 'An error has occurd'));
+    .catch(function(err) {
+      return (errorContainer.textContent = 'An error has occurd');
+    });
 });
