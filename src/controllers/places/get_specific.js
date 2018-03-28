@@ -6,20 +6,21 @@ module.exports = (req, res) => {
     if (error) {
       return res.render('error', {
         statusCode: 500,
-        errorMessage: res.locals.localText.serverError
+        errorMessage: res.locals.localText.serverError,
       });
     }
     if (response.statusCode !== 200) {
       return res.render('error', {
         statusCode: 400,
-        errorMessage: res.locals.localText.badRequest
+        errorMessage: res.locals.localText.badRequest,
       });
     }
 
     const place = JSON.parse(body);
     place.local = place[req.params.lang];
     res.render('place', {
-      place
+      place,
+      url: placesURL,
     });
   });
 };
