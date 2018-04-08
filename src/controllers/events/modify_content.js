@@ -8,7 +8,7 @@ module.exports = (req, res) => {
     startTime: req.body.startTime,
     endTime: req.body.endTime,
     place: req.body.eventPlace,
-    accessibilityOptions: req.body.accessibility || null,
+    accessibilityOptions: req.body.accessibility || [],
   };
 
   if (req.body.name_en) {
@@ -24,7 +24,7 @@ module.exports = (req, res) => {
       description: req.body.description_ar,
     };
   }
-
+  if (req.body.verified) apiBody.verified = true;
   apiBody.categories = req.body.categories;
 
   checkCookie(req, (error, decodedToken) => {
@@ -69,9 +69,17 @@ module.exports = (req, res) => {
                     }),
                   ),
                 )
-                .catch(e => res.status(500).send('Server Error'));
+                .catch(e =>
+                  res
+                    .status(500)
+                    .send('You are not authorised to access this resource'),
+                );
             })
-            .catch(e => res.status(500).send('Server Error'));
+            .catch(e =>
+              res
+                .status(500)
+                .send('You are not authorised to access this resource'),
+            );
         } else {
           res.status(500).send('Server Error');
         }

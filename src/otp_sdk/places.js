@@ -14,7 +14,7 @@ module.exports.update = (options, id) => {
         });
         break;
       default:
-        reject();
+        reject({});
     }
     try {
       const newPlace = await axios(reqOpts);

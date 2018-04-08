@@ -32,6 +32,7 @@ module.exports = (req, res) => {
   if (req.body.categories) apiBody.categories = req.body.categories;
   if (req.body.accessibility)
     apiBody.accessibilityOptions = req.body.accessibility;
+  if (req.body.verified) apiBody.verified = true;
 
   getLatLng(req.body.address, (err, response) => {
     if (!err) {
@@ -80,9 +81,17 @@ module.exports = (req, res) => {
                     }),
                   );
                 })
-                .catch(e => res.status(500).send('Server Error'));
+                .catch(e =>
+                  res
+                    .status(500)
+                    .send('You are not authorised to access this resource'),
+                );
             })
-            .catch(e => res.status(500).send('Server Error'));
+            .catch(e =>
+              res
+                .status(500)
+                .send('You are not authorised to access this resource'),
+            );
         } else {
           res.status(500).send('Server Error');
         }

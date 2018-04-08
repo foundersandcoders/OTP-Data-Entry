@@ -6,19 +6,19 @@ module.exports = (req, res) => {
     if (error) {
       return res.render('error', {
         statusCode: 500,
-        errorMessage: res.locals.localText.serverError
+        errorMessage: res.locals.localText.serverError,
       });
     }
     if (response.statusCode !== 200) {
       return res.render('error', {
         statusCode: 400,
-        errorMessage: res.locals.localText.badRequest
+        errorMessage: res.locals.localText.badRequest,
       });
     }
 
     const event = JSON.parse(body);
     const defaultLang = req.params.lang;
-    const alternativeLang = (defaultLang === 'en') ? 'ar' : 'en';
+    const alternativeLang = defaultLang === 'en' ? 'ar' : 'en';
 
     event.local = event[defaultLang];
     if (event.place) {
@@ -29,7 +29,8 @@ module.exports = (req, res) => {
       }
     }
     res.render('event', {
-      event
+      event,
+      url: eventsURL,
     });
   });
 };

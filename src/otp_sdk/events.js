@@ -14,7 +14,7 @@ module.exports.update = (options, id) => {
         });
         break;
       default:
-        reject();
+        reject({});
     }
 
     try {
@@ -23,7 +23,7 @@ module.exports.update = (options, id) => {
     } catch (error) {
       error.response.data.error === 'Unauthorized'
         ? reject({ Unauthorized: true })
-        : reject();
+        : reject({});
     }
   });
 };
