@@ -11,19 +11,9 @@ module.exports = (req, res, next) => {
   if (access) {
     verifyToken(req.cookies)
       .then(() => next())
-      .catch(err =>
-        res.send(
-          JSON.stringify({
-            redirectUrl: `/${req.params.lang}/login`,
-          }),
-        ),
-      );
+      .catch(err => res.redirect(`/${req.params.lang}/login`));
   } else {
     res.cookie('referredUrl', req.url, { maxAge: 300000 });
-    res.send(
-      JSON.stringify({
-        redirectUrl: `/${req.params.lang}/login`,
-      }),
-    );
+    res.redirect(`/${req.params.lang}/login`);
   }
 };
